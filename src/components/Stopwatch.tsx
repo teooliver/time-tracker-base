@@ -1,20 +1,23 @@
 import React, { useEffect, useRef, useState } from "react";
+import { calculateTimer } from "../helper/Timer";
 
 const Stopwatch = () => {
-  const [count, setCount] = useState<number>(0);
+  const [timeInSeconds, setTimeInSeconds] = useState<number>(0);
+  const [timerArray, setTimerArray] = useState<Array<number | string>>([]);
 
-  // let count = useRef<number>(0);
-
-  // useEffect(() => {
-  //   let interval = setInterval(() => {
-  //     count = +1;
-  //   }, 100000);
-  // }, []);
+  useEffect(() => {
+    let timeArray: Array<number | string> = calculateTimer(timeInSeconds);
+    setTimerArray(timeArray);
+  }, [timeInSeconds]);
 
   return (
-    <div>
-      <h1>Current Count: {count}</h1>
-    </div>
+    <section className='Stopwatch'>
+      <p className='time-text'>{timerArray[0]}</p>
+      <span>:</span>
+      <p className='time-text'>{timerArray[1]}</p>
+      <span>:</span>
+      <p className='time-text'>{timerArray[2]}</p>
+    </section>
   );
 };
 
