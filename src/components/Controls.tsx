@@ -1,10 +1,32 @@
-import React from "react";
+import React, { FC, useState } from "react";
 
-const Controls = () => {
+interface ControlsProps {
+  setTimeInSeconds: Function;
+}
+
+const Controls: FC<ControlsProps> = ({ setTimeInSeconds }) => {
+  const [intervalId, setIntervalId] = useState<number>(0);
+
+  const handlePlayButton = () => {
+    let interval: any = setInterval(() => {
+      setTimeInSeconds((previousState: number) => previousState + 1);
+    }, 1000);
+    setIntervalId(interval);
+  };
+  const handleStopButton = () => {
+    clearInterval(intervalId);
+  };
+  const handleResetButton = () => {
+    clearInterval(intervalId);
+    setTimeInSeconds(0);
+  };
+
   return (
-    <div>
-      <section></section>
-    </div>
+    <section className='Controls'>
+      <button onClick={handlePlayButton}>Play</button>
+      <button onClick={handleStopButton}>Stop</button>
+      <button onClick={handleResetButton}>Reset</button>
+    </section>
   );
 };
 
