@@ -1,6 +1,6 @@
 export type EventsData = IEvent[];
 
 export interface IEvent {
-  event: string;
+  name: string;
   time: number;
 }

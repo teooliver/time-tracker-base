@@ -15,7 +15,7 @@ const EditableInput: FC<EditableInputProps> = ({ eventName, setEventName }) => {
   };
 
   return (
-    <div>
+    <div className='input-container'>
       {isEditing ? (
         <input
           className='event-name-input'

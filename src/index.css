@@ -17,13 +17,24 @@ code {
   display: flex;
   flex-direction: row;
   align-items: center;
+  /* justify-content: space-between; */
+}
+
+.input-container {
+  margin-right: auto;
+  flex: 1 1 auto;
 }
 
 .event-name-input {
+  display: inline-block;
   margin-right: auto;
-  width: 60%;
+  width: 90%;
   height: 2rem;
   font-size: 1.8rem;
+}
+.clock-controls {
+  display: flex;
+  flex-direction: row;
 }
 
 .clock {

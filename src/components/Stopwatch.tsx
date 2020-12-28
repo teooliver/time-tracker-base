@@ -28,19 +28,20 @@ const Stopwatch = () => {
   return (
     <div className='Stopwatch'>
       <EditableInput eventName={eventName} setEventName={setEventName} />
-      <section className='clock'>
-        <p className='time-text'>{timerArray[0]}</p>
-        <span>:</span>
-        <p className='time-text'>{timerArray[1]}</p>
-        <span>:</span>
-        <p className='time-text'>{timerArray[2]}</p>
-      </section>
-      <Controls
-        setTimeInSeconds={setTimeInSeconds}
-        timeInSeconds={timeInSeconds}
-        eventName={eventName}
-      />
-      <EventsTable />
+      <div className='clock-controls'>
+        <section className='clock'>
+          <p className='time-text'>{timerArray[0]}</p>
+          <span>:</span>
+          <p className='time-text'>{timerArray[1]}</p>
+          <span>:</span>
+          <p className='time-text'>{timerArray[2]}</p>
+        </section>
+        <Controls
+          setTimeInSeconds={setTimeInSeconds}
+          timeInSeconds={timeInSeconds}
+          eventName={eventName}
+        />
+      </div>
     </div>
   );
 };

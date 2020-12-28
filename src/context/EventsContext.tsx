@@ -1,12 +1,17 @@
 import React, { createContext, useState } from "react";
 import { EventsData } from "../interfaces/Events";
 
-export const EventsContext = createContext<EventsData>([]);
+interface EventContextValues {
+  events?: EventsData;
+  setEvents?: React.Dispatch<React.SetStateAction<EventsData>>;
+}
 
-const EventsProvider = () => {
+export const EventsContext = createContext<EventContextValues>({});
+
+const EventsProvider = (props: any) => {
   const [events, setEvents] = useState<EventsData>([]);
 
-  return <EventsContext.Provider value={events} />;
+  return <EventsContext.Provider value={{ events, setEvents }} {...props} />;
 };
 
 export default EventsProvider;

@@ -1,4 +1,5 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { FC, useContext, useEffect, useState } from "react";
+import { EventsContext } from "../context/EventsContext";
 import { createEvent } from "../helper/Events";
 import { ILapData } from "../interfaces/Laps";
 
@@ -15,6 +16,8 @@ const Controls: FC<ControlsProps> = ({
 }) => {
   const [intervalId, setIntervalId] = useState<number>(0);
   const [isPlaying, setIsPlaying] = useState(false);
+  // @ts-ignore
+  const { setEvents } = useContext(EventsContext);
 
   const handlePlayButton = () => {
     let interval: any = setInterval(() => {
@@ -25,7 +28,12 @@ const Controls: FC<ControlsProps> = ({
   };
   const handleStopButton = () => {
     clearInterval(intervalId);
-    createEvent({ event: eventName, time: timeInSeconds });
+    createEvent({ name: eventName, time: timeInSeconds });
+    // @ts-ignore
+    setEvents((prevEvents) => [
+      ...prevEvents,
+      { name: eventName, time: timeInSeconds },
+    ]);
     setIsPlaying(false);
   };
   const handleResetButton = () => {
