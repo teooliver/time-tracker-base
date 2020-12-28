@@ -15,15 +15,13 @@ const EventsTable: FC<EventsTableProps> = () => {
   //@ts-ignore
   const { events }: { events: EventsData } = useContext(EventsContext);
   return (
-    <div>
-      {events.map((event, i) => {
-        return (
-          <p key={event.name + i}>
-            {event.name} | {event.time}
-          </p>
-        );
-      })}
-    </div>
+    <ul className='EventsTable'>
+      {events.map((event, i) => (
+        <li className='list-item' key={event.name + i}>
+          <span> {event.name}</span> <span>{event.time}</span>
+        </li>
+      ))}
+    </ul>
   );
   return null;
 };
