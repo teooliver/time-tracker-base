@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { ILapData } from "../interfaces/Laps";
+import { events } from "../helper/Events";
 
 interface EventsTableProps {
   // laps: ILapData;
@@ -10,19 +11,17 @@ const EventsTable: FC<EventsTableProps> = () => {
   //   return a + b;
   // }, 0);
 
-  // return (
-  //   <div>
-  //     <h2>{laps.event}</h2>
-  //     {laps.laps.map((lap, i) => {
-  //       return (
-  //         <p key={laps.laps.length - i}>
-  //           Lap {i + 1}: {lap}
-  //         </p>
-  //       );
-  //     })}
-  //     <p>Total: {totalTime}</p>
-  //   </div>
-  // );
+  return (
+    <div>
+      {events.map((event, i) => {
+        return (
+          <p key={event.event + i}>
+            {event.event} | {event.time}
+          </p>
+        );
+      })}
+    </div>
+  );
   return null;
 };
 

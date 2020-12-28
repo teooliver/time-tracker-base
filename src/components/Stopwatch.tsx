@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { calculateTimer } from "../helper/Timer";
 import { ILapData } from "../interfaces/Laps";
 import Controls from "./Controls";
+import EditableInput from "./EditableInput";
 import EventsTable from "./EventsTable";
 // import { events } from "../helper/Events";
 
@@ -25,13 +26,9 @@ const Stopwatch = () => {
   }, [timeInSeconds]);
 
   return (
-    <>
-      <input
-        type='text'
-        value={eventName}
-        onChange={(e) => setEventName(e.target.value)}
-      />
-      <section className='Stopwatch'>
+    <div className='Stopwatch'>
+      <EditableInput eventName={eventName} setEventName={setEventName} />
+      <section className='clock'>
         <p className='time-text'>{timerArray[0]}</p>
         <span>:</span>
         <p className='time-text'>{timerArray[1]}</p>
@@ -44,7 +41,7 @@ const Stopwatch = () => {
         eventName={eventName}
       />
       <EventsTable />
-    </>
+    </div>
   );
 };
 

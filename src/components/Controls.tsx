@@ -14,34 +14,34 @@ const Controls: FC<ControlsProps> = ({
   timeInSeconds,
 }) => {
   const [intervalId, setIntervalId] = useState<number>(0);
+  const [isPlaying, setIsPlaying] = useState(false);
 
   const handlePlayButton = () => {
     let interval: any = setInterval(() => {
       setTimeInSeconds((previousState: number) => previousState + 1);
     }, 1000);
     setIntervalId(interval);
+    setIsPlaying(true);
   };
   const handleStopButton = () => {
     clearInterval(intervalId);
     createEvent({ event: eventName, time: timeInSeconds });
+    setIsPlaying(false);
   };
   const handleResetButton = () => {
     clearInterval(intervalId);
     setTimeInSeconds(0);
   };
 
-  // useEffect(() => {
-  //   return () => {
-  //     clearInterval(intervalId);
-  //   };
-  // }, []);
-
   return (
-    <section className='Controls'>
-      <button onClick={handlePlayButton}>Play</button>
-      <button onClick={handleStopButton}>Stop</button>
+    <div className='Controls'>
+      {isPlaying ? (
+        <button onClick={handleStopButton}>Stop</button>
+      ) : (
+        <button onClick={handlePlayButton}>Play</button>
+      )}
       <button onClick={handleResetButton}>Reset</button>
-    </section>
+    </div>
   );
 };
 

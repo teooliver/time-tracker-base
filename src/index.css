@@ -6,11 +6,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #282c34;
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  justify-content: center;
-  align-items: center;
 }
 
 code {
@@ -19,20 +14,33 @@ code {
 }
 
 .Stopwatch {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.event-name-input {
+  margin-right: auto;
+  width: 60%;
+  height: 2rem;
+  font-size: 1.8rem;
+}
+
+.clock {
   color: #ccc;
   display: flex;
   letter-spacing: 2px;
   font-size: 5rem;
 }
 
-.Stopwatch span {
+.clock span {
   position: relative;
   top: 5px;
-  font-size: 4rem;
+  font-size: 2rem;
 }
 
 .time-text {
-  font-size: 5rem;
+  font-size: 3rem;
   margin: 0;
 }
 
