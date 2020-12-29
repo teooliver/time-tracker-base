@@ -1,24 +1,12 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { calculateTimer } from "../helper/Timer";
-import { ILapData } from "../interfaces/Laps";
 import Controls from "./Controls";
 import EditableInput from "./EditableInput";
-import EventsTable from "./EventsTable";
-// import { events } from "../helper/Events";
-
-// let lapData: ILapData = {
-//   event: "Dishes",
-//   laps: [12, 34, 78],
-// };
 
 const Stopwatch = () => {
   const [timeInSeconds, setTimeInSeconds] = useState<number>(0);
   const [timerArray, setTimerArray] = useState<Array<number | string>>([]);
   const [eventName, setEventName] = useState("");
-  const [eventData, setEventData] = useState<ILapData>({
-    event: "",
-    time: 0,
-  });
 
   useEffect(() => {
     let timeArray: Array<number | string> = calculateTimer(timeInSeconds);

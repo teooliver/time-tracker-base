@@ -1,7 +1,6 @@
-import React, { FC, useContext, useEffect, useState } from "react";
+import React, { FC, useContext, useState } from "react";
 import { EventsContext } from "../context/EventsContext";
 import { createEvent } from "../helper/Events";
-import { ILapData } from "../interfaces/Laps";
 
 interface ControlsProps {
   setTimeInSeconds: Function;

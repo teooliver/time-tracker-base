@@ -1,6 +1,4 @@
 import React, { FC, useContext } from "react";
-import { ILapData } from "../interfaces/Laps";
-import { events } from "../helper/Events";
 import { EventsContext } from "../context/EventsContext";
 import { EventsData } from "../interfaces/Events";
 import ThreeDotsVertical from "../icons/ThreeDotsVertical";
@@ -34,7 +32,6 @@ const EventsTable: FC<EventsTableProps> = () => {
       ))}
     </ul>
   );
-  return null;
 };
 
 export default EventsTable;
