@@ -2,6 +2,7 @@ import React, { FC, useContext } from "react";
 import { EventsContext } from "../context/EventsContext";
 import { EventsData } from "../interfaces/Events";
 import ThreeDotsVertical from "../icons/ThreeDotsVertical";
+import { calculateTimer } from "../helper/Timer";
 
 interface EventsTableProps {
   // laps: ILapData;
@@ -19,17 +20,20 @@ const EventsTable: FC<EventsTableProps> = () => {
         <span> Task</span>
         <span>Duration</span>
       </li>
-      {events.map((event, i) => (
-        <li className='list-item' key={event.name + i}>
-          <span> {event.name}</span>
-          <span>
-            {event.time}
+      {events.map((event, i) => {
+        const [hours, minutes, seconds] = calculateTimer(event.time);
+        return (
+          <li className='list-item' key={event.name + i}>
+            <span> {event.name}</span>
             <span>
-              <ThreeDotsVertical />
+              {hours}:{minutes}:{seconds}
+              <span>
+                <ThreeDotsVertical />
+              </span>
             </span>
-          </span>
-        </li>
-      ))}
+          </li>
+        );
+      })}
     </ul>
   );
 };

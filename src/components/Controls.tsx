@@ -1,6 +1,9 @@
 import React, { FC, useContext, useState } from "react";
 import { EventsContext } from "../context/EventsContext";
 import { createEvent } from "../helper/Events";
+import PlayCircle from "../icons/PlayCircle";
+import StopCircle from "../icons/StopCircle";
+import XCircle from "../icons/XCircle";
 
 interface ControlsProps {
   setTimeInSeconds: Function;
@@ -43,11 +46,17 @@ const Controls: FC<ControlsProps> = ({
   return (
     <div className='Controls'>
       {isPlaying ? (
-        <button onClick={handleStopButton}>Stop</button>
+        <button onClick={handleStopButton}>
+          <StopCircle />
+        </button>
       ) : (
-        <button onClick={handlePlayButton}>Play</button>
+        <button onClick={handlePlayButton}>
+          <PlayCircle />
+        </button>
       )}
-      <button onClick={handleResetButton}>Reset</button>
+      <button onClick={handleResetButton}>
+        <XCircle />
+      </button>
     </div>
   );
 };
