@@ -1,0 +1,50 @@
+.Stopwatch {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* justify-content: space-between; */
+  margin-bottom: 1rem;
+}
+
+.input-container {
+  margin-right: auto;
+  flex: 1 1 auto;
+  align-items: center;
+}
+
+.event-name-input {
+  background-color: transparent;
+  border: 1px solid white;
+  border-radius: 0.2rem;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  margin-right: auto;
+  margin-left: 1rem;
+  width: 90%;
+  height: 2rem;
+  font-size: 1.8rem;
+  color: white;
+}
+.clock-controls {
+  display: flex;
+  flex-direction: row;
+}
+
+.clock {
+  color: #ccc;
+  display: flex;
+  letter-spacing: 2px;
+  font-size: 5rem;
+}
+
+.clock span {
+  position: relative;
+  top: 5px;
+  font-size: 2rem;
+}
+
+.time-text {
+  font-size: 3rem;
+  margin: 0;
+}
