@@ -12,15 +12,15 @@ const EventsTable: FC<EventsTableProps> = () => {
   // const totalTime = laps.laps.reduce(function (a, b) {
   //   return a + b;
   // }, 0);
-  //@ts-ignore
-  const { events }: { events: EventsData } = useContext(EventsContext);
+
+  const { events } = useContext(EventsContext);
   return (
     <ul className='EventsTable'>
       <li className='list-item'>
         <span> Task</span>
         <span>Duration</span>
       </li>
-      {events.map((event, i) => {
+      {events!.map((event, i) => {
         const [hours, minutes, seconds] = calculateTimer(event.time);
         return (
           <li className='list-item' key={event.name + i}>

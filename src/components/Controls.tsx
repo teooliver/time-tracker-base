@@ -18,7 +18,7 @@ const Controls: FC<ControlsProps> = ({
 }) => {
   const [intervalId, setIntervalId] = useState<number>(0);
   const [isPlaying, setIsPlaying] = useState(false);
-  // @ts-ignore
+
   const { setEvents } = useContext(EventsContext);
 
   const handlePlayButton = () => {
@@ -31,8 +31,8 @@ const Controls: FC<ControlsProps> = ({
   const handleStopButton = () => {
     clearInterval(intervalId);
     createEvent({ name: eventName, time: timeInSeconds });
-    // @ts-ignore
-    setEvents((prevEvents) => [
+
+    setEvents!((prevEvents) => [
       ...prevEvents,
       { name: eventName, time: timeInSeconds },
     ]);
