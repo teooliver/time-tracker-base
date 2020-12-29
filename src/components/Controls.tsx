@@ -47,15 +47,21 @@ const Controls: FC<ControlsProps> = ({
     <div className='Controls'>
       {isPlaying ? (
         <button onClick={handleStopButton}>
-          <StopCircle />
+          <i>
+            <StopCircle />
+          </i>
         </button>
       ) : (
         <button onClick={handlePlayButton}>
-          <PlayCircle />
+          <i>
+            <PlayCircle />
+          </i>
         </button>
       )}
       <button onClick={handleResetButton}>
-        <XCircle />
+        <i>
+          <XCircle />
+        </i>
       </button>
     </div>
   );
