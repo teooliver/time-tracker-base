@@ -19,3 +19,16 @@ export const createTask = async (newTask: ITask) => {
 
   return res as ITask[];
 };
+
+export const updateTask = async (task: ITask) => {
+  const res = await fetch(`${API_URL}/${task._id}`, {
+    method: "PATCH",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(task),
+  }).then((res) => res.json());
+
+  return res as ITask;
+};

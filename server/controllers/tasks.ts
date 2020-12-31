@@ -25,3 +25,17 @@ export const createTask = async (req: Request, res: Response) => {
     res.status(409).json(error);
   }
 };
+
+export const updateTask = async (req: Request, res: Response) => {
+  const { id: _id } = req.params;
+  const post = req.body;
+
+  if (!mongoose.Types.ObjectId.isValid(_id.toString()))
+    return res.status(404).send("No post with that id");
+
+  const updatedTask = await Task.findByIdAndUpdate(_id, post, {
+    new: true,
+  });
+
+  res.json(updatedTask);
+};
