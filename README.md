@@ -11,4 +11,4 @@ This projects uses MongoDB and provides a simple docker-compose.yml file to set 
   > `mongodb://<your-ip-address>:27017/?readPreference=primary&authSource=admin&appname=MongoDB%20Compass&ssl=false`
 - Run `docker-compose up` in the root folder.
 - `cd client => yarn install, npm start`
-- `cd server => npm insntall, npm start`
+- `cd server => npm install, npm start`
