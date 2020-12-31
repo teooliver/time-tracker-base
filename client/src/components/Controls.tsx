@@ -1,8 +1,10 @@
 import React, { FC, useContext, useState } from "react";
+import { useMutation, useQueryClient } from "react-query";
 import { TaskContext } from "../context/TaskContext";
 import PlayCircle from "../icons/PlayCircle";
 import StopCircle from "../icons/StopCircle";
 import XCircle from "../icons/XCircle";
+import { createTask } from "../utils/api-client";
 
 interface ControlsProps {
   setTimeInSeconds: Function;
@@ -17,8 +19,15 @@ const Controls: FC<ControlsProps> = ({
 }) => {
   const [intervalId, setIntervalId] = useState<number>(0);
   const [isPlaying, setIsPlaying] = useState(false);
-
   const { task, setTask } = useContext(TaskContext);
+  const queryClient = useQueryClient();
+
+  const createTaskMutation = useMutation(createTask, {
+    onSuccess: () => {
+      // Invalidate and refetch
+      queryClient.invalidateQueries("tasks");
+    },
+  });
 
   const handlePlayButton = () => {
     let interval: any = setInterval(() => {
@@ -38,6 +47,9 @@ const Controls: FC<ControlsProps> = ({
       name: eventName,
       timeInSeconds: timeInSeconds,
     });
+
+    // @ts-ignore
+    createTaskMutation.mutate(task);
   };
   const handleResetButton = () => {
     clearInterval(intervalId);

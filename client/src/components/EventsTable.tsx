@@ -15,7 +15,6 @@ const EventsTable: FC<EventsTableProps> = () => {
 
   const { data: tasks } = useQuery("tasks", fetchTasks);
 
-  console.log(tasks);
   return (
     <ul className='EventsTable'>
       <li className='list-item'>
