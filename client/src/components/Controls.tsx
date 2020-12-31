@@ -1,7 +1,5 @@
 import React, { FC, useContext, useState } from "react";
-import { EventsContext } from "../context/EventsContext";
 import { TaskContext } from "../context/TaskContext";
-import { createEvent } from "../helper/Events";
 import PlayCircle from "../icons/PlayCircle";
 import StopCircle from "../icons/StopCircle";
 import XCircle from "../icons/XCircle";
@@ -20,7 +18,6 @@ const Controls: FC<ControlsProps> = ({
   const [intervalId, setIntervalId] = useState<number>(0);
   const [isPlaying, setIsPlaying] = useState(false);
 
-  const { setEvents } = useContext(EventsContext);
   const { task, setTask } = useContext(TaskContext);
 
   const handlePlayButton = () => {
@@ -33,12 +30,7 @@ const Controls: FC<ControlsProps> = ({
   };
   const handleStopButton = () => {
     clearInterval(intervalId);
-    createEvent({ name: eventName, time: timeInSeconds });
 
-    setEvents!((prevEvents) => [
-      ...prevEvents,
-      { name: eventName, time: timeInSeconds },
-    ]);
     setIsPlaying(false);
     setTask!({
       ...task,

@@ -1,6 +1,4 @@
-import React, { FC, useContext } from "react";
-import { EventsContext } from "../context/EventsContext";
-import { EventsData } from "../interfaces/Events";
+import React, { FC } from "react";
 import ThreeDotsVertical from "../icons/ThreeDotsVertical";
 import { calculateTimer } from "../helper/Timer";
 import { useQuery } from "react-query";
@@ -15,7 +13,7 @@ const EventsTable: FC<EventsTableProps> = () => {
   //   return a + b;
   // }, 0);
 
-  const { data: tasks, status } = useQuery("tasks", fetchTasks);
+  const { data: tasks } = useQuery("tasks", fetchTasks);
 
   console.log(tasks);
   return (

@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import EventsProvider from "./context/EventsContext";
 import "./styles/styles.scss";
 import TaskProvider from "./context/TaskContext";
 import { QueryClient, QueryClientProvider } from "react-query";
@@ -12,11 +11,9 @@ const queryClient = new QueryClient();
 ReactDOM.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
-      <EventsProvider>
-        <TaskProvider>
-          <App />
-        </TaskProvider>
-      </EventsProvider>
+      <TaskProvider>
+        <App />
+      </TaskProvider>
     </QueryClientProvider>
   </React.StrictMode>,
   document.getElementById("root")
