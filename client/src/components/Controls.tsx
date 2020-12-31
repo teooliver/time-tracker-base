@@ -1,4 +1,4 @@
-import React, { FC, useContext, useState } from "react";
+import React, { FC, useContext, useEffect, useState } from "react";
 import { useMutation, useQueryClient } from "react-query";
 import { TaskContext } from "../context/TaskContext";
 import PlayCircle from "../icons/PlayCircle";
@@ -10,17 +10,33 @@ interface ControlsProps {
   setTimeInSeconds: Function;
   eventName: string;
   timeInSeconds: number;
+  setEventName: Function;
 }
 
 const Controls: FC<ControlsProps> = ({
   setTimeInSeconds,
   eventName,
   timeInSeconds,
+  setEventName,
 }) => {
   const [intervalId, setIntervalId] = useState<number>(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const { task, setTask } = useContext(TaskContext);
   const queryClient = useQueryClient();
+
+  useEffect(() => {
+    setTask!({
+      ...task,
+      name: eventName,
+    });
+  }, [eventName]);
+
+  useEffect(() => {
+    setTask!({
+      ...task,
+      timeInSeconds: timeInSeconds,
+    });
+  }, [timeInSeconds]);
 
   const createTaskMutation = useMutation(createTask, {
     onSuccess: () => {
@@ -39,21 +55,14 @@ const Controls: FC<ControlsProps> = ({
   };
   const handleStopButton = () => {
     clearInterval(intervalId);
-
     setIsPlaying(false);
-    setTask!({
-      ...task,
-      endTime: new Date(),
-      name: eventName,
-      timeInSeconds: timeInSeconds,
-    });
-
     // @ts-ignore
     createTaskMutation.mutate(task);
   };
   const handleResetButton = () => {
     clearInterval(intervalId);
     setTimeInSeconds(0);
+    setEventName("");
   };
 
   return (

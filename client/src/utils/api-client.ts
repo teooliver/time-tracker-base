@@ -32,3 +32,13 @@ export const updateTask = async (task: ITask) => {
 
   return res as ITask;
 };
+
+export const deleteTask = async (id: string) => {
+  const res = await fetch(`${API_URL}/${id}`, {
+    method: "DELETE",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+  }).then((res) => res.json());
+};

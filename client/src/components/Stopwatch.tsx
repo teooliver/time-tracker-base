@@ -28,6 +28,7 @@ const Stopwatch = () => {
           setTimeInSeconds={setTimeInSeconds}
           timeInSeconds={timeInSeconds}
           eventName={eventName}
+          setEventName={setEventName}
         />
       </div>
     </div>

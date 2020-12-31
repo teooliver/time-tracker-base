@@ -1,8 +1,8 @@
 import React, { FC } from "react";
 import ThreeDotsVertical from "../icons/ThreeDotsVertical";
 import { calculateTimer } from "../helper/Timer";
-import { useQuery } from "react-query";
-import { fetchTasks } from "../utils/api-client";
+import { useMutation, useQuery, useQueryClient } from "react-query";
+import { deleteTask, fetchTasks } from "../utils/api-client";
 
 interface EventsTableProps {
   // laps: ILapData;
@@ -14,6 +14,14 @@ const EventsTable: FC<EventsTableProps> = () => {
   // }, 0);
 
   const { data: tasks } = useQuery("tasks", fetchTasks);
+  const queryClient = useQueryClient();
+
+  const deletePostMutation = useMutation(deleteTask, {
+    onSuccess: () => {
+      // Invalidate and refetch
+      queryClient.invalidateQueries("tasks");
+    },
+  });
 
   return (
     <ul className='EventsTable'>
@@ -29,7 +37,7 @@ const EventsTable: FC<EventsTableProps> = () => {
               <span> {task.name}</span>
               <span>
                 {hours}:{minutes}:{seconds}
-                <span>
+                <span onClick={() => deletePostMutation.mutate(task._id!)}>
                   <ThreeDotsVertical />
                 </span>
               </span>
