@@ -3,6 +3,8 @@ import { EventsContext } from "../context/EventsContext";
 import { EventsData } from "../interfaces/Events";
 import ThreeDotsVertical from "../icons/ThreeDotsVertical";
 import { calculateTimer } from "../helper/Timer";
+import { useQuery } from "react-query";
+import { fetchTasks } from "../utils/api-client";
 
 interface EventsTableProps {
   // laps: ILapData;
@@ -13,27 +15,30 @@ const EventsTable: FC<EventsTableProps> = () => {
   //   return a + b;
   // }, 0);
 
-  const { events } = useContext(EventsContext);
+  const { data: tasks, status } = useQuery("tasks", fetchTasks);
+
+  console.log(tasks);
   return (
     <ul className='EventsTable'>
       <li className='list-item'>
         <span> Task</span>
         <span>Duration</span>
       </li>
-      {events!.map((event, i) => {
-        const [hours, minutes, seconds] = calculateTimer(event.time);
-        return (
-          <li className='list-item' key={event.name + i}>
-            <span> {event.name}</span>
-            <span>
-              {hours}:{minutes}:{seconds}
+      {tasks &&
+        tasks.map((task, i) => {
+          const [hours, minutes, seconds] = calculateTimer(task.timeInSeconds!);
+          return (
+            <li className='list-item' key={task.name! + i}>
+              <span> {task.name}</span>
               <span>
-                <ThreeDotsVertical />
+                {hours}:{minutes}:{seconds}
+                <span>
+                  <ThreeDotsVertical />
+                </span>
               </span>
-            </span>
-          </li>
-        );
-      })}
+            </li>
+          );
+        })}
     </ul>
   );
 };
