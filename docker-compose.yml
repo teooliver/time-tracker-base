@@ -4,9 +4,9 @@ services:
   mongodb:
     # choose the proper mongodb version for the aplication instead of latest
     image: mongo:latest
-    environment:
-      - MONGO_INIDB_ROOT_USERNAME: mongoadmin
-      - MONGO_INIDB_ROOT_PASWWORD: secret
+    # environment:
+    #   MONGO_INIDB_ROOT_USERNAME: mongoadmin
+    #   MONGO_INIDB_ROOT_PASWWORD: secret
     volumes:
       - mongodb:/data/db
     ports:
