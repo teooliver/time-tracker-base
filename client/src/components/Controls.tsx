@@ -1,9 +1,9 @@
 import React, { FC, useContext, useEffect, useState } from "react";
 import { useMutation, useQueryClient } from "react-query";
 import { TaskContext } from "../context/TaskContext";
-import PlayCircle from "../icons/PlayCircle";
-import StopCircle from "../icons/StopCircle";
-import XCircle from "../icons/XCircle";
+import { PlayCircle } from "./icons/PlayCircle";
+import { StopCircle } from "./icons/StopCircle";
+import { XCircle } from "./icons/XCircle";
 import { createTask } from "../utils/api-client";
 
 interface ControlsProps {
@@ -70,21 +70,15 @@ const Controls: FC<ControlsProps> = ({
     <div className='Controls'>
       {isPlaying ? (
         <button onClick={handleStopButton}>
-          <i>
-            <StopCircle />
-          </i>
+          <StopCircle size='32' />
         </button>
       ) : (
         <button onClick={handlePlayButton}>
-          <i>
-            <PlayCircle />
-          </i>
+          <PlayCircle size='32' />
         </button>
       )}
       <button onClick={handleResetButton}>
-        <i>
-          <XCircle />
-        </i>
+        <XCircle size='32' />
       </button>
     </div>
   );

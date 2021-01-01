@@ -13,11 +13,17 @@ import { ITask } from "../../interfaces/task";
 import { useMutation, useQueryClient } from "react-query";
 import { deleteTask } from "../../utils/api-client";
 import { calculateTimer } from "../../helper/Timer";
-import ThreeDotsVertical from "../../icons/ThreeDotsVertical";
+import { ThreeDotsVertical } from "../icons/ThreeDotsVertical";
 
 interface Props {
   task: ITask;
 }
+
+const options = {
+  year: "2-digit",
+  month: "2-digit",
+  day: "2-digit",
+};
 
 const EventRow: FC<Props> = ({ task }) => {
   const queryClient = useQueryClient();
@@ -35,19 +41,22 @@ const EventRow: FC<Props> = ({ task }) => {
     <>
       <li className='list-item'>
         <span> {task.name}</span>
-        <span>
-          {hours}:{minutes}:{seconds}
-          <Menu>
-            <MenuButton>
-              <ThreeDotsVertical />
-            </MenuButton>
-            <MenuList>
-              <MenuItem onSelect={() => deletePostMutation.mutate(task._id!)}>
-                Delete
-              </MenuItem>
-            </MenuList>
-          </Menu>
-        </span>
+        <div>
+          <span>{new Date(task.initialTime!).toLocaleDateString()} </span>
+          <span>
+            {hours}:{minutes}:{seconds}
+            <Menu>
+              <MenuButton>
+                <ThreeDotsVertical />
+              </MenuButton>
+              <MenuList>
+                <MenuItem onSelect={() => deletePostMutation.mutate(task._id!)}>
+                  Delete
+                </MenuItem>
+              </MenuList>
+            </Menu>
+          </span>
+        </div>
       </li>
     </>
   );

@@ -1,8 +1,6 @@
 import React, { FC } from "react";
-import ThreeDotsVertical from "../../icons/ThreeDotsVertical";
-import { calculateTimer } from "../../helper/Timer";
-import { useMutation, useQuery, useQueryClient } from "react-query";
-import { deleteTask, fetchTasks } from "../../utils/api-client";
+import { useQuery } from "react-query";
+import { fetchTasks } from "../../utils/api-client";
 import EventRow from "./EventRow";
 
 interface EventsTableProps {
@@ -22,7 +20,7 @@ const EventsTable: FC<EventsTableProps> = () => {
         <span> Task</span>
         <span>Duration</span>
       </li>
-      {tasks && tasks.map((task, i) => <EventRow task={task} />)}
+      {tasks && tasks.map((task) => <EventRow task={task} />)}
     </ul>
   );
 };
