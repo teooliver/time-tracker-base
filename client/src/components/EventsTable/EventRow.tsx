@@ -15,7 +15,7 @@ import { deleteTask } from "../../utils/api-client";
 import { calculateTimer } from "../../helper/Timer";
 import { ThreeDotsVertical } from "../icons/ThreeDotsVertical";
 import DatePicker from "react-datepicker";
-import moment from "moment";
+
 interface Props {
   task: ITask;
 }
@@ -36,11 +36,7 @@ const EventRow: FC<Props> = ({ task }) => {
     },
   });
 
-  console.log("END: => ", task.endTime);
-
   const [hours, minutes, seconds] = calculateTimer(task.timeInSeconds!);
-  const initialTime = moment(task.initialTime).format("LT");
-  const endTime = moment(task.endTime).format("LT");
 
   const [startDate, setStartDate] = useState(
     task.initialTime ? new Date(task.initialTime) : null
