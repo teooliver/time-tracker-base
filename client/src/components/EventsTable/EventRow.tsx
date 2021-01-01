@@ -11,7 +11,7 @@ import {
 import "@reach/menu-button/styles.css";
 import { ITask } from "../../interfaces/task";
 import { useMutation, useQueryClient } from "react-query";
-import { deleteTask } from "../../utils/api-client";
+import { deleteTask, updateTask } from "../../utils/api-client";
 import { calculateTimer } from "../../helper/Timer";
 import { ThreeDotsVertical } from "../icons/ThreeDotsVertical";
 import DatePicker from "react-datepicker";
@@ -36,14 +36,28 @@ const EventRow: FC<Props> = ({ task }) => {
     },
   });
 
-  const [hours, minutes, seconds] = calculateTimer(task.timeInSeconds!);
+  const updateTaskMutation = useMutation(updateTask, {
+    onSuccess: () => {
+      // Invalidate and refetch
+      queryClient.invalidateQueries("tasks");
+    },
+  });
 
-  const [startDate, setStartDate] = useState(
-    task.initialTime ? new Date(task.initialTime) : null
+  const endTime = new Date(task.endTime!).getTime();
+  const initialTime = new Date(task.initialTime!).getTime();
+
+  const timeInSeconds: number | null = Math.round(
+    (endTime - initialTime) / 1000
   );
-  const [endDate, setEndDate] = useState(
-    task.endTime ? new Date(task.endTime) : null
-  );
+  const [hours, minutes, seconds] = calculateTimer(timeInSeconds);
+
+  const handleStartDateChange = (date: Date) => {
+    updateTaskMutation.mutate({ ...task, initialTime: date });
+  };
+
+  const handleEndDateChange = (date: Date) => {
+    updateTaskMutation.mutate({ ...task, endTime: date });
+  };
 
   return (
     <>
@@ -52,9 +66,9 @@ const EventRow: FC<Props> = ({ task }) => {
         <div>
           <span className='date-picker'>
             <DatePicker
-              selected={startDate}
+              selected={task.initialTime ? new Date(task.initialTime) : null}
               // @ts-ignore
-              onChange={(date) => setStartDate(date)}
+              onChange={(date) => handleStartDateChange(date)}
               timeInputLabel='Time:'
               // dateFormat='MM/dd/yyyy h:mm aa'
               dateFormat='h:mm aa'
@@ -63,9 +77,9 @@ const EventRow: FC<Props> = ({ task }) => {
           </span>
           <span className='date-picker'>
             <DatePicker
-              selected={endDate}
+              selected={task.endTime ? new Date(task.endTime) : null}
               // @ts-ignore
-              onChange={(date) => setEndDate(date)}
+              onChange={(date) => handleEndDateChange(date)}
               timeInputLabel='Time:'
               dateFormat='h:mm aa'
               showTimeInput

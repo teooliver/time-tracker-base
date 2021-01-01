@@ -20,7 +20,7 @@ const EventsTable: FC<EventsTableProps> = () => {
         <span>{date.toLocaleDateString()}</span>
         <span>Total: 08:20:00</span>
       </li>
-      {tasks && tasks.map((task) => <EventRow task={task} />)}
+      {tasks && tasks.map((task) => <EventRow key={task._id} task={task} />)}
     </ul>
   );
 };

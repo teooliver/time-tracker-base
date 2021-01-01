@@ -30,6 +30,8 @@ export const updateTask = async (req: Request, res: Response) => {
   const { id: _id } = req.params;
   const post = req.body;
 
+  console.log(_id, post);
+
   if (!mongoose.Types.ObjectId.isValid(_id.toString()))
     return res.status(404).send("No post with that id");
 

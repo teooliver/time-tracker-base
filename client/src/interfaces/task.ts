@@ -2,8 +2,8 @@ export interface ITask {
   _id?: string;
   name?: string;
   timeInSeconds?: number;
-  initialTime?: Date;
-  endTime?: Date;
+  initialTime?: Date | null;
+  endTime?: Date | null;
   createdAt?: Date;
   updatedAt?: Date;
 }
