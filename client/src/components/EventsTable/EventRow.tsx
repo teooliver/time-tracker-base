@@ -14,7 +14,7 @@ import { useMutation, useQueryClient } from "react-query";
 import { deleteTask } from "../../utils/api-client";
 import { calculateTimer } from "../../helper/Timer";
 import { ThreeDotsVertical } from "../icons/ThreeDotsVertical";
-
+import moment from "moment";
 interface Props {
   task: ITask;
 }
@@ -36,13 +36,15 @@ const EventRow: FC<Props> = ({ task }) => {
   });
 
   const [hours, minutes, seconds] = calculateTimer(task.timeInSeconds!);
-
+  const initialTime = moment(task.initialTime).format("LT");
+  const endTime = moment(task.endTime).format("LT");
   return (
     <>
       <li className='list-item'>
         <span> {task.name}</span>
         <div>
-          <span>{new Date(task.initialTime!).toLocaleDateString()} </span>
+          <span>{initialTime} / </span>
+          <span>{endTime} </span>
           <span>
             {hours}:{minutes}:{seconds}
             <Menu>
