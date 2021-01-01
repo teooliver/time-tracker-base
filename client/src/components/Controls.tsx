@@ -62,6 +62,7 @@ const Controls: FC<ControlsProps> = ({
   const handleResetButton = () => {
     clearInterval(intervalId);
     setTimeInSeconds(0);
+    setIsPlaying(false);
     setEventName("");
   };
 
