@@ -2,9 +2,10 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import "./styles/styles.scss";
 import TaskProvider from "./context/TaskContext";
 import { QueryClient, QueryClientProvider } from "react-query";
+import "./styles/styles.scss";
+import "react-datepicker/dist/react-datepicker.css";
 
 const queryClient = new QueryClient();
 

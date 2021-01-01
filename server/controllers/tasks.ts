@@ -50,3 +50,5 @@ export const deleteTask = async (req: Request, res: Response) => {
 
   res.json({ message: "Post deleted successfully" });
 };
+
+// TODO: Create a endpoint to get all tasks organized by initialDate (or use getTasks for it).

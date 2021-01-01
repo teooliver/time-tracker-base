@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import {
   Menu,
   MenuList,
@@ -14,6 +14,7 @@ import { useMutation, useQueryClient } from "react-query";
 import { deleteTask } from "../../utils/api-client";
 import { calculateTimer } from "../../helper/Timer";
 import { ThreeDotsVertical } from "../icons/ThreeDotsVertical";
+import DatePicker from "react-datepicker";
 import moment from "moment";
 interface Props {
   task: ITask;
@@ -35,16 +36,45 @@ const EventRow: FC<Props> = ({ task }) => {
     },
   });
 
+  console.log("END: => ", task.endTime);
+
   const [hours, minutes, seconds] = calculateTimer(task.timeInSeconds!);
   const initialTime = moment(task.initialTime).format("LT");
   const endTime = moment(task.endTime).format("LT");
+
+  const [startDate, setStartDate] = useState(
+    task.initialTime ? new Date(task.initialTime) : null
+  );
+  const [endDate, setEndDate] = useState(
+    task.endTime ? new Date(task.endTime) : null
+  );
+
   return (
     <>
       <li className='list-item'>
         <span> {task.name}</span>
         <div>
-          <span>{initialTime} / </span>
-          <span>{endTime} </span>
+          <span className='date-picker'>
+            <DatePicker
+              selected={startDate}
+              // @ts-ignore
+              onChange={(date) => setStartDate(date)}
+              timeInputLabel='Time:'
+              // dateFormat='MM/dd/yyyy h:mm aa'
+              dateFormat='h:mm aa'
+              showTimeInput
+            />
+          </span>
+          <span className='date-picker'>
+            <DatePicker
+              selected={endDate}
+              // @ts-ignore
+              onChange={(date) => setEndDate(date)}
+              timeInputLabel='Time:'
+              dateFormat='h:mm aa'
+              showTimeInput
+            />
+          </span>
           <span>
             {hours}:{minutes}:{seconds}
             <Menu>

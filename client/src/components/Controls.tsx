@@ -56,8 +56,11 @@ const Controls: FC<ControlsProps> = ({
   const handleStopButton = () => {
     clearInterval(intervalId);
     setIsPlaying(false);
+    // TODO: Figure a better way to deal with setTask endTime
+    // setTask!({ ...task, endTime: new Date() });
+    // console.log("TAKS: => ", task);
     // @ts-ignore
-    createTaskMutation.mutate(task);
+    createTaskMutation.mutate({ ...task, endTime: new Date() });
   };
   const handleResetButton = () => {
     clearInterval(intervalId);
