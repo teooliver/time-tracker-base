@@ -13,12 +13,12 @@ const EventsTable: FC<EventsTableProps> = () => {
   // }, 0);
 
   const { data: tasks } = useQuery("tasks", fetchTasks);
-
+  const date = new Date();
   return (
     <ul className='EventsTable'>
       <li className='list-item'>
-        <span> Task</span>
-        <span>Duration</span>
+        <span>{date.toLocaleDateString()}</span>
+        <span>Total: 08:20:00</span>
       </li>
       {tasks && tasks.map((task) => <EventRow task={task} />)}
     </ul>
