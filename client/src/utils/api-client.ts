@@ -41,4 +41,6 @@ export const deleteTask = async (id: string) => {
       "Content-Type": "application/json",
     },
   }).then((res) => res.json());
+
+  return res as ITask;
 };

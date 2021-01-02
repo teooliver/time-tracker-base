@@ -29,14 +29,14 @@ const Controls: FC<ControlsProps> = ({
       ...task,
       name: eventName,
     });
-  }, [eventName]);
+  }, [eventName, setTask]);
 
   useEffect(() => {
     setTask!({
       ...task,
       timeInSeconds: timeInSeconds,
     });
-  }, [timeInSeconds]);
+  }, [setTask, timeInSeconds]);
 
   const createTaskMutation = useMutation(createTask, {
     onSuccess: () => {

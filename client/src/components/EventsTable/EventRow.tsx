@@ -1,13 +1,5 @@
-import React, { FC, useState } from "react";
-import {
-  Menu,
-  MenuList,
-  MenuButton,
-  MenuItem,
-  MenuItems,
-  MenuPopover,
-  MenuLink,
-} from "@reach/menu-button";
+import React, { FC } from "react";
+import { Menu, MenuList, MenuButton, MenuItem } from "@reach/menu-button";
 import "@reach/menu-button/styles.css";
 import { ITask } from "../../interfaces/task";
 import { useMutation, useQueryClient } from "react-query";
@@ -19,12 +11,6 @@ import DatePicker from "react-datepicker";
 interface Props {
   task: ITask;
 }
-
-const options = {
-  year: "2-digit",
-  month: "2-digit",
-  day: "2-digit",
-};
 
 const EventRow: FC<Props> = ({ task }) => {
   const queryClient = useQueryClient();
@@ -52,10 +38,12 @@ const EventRow: FC<Props> = ({ task }) => {
   const [hours, minutes, seconds] = calculateTimer(timeInSeconds);
 
   const handleStartDateChange = (date: Date) => {
+    // TODO: DEBOUNCE MUTATE
     updateTaskMutation.mutate({ ...task, initialTime: date });
   };
 
   const handleEndDateChange = (date: Date) => {
+    // TODO: DEBOUNCE MUTATE
     updateTaskMutation.mutate({ ...task, endTime: date });
   };
 
