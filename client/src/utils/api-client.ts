@@ -1,13 +1,13 @@
-import { ITask } from "../interfaces/task";
+import { IClientTask, IDbTask } from "../interfaces/task";
 
 export const API_URL = "http://localhost:5000/tasks";
 
 export const fetchTasks = async () => {
   const res = await fetch(API_URL).then((res) => res.json());
-  return res as ITask[];
+  return res as IDbTask[];
 };
 
-export const createTask = async (newTask: ITask) => {
+export const createTask = async (newTask: IClientTask) => {
   const res = await fetch(API_URL, {
     method: "POST",
     headers: {
@@ -17,10 +17,10 @@ export const createTask = async (newTask: ITask) => {
     body: JSON.stringify(newTask),
   }).then((res) => res.json());
 
-  return res as ITask[];
+  return res as IDbTask[];
 };
 
-export const updateTask = async (task: ITask) => {
+export const updateTask = async (task: IDbTask) => {
   const res = await fetch(`${API_URL}/${task._id}`, {
     method: "PATCH",
     headers: {
@@ -30,7 +30,7 @@ export const updateTask = async (task: ITask) => {
     body: JSON.stringify(task),
   }).then((res) => res.json());
 
-  return res as ITask;
+  return res as IDbTask;
 };
 
 export const deleteTask = async (id: string) => {
@@ -42,5 +42,5 @@ export const deleteTask = async (id: string) => {
     },
   }).then((res) => res.json());
 
-  return res as ITask;
+  return res as IDbTask;
 };

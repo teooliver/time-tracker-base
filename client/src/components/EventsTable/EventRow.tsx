@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import { Menu, MenuList, MenuButton, MenuItem } from "@reach/menu-button";
 import "@reach/menu-button/styles.css";
-import { ITask } from "../../interfaces/task";
+import { IDbTask } from "../../interfaces/task";
 import { useMutation, useQueryClient } from "react-query";
 import { deleteTask, updateTask } from "../../utils/api-client";
 import { calculateTimer } from "../../helper/Timer";
@@ -9,7 +9,7 @@ import { ThreeDotsVertical } from "../icons/ThreeDotsVertical";
 import DatePicker from "react-datepicker";
 
 interface Props {
-  task: ITask;
+  task: IDbTask;
 }
 
 const EventRow: FC<Props> = ({ task }) => {
