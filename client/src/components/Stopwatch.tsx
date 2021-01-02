@@ -7,7 +7,6 @@ import { Calendar3 } from "./icons/Calendar3";
 const Stopwatch = () => {
   const [timeInSeconds, setTimeInSeconds] = useState<number>(0);
   const [timerArray, setTimerArray] = useState<Array<number | string>>([]);
-  const [eventName, setEventName] = useState("");
 
   useEffect(() => {
     let timeArray: Array<number | string> = calculateTimer(timeInSeconds);
@@ -16,7 +15,7 @@ const Stopwatch = () => {
 
   return (
     <div className='Stopwatch'>
-      <EditableInput eventName={eventName} setEventName={setEventName} />
+      <EditableInput />
       <div className='clock-controls'>
         <span className='calendar-icon'>
           <Calendar3 size='32' color='white' />
@@ -31,8 +30,6 @@ const Stopwatch = () => {
         <Controls
           setTimeInSeconds={setTimeInSeconds}
           timeInSeconds={timeInSeconds}
-          eventName={eventName}
-          setEventName={setEventName}
         />
       </div>
     </div>

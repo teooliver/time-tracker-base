@@ -1,12 +1,14 @@
-import React, { FC, useState } from "react";
+import React, { FC, useContext, useState } from "react";
+import { TaskContext } from "../context/TaskContext";
 
 interface EditableInputProps {
-  eventName: string;
-  setEventName: Function;
+  // eventName: string;
+  // setEventName: Function;
 }
 
-const EditableInput: FC<EditableInputProps> = ({ eventName, setEventName }) => {
+const EditableInput: FC<EditableInputProps> = () => {
   const [isEditing, setIsEditing] = useState(false);
+  const { task, setTask } = useContext(TaskContext);
 
   const onKeyUp = (event: any) => {
     if (event.charCode === 13) {
@@ -20,14 +22,14 @@ const EditableInput: FC<EditableInputProps> = ({ eventName, setEventName }) => {
         <input
           className='event-name-input'
           type='text'
-          value={eventName}
-          onChange={(e) => setEventName(e.target.value)}
+          value={task.name}
+          onChange={(e) => setTask({ ...task, name: e.target.value })}
           onSubmit={() => setIsEditing(false)}
           onKeyPress={onKeyUp}
         />
       ) : (
         <p className='event-name-input' onClick={() => setIsEditing(true)}>
-          {eventName || "Add Event"}
+          {task?.name ? task.name : "Add Event"}
         </p>
       )}
     </div>

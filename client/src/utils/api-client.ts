@@ -44,3 +44,9 @@ export const deleteTask = async (id: string) => {
 
   return res as IDbTask;
 };
+
+// TODO: ====>
+export const getTasksGroupedByDate = () => {
+  // Placeholder
+  console.log("Get tasks grouped by date");
+};
