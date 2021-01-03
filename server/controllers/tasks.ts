@@ -53,4 +53,12 @@ export const deleteTask = async (req: Request, res: Response) => {
   res.json({ message: "Post deleted successfully" });
 };
 
-// TODO: Create a endpoint to get all tasks organized by initialDate (or use getTasks for it).
+// TODO: Create a endpoint to get all tasks organized by Date (or use getTasks for it).
+// This should group tasks by date and also calculate the total time for that day
+
+// E.g:
+// {
+//   date: Date
+//   total: Number
+//   tasks: ITask[]
+// }
