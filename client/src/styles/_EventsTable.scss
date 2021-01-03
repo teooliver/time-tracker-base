@@ -14,15 +14,45 @@
     border-bottom: 1px solid gray;
     margin-bottom: 0.3rem;
   }
-  button {
-    background-color: transparent;
-    color: white;
-    border: unset;
-    margin-left: 0.2rem;
+  .menu {
+    button {
+      background-color: transparent;
+      color: white;
+      border: unset;
+      margin: 0;
+      padding: 0.2rem;
+      margin-left: 0.2rem;
+      border-radius: 0.2rem;
+
+      &:hover {
+        background-color: #5c6577;
+        cursor: pointer;
+      }
+    }
   }
 
   .date-picker {
     display: inline-block;
+  }
+  .custom-datepicker-input {
+    background-color: transparent;
+    color: white;
+    border: unset;
+    width: fit-content;
+    margin: 0;
+    padding: 0.2rem;
+    font-size: 1.1rem;
+    border-radius: 0.2rem;
+
+    &:hover {
+      background-color: #5c6577;
+    }
+  }
+
+  .rigth-side {
+    .total {
+      margin-left: 2rem;
+    }
   }
 }
 

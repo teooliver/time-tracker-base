@@ -7,6 +7,7 @@ import { deleteTask, updateTask } from "../../utils/api-client";
 import { calculateTimer } from "../../helper/Timer";
 import { ThreeDotsVertical } from "../icons/ThreeDotsVertical";
 import DatePicker from "react-datepicker";
+import CustomDatePickerInput from "./CustomDatePickerInput";
 
 interface Props {
   task: IDbTask;
@@ -51,7 +52,7 @@ const EventRow: FC<Props> = ({ task }) => {
     <>
       <li className='list-item'>
         <span> {task.name}</span>
-        <div>
+        <div className='rigth-side'>
           <span className='date-picker'>
             <DatePicker
               selected={task.initialTime ? new Date(task.initialTime) : null}
@@ -61,8 +62,10 @@ const EventRow: FC<Props> = ({ task }) => {
               // dateFormat='MM/dd/yyyy h:mm aa'
               dateFormat='h:mm aa'
               showTimeInput
+              customInput={<CustomDatePickerInput />}
             />
           </span>
+          <span>-</span>
           <span className='date-picker'>
             <DatePicker
               selected={task.endTime ? new Date(task.endTime) : null}
@@ -71,10 +74,13 @@ const EventRow: FC<Props> = ({ task }) => {
               timeInputLabel='Time:'
               dateFormat='h:mm aa'
               showTimeInput
+              customInput={<CustomDatePickerInput />}
             />
           </span>
-          <span>
+          <span className='total'>
             {hours}:{minutes}:{seconds}
+          </span>
+          <span className='menu'>
             <Menu>
               <MenuButton>
                 <ThreeDotsVertical />
