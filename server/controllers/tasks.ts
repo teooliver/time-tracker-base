@@ -53,12 +53,30 @@ export const deleteTask = async (req: Request, res: Response) => {
   res.json({ message: "Post deleted successfully" });
 };
 
+export const getTasksGroupedByDate = async (req: Request, res: Response) => {
+  try {
+    const tasks = await Task.aggregate([
+      {
+        $group: {
+          _id: { $dateToString: { format: "%Y-%m-%d", date: "$initialTime" } },
+          tasks: { $push: "$$ROOT" },
+          totalTime: { $sum: { $subtract: ["$endTime", "$initialTime"] } },
+        },
+      },
+    ]);
+
+    res.status(200).json(tasks);
+  } catch (error) {
+    res.status(404).json(error);
+  }
+};
+
 // TODO: Create a endpoint to get all tasks organized by Date (or use getTasks for it).
 // This should group tasks by date and also calculate the total time for that day
 
 // E.g:
 // {
 //   date: Date
-//   total: Number
+//   total_time: Number
 //   tasks: ITask[]
 // }
