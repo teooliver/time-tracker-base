@@ -17,6 +17,14 @@ const Stopwatch = () => {
     <div className='Stopwatch'>
       <EditableInput />
       <div className='clock-controls'>
+        <section>
+          <select name='Projects' id='projects'>
+            <option value='proj1'>Proj1</option>
+            <option value='proj2'>Proj2</option>
+            <option value='proj3'>Proj3</option>
+            <option value='proj4'>Proj4</option>
+          </select>
+        </section>
         <span className='calendar-icon'>
           <Calendar3 size='32' color='white' />
         </span>
@@ -27,6 +35,7 @@ const Stopwatch = () => {
           <span>:</span>
           <p className='time-text'>{timerArray[2]}</p>
         </section>
+
         <Controls
           setTimeInSeconds={setTimeInSeconds}
           timeInSeconds={timeInSeconds}
