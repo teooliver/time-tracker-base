@@ -6,3 +6,9 @@ export interface ITask extends Document {
   initialTime: Date;
   endTime: Date;
 }
+
+export interface IGroupedTasks {
+  _id: string;
+  tasks: ITask[];
+  totalTime: number;
+}

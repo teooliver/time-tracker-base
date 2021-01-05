@@ -60,7 +60,7 @@ export const getTasksGroupedByDate = async (req: Request, res: Response) => {
         $group: {
           _id: { $dateToString: { format: "%Y-%m-%d", date: "$initialTime" } },
           tasks: { $push: "$$ROOT" },
-          totaltotalTime: {
+          totalTime: {
             $sum: {
               // instead of dividing on every document, divide in the end, after $sum?
               $divide: [{ $subtract: ["$endTime", "$initialTime"] }, 1000],

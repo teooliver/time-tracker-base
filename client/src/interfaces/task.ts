@@ -14,3 +14,9 @@ export interface IClientTask {
   initialTime?: Date | null;
   endTime?: Date | null;
 }
+
+export interface GroupedTasks {
+  _id: string;
+  tasks: IDbTask[];
+  totalTime: number;
+}

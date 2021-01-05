@@ -1,4 +1,4 @@
-import { IClientTask, IDbTask } from "../interfaces/task";
+import { IClientTask, IDbTask, GroupedTasks } from "../interfaces/task";
 
 export const API_URL = "http://localhost:5000/tasks";
 
@@ -45,8 +45,7 @@ export const deleteTask = async (id: string) => {
   return res as IDbTask;
 };
 
-// TODO: ====>
-export const getTasksGroupedByDate = () => {
-  // Placeholder
-  console.log("Get tasks grouped by date");
+export const getTasksGroupedByDate = async () => {
+  const res = await fetch(`${API_URL}/group`).then((res) => res.json());
+  return res as GroupedTasks[];
 };
