@@ -9,7 +9,7 @@ const TaskSchema: Schema = new Schema(
     endTime: Date,
     project: {
       type: Schema.Types.ObjectId,
-      ref: "projects",
+      ref: "Project",
     },
   },
   {

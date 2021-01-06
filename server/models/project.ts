@@ -4,7 +4,13 @@ import { IProject } from "../interfaces/project";
 const ProjectSchema: Schema = new Schema(
   {
     name: String,
-    subprojects: [String],
+    client: {
+      type: Schema.Types.ObjectId,
+      ref: "Client",
+    },
+    estimate: String,
+    status: String,
+    subprojects: [Schema.Types.ObjectId],
   },
   {
     timestamps: true,
