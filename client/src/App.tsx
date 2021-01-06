@@ -1,12 +1,12 @@
 import React from "react";
-import Stopwatch from "./components/Stopwatch";
-import EventsTable from "./components/EventsTable/EventsTable";
+import Navbar from "./components/Navbar";
+import TimeTracker from "./components/TimeTracker";
 
 function App() {
   return (
     <div className='App'>
-      <Stopwatch />
-      <EventsTable />
+      <Navbar />
+      <TimeTracker />
     </div>
   );
 }
