@@ -3,12 +3,12 @@ import { IClientTask, IDbTask, GroupedTasks } from "../interfaces/task";
 export const API_URL = "http://localhost:5000/tasks";
 
 export const fetchTasks = async () => {
-  const res = await fetch(API_URL).then((res) => res.json());
+  const res = await fetch(`${API_URL}/tasks/`).then((res) => res.json());
   return res as IDbTask[];
 };
 
 export const createTask = async (newTask: IClientTask) => {
-  const res = await fetch(API_URL, {
+  const res = await fetch(`${API_URL}/tasks/`, {
     method: "POST",
     headers: {
       Accept: "application/json",
@@ -21,7 +21,7 @@ export const createTask = async (newTask: IClientTask) => {
 };
 
 export const updateTask = async (task: IDbTask) => {
-  const res = await fetch(`${API_URL}/${task._id}`, {
+  const res = await fetch(`${API_URL}/tasks/${task._id}`, {
     method: "PATCH",
     headers: {
       Accept: "application/json",
@@ -34,7 +34,7 @@ export const updateTask = async (task: IDbTask) => {
 };
 
 export const deleteTask = async (id: string) => {
-  const res = await fetch(`${API_URL}/${id}`, {
+  const res = await fetch(`${API_URL}/tasks/${id}`, {
     method: "DELETE",
     headers: {
       Accept: "application/json",
@@ -46,6 +46,11 @@ export const deleteTask = async (id: string) => {
 };
 
 export const getTasksGroupedByDate = async () => {
-  const res = await fetch(`${API_URL}/group`).then((res) => res.json());
+  const res = await fetch(`${API_URL}/tasks/group`).then((res) => res.json());
   return res as GroupedTasks[];
+};
+
+export const fetchProjects = async () => {
+  const res = await fetch(`${API_URL}/projects`).then((res) => res.json());
+  return res as IDbTask[];
 };
