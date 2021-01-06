@@ -5,6 +5,7 @@ export interface ITask extends Document {
   timeInSeconds: number;
   initialTime: Date;
   endTime: Date;
+  project: string;
 }
 
 export interface IGroupedTasks {

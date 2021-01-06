@@ -7,6 +7,10 @@ const TaskSchema: Schema = new Schema(
     timeInSeconds: Number,
     initialTime: Date,
     endTime: Date,
+    project: {
+      type: Schema.Types.ObjectId,
+      ref: "projects",
+    },
   },
   {
     timestamps: true,
