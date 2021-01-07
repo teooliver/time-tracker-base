@@ -3,6 +3,7 @@ import { ClockHistory } from "./icons/ClockHistory";
 import { FileText } from "./icons/FileText";
 import { Folder } from "./icons/Folder";
 import { PersonSquare } from "./icons/PersonSquare";
+import { Tags } from "./icons/Tags";
 
 const Navbar = () => {
   return (
@@ -36,6 +37,12 @@ const Navbar = () => {
             <PersonSquare />
           </span>
           Clients
+        </li>
+        <li>
+          <span>
+            <Tags />
+          </span>
+          Tags
         </li>
       </ul>
     </div>

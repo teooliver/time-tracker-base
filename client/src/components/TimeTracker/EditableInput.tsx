@@ -23,13 +23,14 @@ const EditableInput: FC<EditableInputProps> = () => {
           className='event-name-input'
           type='text'
           value={task.name}
+          placeholder='What are you working on?'
           onChange={(e) => setTask({ ...task, name: e.target.value })}
           onSubmit={() => setIsEditing(false)}
           onKeyPress={onKeyUp}
         />
       ) : (
         <p className='event-name-input' onClick={() => setIsEditing(true)}>
-          {task?.name ? task.name : "Add Event"}
+          {task?.name ? task.name : "What are you working on?"}
         </p>
       )}
     </div>

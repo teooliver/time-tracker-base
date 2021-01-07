@@ -3,7 +3,9 @@
   flex-direction: row;
   align-items: center;
   /* justify-content: space-between; */
+  border-bottom: 1px solid $sidebar-border;
   margin-bottom: 1rem;
+  padding: 1rem;
   .calendar-icon {
     margin-right: 0.4rem;
   }
@@ -17,7 +19,7 @@
 
 .event-name-input {
   background-color: transparent;
-  border: 1px solid white;
+  border: none;
   border-radius: 0.2rem;
   display: inline-block;
   margin: 0;
