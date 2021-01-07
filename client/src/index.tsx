@@ -4,9 +4,10 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import TaskProvider from "./context/TaskContext";
 import { QueryClient, QueryClientProvider } from "react-query";
-import "./styles/styles.scss";
-import "react-datepicker/dist/react-datepicker.css";
 import { BrowserRouter } from "react-router-dom";
+import "react-datepicker/dist/react-datepicker.css";
+import "@reach/dialog/styles.css";
+import "./styles/styles.scss";
 
 const queryClient = new QueryClient();
 
