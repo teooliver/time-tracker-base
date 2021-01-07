@@ -1,5 +1,39 @@
 .Navbar {
   min-width: 10rem;
   max-width: 10rem;
-  background-color: rgb(255, 255, 255);
+  background-color: $sidebar-brackground;
+  color: white;
+  border-right: 1px solid $sidebar-border;
+  .logo {
+    margin-top: 1rem;
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    .bold {
+      font-weight: bolder;
+    }
+  }
+  ul {
+    margin-top: 1rem;
+    // margin-left: 0.5rem;
+    font-size: 1rem;
+  }
+
+  li {
+    display: flex;
+
+    align-items: center;
+    // height: 1.rem;
+    padding: 0.5rem;
+
+    margin-bottom: 0.3rem;
+    color: $gray;
+    &:hover {
+      background-color: $item-hover-brackground;
+      color: $white;
+    }
+    span {
+      color: $icons;
+      margin-right: 0.5rem;
+    }
+  }
 }

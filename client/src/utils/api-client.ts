@@ -1,14 +1,14 @@
 import { IClientTask, IDbTask, GroupedTasks } from "../interfaces/task";
 
-export const API_URL = "http://localhost:5000/tasks";
+export const API_URL = "http://localhost:5000";
 
 export const fetchTasks = async () => {
-  const res = await fetch(`${API_URL}/tasks/`).then((res) => res.json());
+  const res = await fetch(`${API_URL}/tasks`).then((res) => res.json());
   return res as IDbTask[];
 };
 
 export const createTask = async (newTask: IClientTask) => {
-  const res = await fetch(`${API_URL}/tasks/`, {
+  const res = await fetch(`${API_URL}/tasks`, {
     method: "POST",
     headers: {
       Accept: "application/json",

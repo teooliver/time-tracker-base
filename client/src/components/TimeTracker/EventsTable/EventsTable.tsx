@@ -21,10 +21,10 @@ const EventsTable = () => {
           );
           return (
             <ul className='EventsTable'>
-              <li className='list-item'>
+              <li className='day-header'>
                 <span>{group._id}</span>
-                <span>
-                  Total: {hours}:{minutes}:{seconds}
+                <span className='day-total'>
+                  {hours}:{minutes}:{seconds}
                 </span>
               </li>
               {group.tasks &&
