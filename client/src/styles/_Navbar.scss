@@ -15,12 +15,12 @@
 
   .active-link {
     background-color: $item-hover-brackground;
-    color: $white;
+    transition: 0.1s;
+    border-left: 0.5rem solid $accent;
   }
 
   ul {
     margin-top: 1rem;
-    // margin-left: 0.5rem;
     font-size: 1rem;
   }
 
@@ -33,7 +33,7 @@
       color: $gray;
       padding: 1rem;
       display: block;
-      color: white;
+      // color: white;
       text-decoration: none;
       &:visited {
         text-decoration: none;
