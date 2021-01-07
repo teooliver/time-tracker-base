@@ -12,6 +12,12 @@
       font-weight: bolder;
     }
   }
+
+  .active-link {
+    background-color: $item-hover-brackground;
+    color: $white;
+  }
+
   ul {
     margin-top: 1rem;
     // margin-left: 0.5rem;
@@ -19,14 +25,20 @@
   }
 
   li {
-    display: flex;
+    a {
+      display: flex;
+      align-items: center;
+      padding: 0.5rem;
 
-    align-items: center;
-    // height: 1.rem;
-    padding: 0.5rem;
-
-    margin-bottom: 0.3rem;
-    color: $gray;
+      color: $gray;
+      padding: 1rem;
+      display: block;
+      color: white;
+      text-decoration: none;
+      &:visited {
+        text-decoration: none;
+      }
+    }
     &:hover {
       background-color: $item-hover-brackground;
       color: $white;

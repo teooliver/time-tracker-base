@@ -6,6 +6,7 @@ import TaskProvider from "./context/TaskContext";
 import { QueryClient, QueryClientProvider } from "react-query";
 import "./styles/styles.scss";
 import "react-datepicker/dist/react-datepicker.css";
+import { BrowserRouter } from "react-router-dom";
 
 const queryClient = new QueryClient();
 
@@ -13,7 +14,9 @@ ReactDOM.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
       <TaskProvider>
-        <App />
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
       </TaskProvider>
     </QueryClientProvider>
   </React.StrictMode>,

@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import { ClockHistory } from "./icons/ClockHistory";
 import { FileText } from "./icons/FileText";
 import { Folder } from "./icons/Folder";
@@ -15,34 +16,44 @@ const Navbar = () => {
 
       <ul>
         <li>
-          <span>
-            <ClockHistory />
-          </span>
-          Timer
+          <NavLink activeClassName='active-link' exact to='/'>
+            <span>
+              <ClockHistory />
+            </span>
+            Timer
+          </NavLink>
         </li>
         <li>
-          <span>
-            <FileText />
-          </span>
-          Reports
+          <NavLink activeClassName='active-link' exact to='/reports'>
+            <span>
+              <FileText />
+            </span>
+            Reports
+          </NavLink>
         </li>
         <li>
-          <span>
-            <Folder />
-          </span>
-          Projects
+          <NavLink activeClassName='active-link' exact to='/projects'>
+            <span>
+              <Folder />
+            </span>
+            Projects
+          </NavLink>
         </li>
         <li>
-          <span>
-            <PersonSquare />
-          </span>
-          Clients
+          <NavLink activeClassName='active-link' exact to='/clients'>
+            <span>
+              <PersonSquare />
+            </span>
+            Clients
+          </NavLink>
         </li>
         <li>
-          <span>
-            <Tags />
-          </span>
-          Tags
+          <NavLink activeClassName='active-link' exact to='/tags'>
+            <span>
+              <Tags />
+            </span>
+            Tags
+          </NavLink>
         </li>
       </ul>
     </div>
