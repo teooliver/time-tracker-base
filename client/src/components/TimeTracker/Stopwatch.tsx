@@ -16,11 +16,21 @@ import {
 import "@reach/listbox/styles.css";
 import ProjectsDropDown from "../ProjectsDropdown/ProjectsDropDown";
 
+export interface ISelectedProject {
+  id: string;
+  name: string;
+  client: string;
+}
+
 const Stopwatch = () => {
   const [timeInSeconds, setTimeInSeconds] = useState<number>(0);
   const [timerArray, setTimerArray] = useState<Array<number | string>>([]);
   const [isProjectDropwdownOpen, setIsProjectDropwdownOpen] = useState(false);
-  const [selectedProject, setSelectedProject] = useState<string>("");
+  const [selectedProject, setSelectedProject] = useState<ISelectedProject>({
+    id: "",
+    name: "",
+    client: "",
+  });
 
   useEffect(() => {
     let timeArray: Array<number | string> = calculateTimer(timeInSeconds);
@@ -41,11 +51,11 @@ const Stopwatch = () => {
             : null}
           </Listbox> */}
       <div className='projects-icon'>
-        {selectedProject ? (
+        {selectedProject.name ? (
           <span
             onClick={() => setIsProjectDropwdownOpen(!isProjectDropwdownOpen)}
           >
-            {selectedProject}
+            {selectedProject.name} - {selectedProject.client}
           </span>
         ) : (
           <i onClick={() => setIsProjectDropwdownOpen(!isProjectDropwdownOpen)}>

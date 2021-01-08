@@ -4,11 +4,12 @@ import { useCreateTask } from "../../hooks/useCreateTask";
 import { PlayCircle } from "../icons/PlayCircle";
 import { StopCircle } from "../icons/StopCircle";
 import { XCircle } from "../icons/XCircle";
+import { ISelectedProject } from "./Stopwatch";
 
 interface ControlsProps {
   setTimeInSeconds: Function;
   timeInSeconds: number;
-  selectedProject: string;
+  selectedProject: ISelectedProject;
 }
 
 const Controls: FC<ControlsProps> = ({
@@ -37,7 +38,7 @@ const Controls: FC<ControlsProps> = ({
     createTaskMutation.mutate({
       ...task,
       endTime: endTime,
-      project: selectedProject,
+      project: selectedProject.id,
     });
     setTask({ name: "" });
   };

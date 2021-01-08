@@ -1,6 +1,14 @@
 export interface ProjectsGroupByClient {
   _id: string;
-  projects: IDbProject[];
+  projects: ProjectsAgregation[];
+}
+
+export interface ProjectsAgregation {
+  _id: string;
+  name: string;
+  clientName: string;
+  estimate: string;
+  status: string;
 }
 
 export interface IDbProject {
