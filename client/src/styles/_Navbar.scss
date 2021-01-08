@@ -1,6 +1,10 @@
 .Navbar {
-  min-width: 10rem;
-  max-width: 10rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  // min-width: 14rem;
+  width: 11rem;
+  height: 100vh;
   background-color: $sidebar-brackground;
   color: white;
   border-right: 1px solid $sidebar-border;

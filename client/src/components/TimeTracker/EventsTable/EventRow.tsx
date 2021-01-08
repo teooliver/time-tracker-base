@@ -1,32 +1,22 @@
 import React, { FC } from "react";
 import { Menu, MenuList, MenuButton, MenuItem } from "@reach/menu-button";
-import "@reach/menu-button/styles.css";
 import { IDbTask } from "../../../interfaces/task";
-import { useMutation, useQueryClient } from "react-query";
-import { deleteTask, updateTask } from "../../../utils/api-client";
 import { calculateTimer } from "../../../utils/timer";
 import { ThreeDotsVertical } from "../../icons/ThreeDotsVertical";
 import DatePicker from "react-datepicker";
 import CustomDatePickerInput from "./CustomDatePickerInput";
+import { useDeleteTask } from "../../../hooks/useDeleteTask";
+import { useUpdateTask } from "../../../hooks/useUpdateTask";
+import "@reach/menu-button/styles.css";
 
 interface Props {
   task: IDbTask;
 }
 
 const EventRow: FC<Props> = ({ task }) => {
-  const queryClient = useQueryClient();
+  const deletePostMutation = useDeleteTask();
 
-  const deletePostMutation = useMutation(deleteTask, {
-    onSuccess: () => {
-      queryClient.invalidateQueries("tasks");
-    },
-  });
-
-  const updateTaskMutation = useMutation(updateTask, {
-    onSuccess: () => {
-      queryClient.invalidateQueries("tasks");
-    },
-  });
+  const updateTaskMutation = useUpdateTask();
 
   const endTime = new Date(task.endTime!).getTime();
   const initialTime = new Date(task.initialTime!).getTime();

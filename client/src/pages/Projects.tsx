@@ -3,6 +3,7 @@ import { useQuery } from "react-query";
 import { fetchProjects } from "../utils/api-client";
 import { Dialog, DialogOverlay, DialogContent } from "@reach/dialog";
 import { PlusCircle } from "../components/icons/PlusCircle";
+import ProjectsForm from "../components/ProjectsForm";
 
 const Projects = () => {
   const { data: projects, isLoading, isSuccess, isError } = useQuery(
@@ -17,6 +18,7 @@ const Projects = () => {
   return (
     <section className='Projects'>
       <header>
+        <h2>Projects</h2>
         <button className='add-project-btn' onClick={open}>
           <i>
             <PlusCircle size='1rem' />
@@ -24,7 +26,8 @@ const Projects = () => {
           Add Project
         </button>
         <Dialog style={{ color: "red" }} isOpen={showDialog} onDismiss={close}>
-          <p>My text is red because the style prop got applied to the div</p>{" "}
+          <p>My text is red because the style prop got applied to the div</p>
+          <ProjectsForm />
           <button onClick={close}>Okay</button>
         </Dialog>
       </header>

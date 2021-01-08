@@ -1,6 +1,7 @@
 export interface IDbTask {
   _id: string;
   name: string;
+  project: string;
   timeInSeconds: number;
   initialTime: Date | null;
   endTime: Date | null;
@@ -10,6 +11,7 @@ export interface IDbTask {
 
 export interface IClientTask {
   name?: string;
+  project?: string;
   timeInSeconds?: number;
   initialTime?: Date | null;
   endTime?: Date | null;

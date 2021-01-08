@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import cors from "cors";
 import taskRoutes from "./routes/tasks";
 import projectRoutes from "./routes/projects";
+import clientRoutes from "./routes/clients";
 import config from "./config/config";
 
 const app = express();
@@ -14,6 +15,7 @@ app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 app.use("/tasks", taskRoutes);
 app.use("/projects", projectRoutes);
+app.use("/clients", clientRoutes);
 
 // Connect to Mongo
 mongoose

@@ -1,6 +1,10 @@
 import mongoose, { Schema } from "mongoose";
 import { IProject } from "../interfaces/project";
 
+const Subproject: Schema = new Schema({
+  name: String,
+});
+
 const ProjectSchema: Schema = new Schema(
   {
     name: String,
@@ -10,7 +14,7 @@ const ProjectSchema: Schema = new Schema(
     },
     estimate: String,
     status: String,
-    subprojects: [Schema.Types.ObjectId],
+    subprojects: [Subproject],
   },
   {
     timestamps: true,

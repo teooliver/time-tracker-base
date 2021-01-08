@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 import { Task } from "../models/task";
 import { Request, Response } from "express";
+import { ITask } from "../interfaces/task";
 
 export const getTasks = async (req: Request, res: Response) => {
   try {
@@ -13,8 +14,15 @@ export const getTasks = async (req: Request, res: Response) => {
 };
 
 export const createTask = async (req: Request, res: Response) => {
-  const task = req.body;
+  let task: ITask = req.body;
 
+  console.log("Before Delete", task);
+
+  if (!task.project || task.project === "No Project") {
+    delete task.project;
+  }
+
+  console.log("After Delete", task);
   const newTask = new Task(task);
 
   try {
@@ -59,13 +67,24 @@ export const getTasksGroupedByDate = async (req: Request, res: Response) => {
       {
         $group: {
           _id: { $dateToString: { format: "%Y-%m-%d", date: "$initialTime" } },
-          tasks: { $push: "$$ROOT" },
+          tasks: {
+            $push: "$$ROOT",
+          },
           totalTime: {
             $sum: {
-              // instead of dividing on every document, divide in the end, after $sum?
-              $divide: [{ $subtract: ["$endTime", "$initialTime"] }, 1000],
+              $divide: [
+                {
+                  $subtract: ["$endTime", "$initialTime"],
+                },
+                1000,
+              ],
             },
           },
+        },
+      },
+      {
+        $sort: {
+          _id: -1,
         },
       },
     ]);

@@ -1,0 +1,22 @@
+.ProjectsDown {
+  position: absolute;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 0.2rem;
+  // top: 10;
+  left: -6.5rem;
+  max-width: 23rem;
+  max-height: 30rem;
+
+  .project-list-item {
+    &:hover {
+      background-color: aqua;
+    }
+  }
+  .client-name {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    // background-color: red;
+    text-decoration: underline;
+  }
+}

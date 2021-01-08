@@ -3,10 +3,24 @@ import { calculateTimer } from "../../utils/timer";
 import Controls from "./Controls";
 import EditableInput from "./EditableInput";
 import { Calendar3 } from "../icons/Calendar3";
+import { Folder } from "../icons/Folder";
+import { useGetProjects } from "../../hooks/useGetProjects";
+import {
+  Listbox,
+  ListboxInput,
+  ListboxButton,
+  ListboxPopover,
+  ListboxList,
+  ListboxOption,
+} from "@reach/listbox";
+import "@reach/listbox/styles.css";
+import ProjectsDropDown from "../ProjectsDropdown/ProjectsDropDown";
 
 const Stopwatch = () => {
   const [timeInSeconds, setTimeInSeconds] = useState<number>(0);
   const [timerArray, setTimerArray] = useState<Array<number | string>>([]);
+  const [isProjectDropwdownOpen, setIsProjectDropwdownOpen] = useState(false);
+  const [selectedProject, setSelectedProject] = useState<string>("");
 
   useEffect(() => {
     let timeArray: Array<number | string> = calculateTimer(timeInSeconds);
@@ -16,18 +30,36 @@ const Stopwatch = () => {
   return (
     <div className='Stopwatch'>
       <EditableInput />
+      {/* <Listbox value={selectedProject} onChange={setSelectedProject}>
+        <ListboxOption value='No Project'>No Project</ListboxOption>
+        {isSuccess && projects
+          ? projects.map((project) => (
+            <ListboxOption key={project._id} value={project.name}>
+            {project.name}
+            </ListboxOption>
+            ))
+            : null}
+          </Listbox> */}
+      <div className='projects-icon'>
+        {selectedProject ? (
+          <span
+            onClick={() => setIsProjectDropwdownOpen(!isProjectDropwdownOpen)}
+          >
+            {selectedProject}
+          </span>
+        ) : (
+          <i onClick={() => setIsProjectDropwdownOpen(!isProjectDropwdownOpen)}>
+            <Folder size='24' color='white' />
+          </i>
+        )}
+        {isProjectDropwdownOpen && (
+          <ProjectsDropDown
+            setSelectedProject={setSelectedProject}
+            setIsProjectDropwdownOpen={setIsProjectDropwdownOpen}
+          />
+        )}
+      </div>
       <div className='clock-controls'>
-        <section>
-          <select name='Projects' id='projects'>
-            <option value='proj1'>Proj1</option>
-            <option value='proj2'>Proj2</option>
-            <option value='proj3'>Proj3</option>
-            <option value='proj4'>Proj4</option>
-          </select>
-        </section>
-        <span className='calendar-icon'>
-          <Calendar3 size='32' color='white' />
-        </span>
         <section className='clock'>
           <p className='time-text'>{timerArray[0]}</p>
           <span>:</span>
@@ -39,6 +71,7 @@ const Stopwatch = () => {
         <Controls
           setTimeInSeconds={setTimeInSeconds}
           timeInSeconds={timeInSeconds}
+          selectedProject={selectedProject}
         />
       </div>
     </div>

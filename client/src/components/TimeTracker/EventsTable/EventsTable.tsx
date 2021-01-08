@@ -1,14 +1,16 @@
-import React, { FC } from "react";
-import { useQuery } from "react-query";
+import React from "react";
+import format from "date-fns/format";
 import { calculateTimer } from "../../../utils/timer";
-import { getTasksGroupedByDate } from "../../../utils/api-client";
 import EventRow from "./EventRow";
+import { useGetGroupedTasks } from "../../../hooks/useGetGroupedTasks";
 
 const EventsTable = () => {
-  const { data: groupedTasks, isLoading, isSuccess, isError } = useQuery(
-    "tasks",
-    getTasksGroupedByDate
-  );
+  const {
+    data: groupedTasks,
+    isLoading,
+    isSuccess,
+    isError,
+  } = useGetGroupedTasks();
 
   return (
     <>
@@ -22,7 +24,7 @@ const EventsTable = () => {
           return (
             <ul className='EventsTable'>
               <li className='day-header'>
-                <span>{group._id}</span>
+                <span>{format(new Date(group._id), "EEE, dd LLL")}</span>
                 <span className='day-total'>
                   {hours}:{minutes}:{seconds}
                 </span>
