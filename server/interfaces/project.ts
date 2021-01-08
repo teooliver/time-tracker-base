@@ -13,3 +13,8 @@ interface Subproject {
   _id: string;
   name: string;
 }
+
+export interface IProjectsGroupByClient {
+  _id: string;
+  projects: IProject[];
+}

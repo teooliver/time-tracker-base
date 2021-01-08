@@ -1,21 +1,39 @@
 import mongoose from "mongoose";
 import { Project } from "../models/project";
 import { Request, Response } from "express";
+import { Client } from "../models/client";
+import { IProjectsGroupByClient } from "../interfaces/project";
 
 export const getProjects = async (req: Request, res: Response) => {
   try {
-    const projects = await Project.aggregate([
+    const projects: IProjectsGroupByClient[] = await Project.aggregate([
       {
-        $group: {
-          _id: "$client",
-          projects: {
-            $push: "$$ROOT",
-          },
+        $lookup: {
+          from: "clients",
+          localField: "client",
+          foreignField: "_id",
+          as: "clientName",
         },
       },
       {
         $sort: {
           updatedAt: -1,
+        },
+      },
+      {
+        $project: {
+          _id: "$_id",
+          name: "$name",
+          clientName: { $arrayElemAt: ["$clientName.name", 0] },
+          estimate: "$estimate",
+          status: "$status",
+          subprojects: "$subprojects",
+        },
+      },
+      {
+        $group: {
+          _id: "$clientName",
+          projects: { $push: "$$ROOT" },
         },
       },
     ]);
