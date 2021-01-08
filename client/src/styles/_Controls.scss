@@ -4,6 +4,14 @@
   background-color: transparent;
   height: 2rem;
   cursor: pointer;
-  color: white;
   margin-left: 0.4rem;
+  .play-btn {
+    color: $btn-primary;
+  }
+  .stop-btn {
+    color: lightcoral;
+  }
+  .reset-btn {
+    color: $gray;
+  }
 }

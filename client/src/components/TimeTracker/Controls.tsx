@@ -51,16 +51,16 @@ const Controls: FC<ControlsProps> = ({
   return (
     <div className='Controls'>
       {isPlaying ? (
-        <button onClick={handleStopButton}>
-          <StopCircle size='32' />
+        <button onClick={handleStopButton} className='play-btn'>
+          <StopCircle size='32' className='stop-btn' />
         </button>
       ) : (
         <button onClick={handlePlayButton}>
-          <PlayCircle size='32' />
+          <PlayCircle size='32' className='play-btn' />
         </button>
       )}
       <button onClick={handleResetButton}>
-        <XCircle size='32' />
+        <XCircle size='32' className='reset-btn' />
       </button>
     </div>
   );
