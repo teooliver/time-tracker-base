@@ -2,18 +2,8 @@ import React, { useEffect, useState } from "react";
 import { calculateTimer } from "../../utils/timer";
 import Controls from "./Controls";
 import EditableInput from "./EditableInput";
-import { Calendar3 } from "../icons/Calendar3";
 import { Folder } from "../icons/Folder";
-import { useGetProjects } from "../../hooks/useGetProjects";
-import {
-  Listbox,
-  ListboxInput,
-  ListboxButton,
-  ListboxPopover,
-  ListboxList,
-  ListboxOption,
-} from "@reach/listbox";
-import "@reach/listbox/styles.css";
+import { Dot } from "../icons/Dot";
 import ProjectsDropDown from "../ProjectsDropdown/ProjectsDropDown";
 
 export interface ISelectedProject {
@@ -40,22 +30,21 @@ const Stopwatch = () => {
   return (
     <div className='Stopwatch'>
       <EditableInput />
-      {/* <Listbox value={selectedProject} onChange={setSelectedProject}>
-        <ListboxOption value='No Project'>No Project</ListboxOption>
-        {isSuccess && projects
-          ? projects.map((project) => (
-            <ListboxOption key={project._id} value={project.name}>
-            {project.name}
-            </ListboxOption>
-            ))
-            : null}
-          </Listbox> */}
-      <div className='projects-icon'>
+      <div className='project-select'>
         {selectedProject.name ? (
           <span
+            className='selected-project'
             onClick={() => setIsProjectDropwdownOpen(!isProjectDropwdownOpen)}
           >
-            {selectedProject.name} - {selectedProject.client}
+            <i>
+              <Dot size='24' />
+            </i>
+            <span className='selected-project-name'>
+              {selectedProject.name}
+            </span>
+            <span className='selected-project-client'>
+              {selectedProject.client ? `- ${selectedProject.client}` : null}
+            </span>
           </span>
         ) : (
           <i onClick={() => setIsProjectDropwdownOpen(!isProjectDropwdownOpen)}>

@@ -3,14 +3,15 @@
   background-color: white;
   padding: 1rem;
   border-radius: 0.2rem;
-  // top: 10;
-  left: -6.5rem;
+  top: 2.5rem;
+  // left: -6.5rem;
   max-width: 23rem;
   max-height: 30rem;
+  z-index: 100;
 
   .project-list-item {
     &:hover {
-      background-color: aqua;
+      background-color: $accent;
     }
   }
   .client-name {
