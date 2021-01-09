@@ -121,3 +121,19 @@ export const seedTasks = async (req: Request, res: Response) => {
     res.status(409).json(error);
   }
 };
+
+export const removeAllData = async (req: Request, res: Response) => {
+  try {
+    await Client.deleteMany();
+    await Project.deleteMany();
+    await Task.deleteMany();
+
+    res
+      .status(200)
+      .json(
+        "Removed all documents from clients, projects and tasks collections"
+      );
+  } catch (error) {
+    res.status(404).json(error);
+  }
+};

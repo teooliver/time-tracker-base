@@ -56,6 +56,10 @@ const Navbar = () => {
           </NavLink>
         </li>
       </ul>
+      <div className='seed-buttons'>
+        <button className='add-data-btn'>Seed Data</button>
+        <button className='remove-data-btn'>Remove All Data</button>
+      </div>
     </div>
   );
 };
