@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { useGetProjects } from "../../hooks/useGetProjects";
+import { Dot } from "../icons/Dot";
 import { ISelectedProject } from "../TimeTracker/Stopwatch";
 
 interface Props {
@@ -20,13 +21,18 @@ const ProjectsDropDown: FC<Props> = ({
 
   return (
     <div className='ProjectsDown'>
-      <input type='text' placeholder='Search Projects' />
+      <input
+        className='projects-dropdown-search'
+        type='text'
+        placeholder='Search Projects'
+      />
       <div
         className='project-list-item'
         onClick={() =>
           handleSelection({ id: "", name: "No Project", client: "" })
         }
       >
+        <Dot size='24' />
         No Project
       </div>
       {isSuccess && projects
@@ -37,6 +43,7 @@ const ProjectsDropDown: FC<Props> = ({
                 {client.projects.map((project) => (
                   <li
                     className='project-list-item'
+                    style={{ color: "red" }}
                     onClick={() =>
                       handleSelection({
                         id: project._id,
@@ -45,6 +52,7 @@ const ProjectsDropDown: FC<Props> = ({
                       })
                     }
                   >
+                    <Dot size='24' />
                     {project.name}
                   </li>
                 ))}

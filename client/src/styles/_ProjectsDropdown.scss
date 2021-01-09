@@ -1,0 +1,44 @@
+.ProjectsDown {
+  position: absolute;
+  font-size: 1rem;
+  color: white;
+  padding: 1rem;
+  border-radius: 0.2rem;
+  top: 2.5rem;
+  // left: -6.5rem;
+  width: 20rem;
+  max-width: 20rem;
+  max-height: 30rem;
+  z-index: 100;
+  background-color: $body-background;
+  border: 1px solid $item-hover-brackground;
+  box-shadow: -2px 5px 21px 0px $table-shadow;
+  -webkit-box-shadow: -2px 5px 21px 0px $table-shadow;
+  -moz-box-shadow: -2px 5px 21px 0px $table-shadow;
+
+  .project-list-item {
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+    padding: 0.4rem 0.6rem;
+    border-radius: 0.4rem;
+    &:hover {
+      background-color: $accent;
+    }
+  }
+  .client-name {
+    font-weight: bold;
+    margin-top: 1rem;
+    margin-bottom: 0.4rem;
+  }
+  .projects-dropdown-search {
+    height: 1.6rem;
+    font-size: 1rem;
+    padding: 0.3rem;
+    width: 100%;
+    border: unset;
+    border-radius: 0.3rem;
+    margin-bottom: 0.4rem;
+  }
+}
