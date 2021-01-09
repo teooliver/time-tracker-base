@@ -22,7 +22,7 @@ const Projects = () => {
         <button className='add-project-btn' onClick={open}>
           <i>
             <PlusCircle size='1rem' />
-          </i>{" "}
+          </i>
           Add Project
         </button>
         <Dialog style={{ color: "red" }} isOpen={showDialog} onDismiss={close}>

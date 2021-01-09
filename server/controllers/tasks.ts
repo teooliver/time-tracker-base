@@ -91,13 +91,3 @@ export const getTasksGroupedByDate = async (req: Request, res: Response) => {
     res.status(404).json(error);
   }
 };
-
-// TODO: Create a endpoint to get all tasks organized by Date (or use getTasks for it).
-// This should group tasks by date and also calculate the total time for that day
-
-// E.g:
-// {
-//   date: Date
-//   total_time: Number
-//   tasks: ITask[]
-// }
