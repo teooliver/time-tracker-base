@@ -60,6 +60,12 @@
   font-size: 1.8rem;
   color: white;
 }
+p.event-name-input {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
 .clock-controls {
   display: flex;
   flex-direction: row;
