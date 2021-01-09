@@ -1,0 +1,23 @@
+.EditableInput {
+  margin-right: auto;
+  flex: 1 1 auto;
+  align-items: center;
+  .event-name-input {
+    background-color: transparent;
+    border: none;
+    border-radius: 0.2rem;
+    display: inline-block;
+    margin: 0;
+    padding: 0.2rem;
+    margin-right: auto;
+    width: 96%;
+    // height: 2rem;
+    font-size: 1.8rem;
+    color: white;
+  }
+  p.event-name-input {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
