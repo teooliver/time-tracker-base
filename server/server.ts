@@ -5,6 +5,7 @@ import cors from "cors";
 import taskRoutes from "./routes/tasks";
 import projectRoutes from "./routes/projects";
 import clientRoutes from "./routes/clients";
+import seedRoutes from "./routes/seeds";
 import config from "./config/config";
 
 const app = express();
@@ -16,6 +17,7 @@ app.use(cors());
 app.use("/tasks", taskRoutes);
 app.use("/projects", projectRoutes);
 app.use("/clients", clientRoutes);
+app.use("/seed", seedRoutes);
 
 // Connect to Mongo
 mongoose

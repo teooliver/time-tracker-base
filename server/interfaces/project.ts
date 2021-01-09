@@ -5,7 +5,6 @@ export interface IProject extends Document {
   client: string;
   estimate: String;
   status: string;
-  subprojects: Subproject[];
   company: string;
 }
 

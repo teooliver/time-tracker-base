@@ -16,13 +16,10 @@ export const getTasks = async (req: Request, res: Response) => {
 export const createTask = async (req: Request, res: Response) => {
   let task: ITask = req.body;
 
-  console.log("Before Delete", task);
-
   if (!task.project || task.project === "No Project") {
     delete task.project;
   }
 
-  console.log("After Delete", task);
   const newTask = new Task(task);
 
   try {

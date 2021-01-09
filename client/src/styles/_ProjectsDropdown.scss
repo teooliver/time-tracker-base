@@ -15,6 +15,7 @@
   box-shadow: -2px 5px 21px 0px $table-shadow;
   -webkit-box-shadow: -2px 5px 21px 0px $table-shadow;
   -moz-box-shadow: -2px 5px 21px 0px $table-shadow;
+  overflow: scroll;
 
   .project-list-item {
     display: flex;

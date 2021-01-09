@@ -14,7 +14,6 @@ const ProjectSchema: Schema = new Schema(
     },
     estimate: String,
     status: String,
-    subprojects: [Subproject],
   },
   {
     timestamps: true,
