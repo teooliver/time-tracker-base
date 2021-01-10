@@ -82,10 +82,13 @@ const Navbar = () => {
         </li>
       </ul>
       <div className='seed-buttons'>
-        <button className='add-data-btn' onClick={handleSeedData}>
+        <button className='btn-navbar btn-navbar--add' onClick={handleSeedData}>
           Seed Data
         </button>
-        <button className='remove-data-btn' onClick={handleRemoveAllData}>
+        <button
+          className='btn-navbar btn-navbar--remove'
+          onClick={handleRemoveAllData}
+        >
           Remove All Data
         </button>
       </div>

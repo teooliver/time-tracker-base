@@ -7,15 +7,16 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  /* justify-content: space-between; */
   border-bottom: 1px solid $sidebar-border;
   margin-bottom: 1rem;
   padding: 1rem;
+
   .project-select {
     position: relative;
     margin-right: 0.4rem;
     min-height: fit-content;
   }
+
   .selected-project {
     background-color: $accent;
     padding: 0.2rem 0.8rem;
@@ -27,6 +28,7 @@
     justify-content: center;
     align-items: center;
     color: white;
+
     .selected-project-name {
       margin-right: 0.4rem;
       color: $white;
@@ -35,6 +37,7 @@
       word-wrap: none;
       white-space: nowrap;
     }
+
     .selected-project-client {
       margin-right: 0.4rem;
       color: $gray;
@@ -44,29 +47,28 @@
       white-space: nowrap;
     }
   }
-}
+  .clock-controls {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 2rem;
+  }
 
-.clock-controls {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin-left: 2rem;
-}
+  .clock {
+    color: #ccc;
+    display: flex;
+    letter-spacing: 2px;
+    font-size: 5rem;
 
-.clock {
-  color: #ccc;
-  display: flex;
-  letter-spacing: 2px;
-  font-size: 5rem;
-}
+    span {
+      position: relative;
+      top: 2px;
+      font-size: 2rem;
+    }
 
-.clock span {
-  position: relative;
-  top: 2px;
-  font-size: 2rem;
-}
-
-.time-text {
-  font-size: 2.5rem;
-  margin: 0;
+    .time-text {
+      font-size: 2.5rem;
+      margin: 0;
+    }
+  }
 }

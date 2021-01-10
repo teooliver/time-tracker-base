@@ -8,13 +8,11 @@
   background-color: $sidebar-brackground;
   color: white;
   border-right: 1px solid $sidebar-border;
+
   .logo {
     margin-top: 1rem;
     padding: 0.5rem;
     font-size: 1.5rem;
-    .bold {
-      font-weight: bolder;
-    }
   }
 
   .active-link {
@@ -33,11 +31,9 @@
       display: flex;
       align-items: center;
       padding: 0.5rem;
-
       color: $gray;
       padding: 1rem;
       display: block;
-      // color: white;
       text-decoration: none;
       &:visited {
         text-decoration: none;
@@ -52,31 +48,27 @@
       margin-right: 0.5rem;
     }
   }
+
   .seed-buttons {
     position: absolute;
     bottom: 0;
     margin-bottom: 0.5rem;
     width: 11rem;
-    .add-data-btn {
-      width: 9rem;
-      color: $white;
-      background-color: $btn-primary;
-      font-size: 1rem;
-      border: none;
-      border-radius: 0.2rem;
-      padding: 0.5rem;
-      margin: 0.5rem 1rem;
-    }
 
-    .remove-data-btn {
+    .btn-navbar {
       width: 9rem;
       color: $white;
-      background-color: lightcoral;
       font-size: 1rem;
       border: none;
       border-radius: 0.2rem;
       padding: 0.5rem;
       margin: 0.5rem 1rem;
+      &--add {
+        background-color: $btn-primary;
+      }
+      &--remove {
+        background-color: lightcoral;
+      }
     }
   }
 }

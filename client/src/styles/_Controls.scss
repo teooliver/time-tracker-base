@@ -1,17 +1,20 @@
-.Controls button {
-  border: none;
-  padding: unset;
-  background-color: transparent;
-  height: 2rem;
-  cursor: pointer;
-  margin-left: 0.4rem;
-  .play-btn {
-    color: $btn-primary;
-  }
-  .stop-btn {
-    color: lightcoral;
-  }
-  .reset-btn {
-    color: $gray;
+.Controls {
+  button {
+    border: none;
+    padding: unset;
+    background-color: transparent;
+    height: 2rem;
+    margin-left: 0.4rem;
+    cursor: pointer;
+
+    .play-btn {
+      color: $btn-primary;
+    }
+    .stop-btn {
+      color: lightcoral;
+    }
+    .reset-btn {
+      color: $gray;
+    }
   }
 }

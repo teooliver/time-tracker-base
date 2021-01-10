@@ -6,29 +6,7 @@
     align-items: center;
     padding: 1rem;
   }
-  h2 {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: white;
-  }
-  .add-project-btn {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-content: center;
-    // margin: 1rem;
-    color: $white;
-    background-color: $btn-primary;
-    font-size: 1rem;
-    border: none;
-    border-radius: 0.2rem;
-    padding: 0.5rem;
-    i {
-      position: relative;
-      top: 2px;
-      margin-right: 0.4rem;
-    }
-  }
+
   table {
     border-radius: 0px;
     padding: 0px;
@@ -38,9 +16,11 @@
     border-collapse: initial;
     box-shadow: rgba(235, 231, 235, 0.5) 0px -1px 0px 0px inset;
     table-layout: fixed;
+
     thead {
       vertical-align: initial;
     }
+
     th {
       text-align: left;
       height: 50px;
@@ -54,13 +34,8 @@
       text-transform: uppercase;
       box-shadow: rgba(235, 231, 235, 0.5) 0px -1px 0px 0px inset;
     }
+
     td {
-      div {
-        display: flex;
-        flex-direction: row;
-        -moz-box-align: center;
-        align-items: center;
-      }
       height: 100%;
       white-space: pre;
       vertical-align: middle;
@@ -72,6 +47,12 @@
       padding: 10px;
       padding-left: 10px;
       white-space: nowrap;
+      div {
+        display: flex;
+        flex-direction: row;
+        -moz-box-align: center;
+        align-items: center;
+      }
     }
   }
 }

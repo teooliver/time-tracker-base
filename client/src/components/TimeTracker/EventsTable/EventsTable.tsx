@@ -15,24 +15,23 @@ const EventsTable = () => {
   return (
     <>
       {isLoading && <div>Loading</div>}
+
       {isSuccess &&
-        groupedTasks &&
-        groupedTasks.map((group) => {
+        groupedTasks?.map((group) => {
           const [hours, minutes, seconds] = calculateTimer(
             Math.round(group.totalTime)
           );
           return (
             <ul className='EventsTable'>
-              <li className='day-header'>
+              <li className='date-header'>
                 <span>{format(new Date(group._id), "EEE, dd LLL")}</span>
                 <span className='day-total'>
                   {hours}:{minutes}:{seconds}
                 </span>
               </li>
-              {group.tasks &&
-                group.tasks.map((task) => (
-                  <EventRow key={task._id} task={task} />
-                ))}
+              {group.tasks.map((task) => (
+                <EventRow key={task._id} task={task} />
+              ))}
             </ul>
           );
         })}

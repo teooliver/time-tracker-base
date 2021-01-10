@@ -16,7 +16,7 @@ const Projects = () => {
     <section className='Projects'>
       <header>
         <h2>Projects</h2>
-        <button className='add-project-btn' onClick={open}>
+        <button className='btn btn-primary' onClick={open}>
           <i>
             <PlusCircle size='1rem' />
           </i>
@@ -35,10 +35,6 @@ const Projects = () => {
             <col width='20%' />
             <col width='20%' />
             <col width='20%' />
-            {/* <col width='50px' />
-            <col width='160px' />
-            <col width='40%' />
-            <col width='55px' /> */}
           </colgroup>
           <thead>
             <tr>

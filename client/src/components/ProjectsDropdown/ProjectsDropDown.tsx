@@ -40,32 +40,31 @@ const ProjectsDropDown: FC<Props> = ({
         <Dot size='24' />
         No Project
       </div>
-      {isSuccess && projects
-        ? projects.map((client) => (
-            <>
-              <div className='client-name'>{client._id}</div>
-              <ul>
-                {client.projects.map((project) => (
-                  <li
-                    className='project-list-item'
-                    style={{ color: project.color }}
-                    onClick={() =>
-                      handleSelection({
-                        id: project._id,
-                        name: project.name,
-                        client: project.clientName,
-                        color: project.color,
-                      })
-                    }
-                  >
-                    <Dot size='24' />
-                    {project.name}
-                  </li>
-                ))}
-              </ul>
-            </>
-          ))
-        : null}
+      {isSuccess &&
+        projects?.map((client) => (
+          <>
+            <div className='client-name'>{client._id}</div>
+            <ul>
+              {client.projects.map((project) => (
+                <li
+                  className='project-list-item'
+                  style={{ color: project.color }}
+                  onClick={() =>
+                    handleSelection({
+                      id: project._id,
+                      name: project.name,
+                      client: project.clientName,
+                      color: project.color,
+                    })
+                  }
+                >
+                  <Dot size='24' />
+                  {project.name}
+                </li>
+              ))}
+            </ul>
+          </>
+        ))}
     </div>
   );
 };
