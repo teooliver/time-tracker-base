@@ -1,15 +1,12 @@
 import { useState } from "react";
-import { useQuery } from "react-query";
-import { fetchProjects } from "../utils/api-client";
 import { Dialog, DialogOverlay, DialogContent } from "@reach/dialog";
 import { PlusCircle } from "../components/icons/PlusCircle";
 import ProjectsForm from "../components/ProjectsForm";
+import { useGetProjects } from "../hooks/useGetProjects";
+import { Dot } from "../components/icons/Dot";
 
 const Projects = () => {
-  const { data: projects, isLoading, isSuccess, isError } = useQuery(
-    "projects",
-    fetchProjects
-  );
+  const { data: projects, isLoading, isSuccess, isError } = useGetProjects();
 
   const [showDialog, setShowDialog] = useState(false);
   const open = () => setShowDialog(true);
@@ -31,9 +28,44 @@ const Projects = () => {
           <button onClick={close}>Okay</button>
         </Dialog>
       </header>
-      {isSuccess && projects
-        ? projects.map((project) => <div>{project.name}</div>)
-        : null}
+      <div>
+        <table>
+          {/* <colgroup>
+            <col width='40%' />
+            <col width='50px' />
+            <col width='20%' />
+            <col width='160px' />
+            <col width='40%' />
+            <col width='55px' />
+          </colgroup> */}
+          <thead>
+            <tr>
+              <th>Project</th>
+              <th>Client</th>
+            </tr>
+          </thead>
+          <tbody>
+            {isSuccess && projects
+              ? projects.map((client) =>
+                  client.projects.map((project) => (
+                    <tr>
+                      <td
+                        className='project-list-item'
+                        style={{ color: "red" }}
+                      >
+                        <div>
+                          <Dot size='24' />
+                          {project.name}
+                        </div>
+                      </td>
+                      <td className='client-name'>{client._id}</td>
+                    </tr>
+                  ))
+                )
+              : null}
+          </tbody>
+        </table>
+      </div>
       {isError && <div>No projects available</div>}
     </section>
   );
