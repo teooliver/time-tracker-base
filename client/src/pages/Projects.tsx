@@ -30,18 +30,22 @@ const Projects = () => {
       </header>
       <div>
         <table>
-          {/* <colgroup>
-            <col width='40%' />
-            <col width='50px' />
+          <colgroup>
             <col width='20%' />
+            <col width='20%' />
+            <col width='20%' />
+            <col width='20%' />
+            {/* <col width='50px' />
             <col width='160px' />
             <col width='40%' />
-            <col width='55px' />
-          </colgroup> */}
+            <col width='55px' /> */}
+          </colgroup>
           <thead>
             <tr>
               <th>Project</th>
               <th>Client</th>
+              <th>Status</th>
+              <th>Team</th>
             </tr>
           </thead>
           <tbody>
@@ -59,6 +63,8 @@ const Projects = () => {
                         </div>
                       </td>
                       <td className='client-name'>{client._id}</td>
+                      <td>-</td>
+                      <td>-</td>
                     </tr>
                   ))
                 )
