@@ -24,6 +24,7 @@ export const getProjects = async (req: Request, res: Response) => {
         $project: {
           _id: "$_id",
           name: "$name",
+          color: "$color",
           clientName: { $arrayElemAt: ["$clientName.name", 0] },
           estimate: "$estimate",
           status: "$status",
@@ -48,8 +49,6 @@ export const createProject = async (req: Request, res: Response) => {
   const project = req.body;
 
   const newProject = new Project(project);
-
-  console.log(newProject);
 
   try {
     const savedProject = await newProject.save();

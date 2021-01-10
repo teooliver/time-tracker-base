@@ -6,6 +6,7 @@ export interface ProjectsGroupByClient {
 export interface ProjectsAgregation {
   _id: string;
   name: string;
+  color: string;
   clientName: string;
   estimate: string;
   status: string;
@@ -15,6 +16,7 @@ export interface IDbProject {
   _id: string;
   name: string;
   client: string;
+  color: string;
   estimate: String;
   status: string;
   subprojects: IDbSubproject[];
@@ -26,6 +28,7 @@ export interface IDbProject {
 export interface IClientProject {
   name: string;
   client: string;
+  color: string;
   estimate: String;
   status: string;
   subprojects: IClientSubproject[];

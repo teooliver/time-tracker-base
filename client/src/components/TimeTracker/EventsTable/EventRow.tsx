@@ -39,7 +39,10 @@ const EventRow: FC<Props> = ({ task }) => {
   return (
     <>
       <li className='list-item'>
-        <span> {task.name}</span>
+        <div>
+          <span> {task.name}</span>
+          <span className='project'>{task.project}</span>
+        </div>
         <div className='rigth-side'>
           <span className='date-picker'>
             <DatePicker

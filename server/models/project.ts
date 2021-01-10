@@ -12,6 +12,7 @@ const ProjectSchema: Schema = new Schema(
       type: Schema.Types.ObjectId,
       ref: "Client",
     },
+    color: String,
     estimate: String,
     status: String,
   },

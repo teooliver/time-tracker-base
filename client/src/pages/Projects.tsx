@@ -55,7 +55,7 @@ const Projects = () => {
                     <tr>
                       <td
                         className='project-list-item'
-                        style={{ color: "red" }}
+                        style={{ color: project.color }}
                       >
                         <div>
                           <Dot size='24' />

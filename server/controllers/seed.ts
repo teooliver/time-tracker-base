@@ -5,6 +5,19 @@ import { Request, Response } from "express";
 import faker from "faker";
 import { Task } from "../models/task";
 
+export const PROJECT_COLORS = [
+  "#61e294ff",
+  "#7bcdbaff",
+  "#9799caff",
+  "#bd93d8ff",
+  "#b47aeaff",
+  "#d3d5d4ff",
+  "#a2c5acff",
+  "#9db5b2ff",
+  "#878e99ff",
+  "#7f6a93ff",
+];
+
 export const seedClients = async (req: Request, res: Response) => {
   const createClient = () => {
     let fakeClient = {
@@ -43,6 +56,7 @@ export const seedProjects = async (req: Request, res: Response) => {
       client: clientsIds[Math.floor(Math.random() * clientsIds.length)],
       estimate: "",
       status: "",
+      color: PROJECT_COLORS[Math.floor(Math.random() * PROJECT_COLORS.length)],
       company: "Company Test",
     };
     return fakeProject;

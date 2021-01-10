@@ -43,7 +43,7 @@ const ProjectsDropDown: FC<Props> = ({
                 {client.projects.map((project) => (
                   <li
                     className='project-list-item'
-                    style={{ color: "red" }}
+                    style={{ color: project.color }}
                     onClick={() =>
                       handleSelection({
                         id: project._id,
