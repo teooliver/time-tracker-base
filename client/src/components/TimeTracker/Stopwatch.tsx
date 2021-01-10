@@ -10,6 +10,7 @@ export interface ISelectedProject {
   id: string;
   name: string;
   client: string;
+  color: string;
 }
 
 const Stopwatch = () => {
@@ -20,6 +21,7 @@ const Stopwatch = () => {
     id: "",
     name: "",
     client: "",
+    color: "",
   });
 
   useEffect(() => {
@@ -43,7 +45,10 @@ const Stopwatch = () => {
               <span className='selected-project-name'>
                 {selectedProject.name}
               </span>
-              <span className='selected-project-client'>
+              <span
+                className='selected-project-client'
+                style={{ color: selectedProject.color }}
+              >
                 {selectedProject.client ? `- ${selectedProject.client}` : null}
               </span>
             </span>

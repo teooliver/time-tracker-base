@@ -62,19 +62,40 @@ export const getTasksGroupedByDate = async (req: Request, res: Response) => {
   try {
     const tasks = await Task.aggregate([
       {
+        $lookup: {
+          from: "projects",
+          localField: "project",
+          foreignField: "_id",
+          as: "project",
+        },
+      },
+      {
+        $lookup: {
+          from: "clients",
+          localField: "project.client",
+          foreignField: "_id",
+          as: "client",
+        },
+      },
+      {
+        $project: {
+          _id: "$_id",
+          name: "$name",
+          timeInSeconds: "$timeInSeconds",
+          initialTime: "$initialTime",
+          endTime: "$endTime",
+          project: { $arrayElemAt: ["$project.name", 0] },
+          projectColor: { $arrayElemAt: ["$project.color", 0] },
+          client: { $arrayElemAt: ["$client.name", 0] },
+        },
+      },
+      {
         $group: {
           _id: { $dateToString: { format: "%Y-%m-%d", date: "$initialTime" } },
-          tasks: {
-            $push: "$$ROOT",
-          },
+          tasks: { $push: "$$ROOT" },
           totalTime: {
             $sum: {
-              $divide: [
-                {
-                  $subtract: ["$endTime", "$initialTime"],
-                },
-                1000,
-              ],
+              $divide: [{ $subtract: ["$endTime", "$initialTime"] }, 1000],
             },
           },
         },

@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+import { Dot } from "../../icons/Dot";
 import { Menu, MenuList, MenuButton, MenuItem } from "@reach/menu-button";
 import { IDbTask } from "../../../interfaces/task";
 import { calculateTimer } from "../../../utils/timer";
@@ -39,9 +40,12 @@ const EventRow: FC<Props> = ({ task }) => {
   return (
     <>
       <li className='list-item'>
-        <div>
+        <div className='task'>
           <span> {task.name}</span>
-          <span className='project'>{task.project}</span>
+          <span className='project' style={{ color: task.projectColor }}>
+            <Dot />
+            {task.project} <Dot /> {task.client}
+          </span>
         </div>
         <div className='rigth-side'>
           <span className='date-picker'>

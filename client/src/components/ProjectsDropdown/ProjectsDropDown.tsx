@@ -29,7 +29,12 @@ const ProjectsDropDown: FC<Props> = ({
       <div
         className='project-list-item'
         onClick={() =>
-          handleSelection({ id: "", name: "No Project", client: "" })
+          handleSelection({
+            id: "",
+            name: "No Project",
+            client: "",
+            color: "white",
+          })
         }
       >
         <Dot size='24' />
@@ -49,6 +54,7 @@ const ProjectsDropDown: FC<Props> = ({
                         id: project._id,
                         name: project.name,
                         client: project.clientName,
+                        color: project.color,
                       })
                     }
                   >
