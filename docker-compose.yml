@@ -1,4 +1,4 @@
-version: "3.7"
+version: '3.7'
 
 services:
   mongodb:
@@ -11,6 +11,19 @@ services:
       - mongodb:/data/db
     ports:
       - 27017:27017
+
+  node_server:
+    restart: unless-stopped
+    build:
+      dockerfile: ./Dockerfile.dev
+      context: ./server
+    volumes:
+      - /app/node_modules
+      - ./server:/app
+    ports:
+      - 5000:5000
+    depends_on:
+      - mongodb
 
 volumes:
   mongodb:
