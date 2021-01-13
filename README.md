@@ -2,7 +2,7 @@
 
 Time tracker test to be implemented as part of the HabitGrid PWA app.
 
-This projects uses MongoDB and provides a simple docker-compose.yml file to set it up on your system.
+This project uses MongoDB and provides a simple docker-compose.yml file to set it up on your system.
 
 ## To use this project follow the steps:
 
