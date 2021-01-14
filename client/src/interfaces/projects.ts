@@ -31,12 +31,7 @@ export interface IClientProject {
   color: string;
   estimate: String;
   status: string;
-  subprojects: IClientSubproject[];
   company: string;
-}
-
-interface IClientSubproject {
-  name: string;
 }
 
 interface IDbSubproject {
