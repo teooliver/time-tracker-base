@@ -1,4 +1,4 @@
-import { Document } from "mongoose";
+import { Document } from 'mongoose';
 
 export interface IProject extends Document {
   name: string;
@@ -6,11 +6,6 @@ export interface IProject extends Document {
   estimate: String;
   status: string;
   company: string;
-}
-
-interface Subproject {
-  _id: string;
-  name: string;
 }
 
 export interface IProjectsGroupByClient {
