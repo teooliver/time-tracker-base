@@ -1,9 +1,10 @@
 export interface ProjectsGroupByClient {
   _id: string;
-  projects: ProjectsAgregation[];
+  projects: ProjectAgregation[];
 }
 
-export interface ProjectsAgregation {
+// TODO: Find better name for ProjectAgregation
+export interface ProjectAgregation {
   _id: string;
   name: string;
   color: string;
@@ -19,7 +20,6 @@ export interface IDbProject {
   color: string;
   estimate: String;
   status: string;
-  subprojects: IDbSubproject[];
   company: string;
   createdAt: Date;
   updatedAt: Date;
@@ -32,9 +32,4 @@ export interface IClientProject {
   estimate: String;
   status: string;
   company: string;
-}
-
-interface IDbSubproject {
-  _id: string;
-  name: string;
 }

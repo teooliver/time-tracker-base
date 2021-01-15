@@ -1,3 +1,4 @@
+//Task format for the Task Document we get back from the db after agregation.
 export interface IDbTask {
   _id: string;
   name: string;

@@ -1,11 +1,13 @@
-import { Document } from "mongoose";
+import { Document } from 'mongoose';
 
 export interface ITask extends Document {
   name: string;
   timeInSeconds: number;
   initialTime: Date;
   endTime: Date;
-  project?: string;
+  project: string;
+  createdAt: Date;
+  updatedAt: Date;
 }
 
 export interface IGroupedTasks {

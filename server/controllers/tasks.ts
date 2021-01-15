@@ -1,7 +1,7 @@
-import mongoose from "mongoose";
-import { Task } from "../models/task";
-import { Request, Response } from "express";
-import { ITask } from "../interfaces/task";
+import mongoose from 'mongoose';
+import { Task } from '../models/task';
+import { Request, Response } from 'express';
+import { ITask } from '../interfaces/task';
 
 export const getTasks = async (req: Request, res: Response) => {
   try {
@@ -16,7 +16,7 @@ export const getTasks = async (req: Request, res: Response) => {
 export const createTask = async (req: Request, res: Response) => {
   let task: ITask = req.body;
 
-  if (!task.project || task.project === "No Project") {
+  if (!task.project || task.project === 'No Project') {
     delete task.project;
   }
 
@@ -38,7 +38,7 @@ export const updateTask = async (req: Request, res: Response) => {
   console.log(_id, post);
 
   if (!mongoose.Types.ObjectId.isValid(_id.toString()))
-    return res.status(404).send("No post with that id");
+    return res.status(404).send('No post with that id');
 
   const updatedTask = await Task.findByIdAndUpdate(_id, post, {
     new: true,
@@ -51,51 +51,52 @@ export const deleteTask = async (req: Request, res: Response) => {
   const { id: _id } = req.params;
 
   if (!mongoose.Types.ObjectId.isValid(_id.toString()))
-    return res.status(404).send("No post with that id");
+    return res.status(404).send('No post with that id');
 
   const deletedTask = await Task.findByIdAndRemove(_id);
 
-  res.json({ message: "Post deleted successfully" });
+  res.json({ message: 'Post deleted successfully' });
 };
 
+// TODO: Sort tasks by InitialTime
 export const getTasksGroupedByDate = async (req: Request, res: Response) => {
   try {
     const tasks = await Task.aggregate([
       {
         $lookup: {
-          from: "projects",
-          localField: "project",
-          foreignField: "_id",
-          as: "project",
+          from: 'projects',
+          localField: 'project',
+          foreignField: '_id',
+          as: 'project',
         },
       },
       {
         $lookup: {
-          from: "clients",
-          localField: "project.client",
-          foreignField: "_id",
-          as: "client",
+          from: 'clients',
+          localField: 'project.client',
+          foreignField: '_id',
+          as: 'client',
         },
       },
       {
         $project: {
-          _id: "$_id",
-          name: "$name",
-          timeInSeconds: "$timeInSeconds",
-          initialTime: "$initialTime",
-          endTime: "$endTime",
-          project: { $arrayElemAt: ["$project.name", 0] },
-          projectColor: { $arrayElemAt: ["$project.color", 0] },
-          client: { $arrayElemAt: ["$client.name", 0] },
+          _id: '$_id',
+          name: '$name',
+          timeInSeconds: '$timeInSeconds',
+          initialTime: '$initialTime',
+          endTime: '$endTime',
+          project: { $arrayElemAt: ['$project.name', 0] },
+          projectColor: { $arrayElemAt: ['$project.color', 0] },
+          client: { $arrayElemAt: ['$client.name', 0] },
         },
       },
       {
         $group: {
-          _id: { $dateToString: { format: "%Y-%m-%d", date: "$initialTime" } },
-          tasks: { $push: "$$ROOT" },
+          _id: { $dateToString: { format: '%Y-%m-%d', date: '$initialTime' } },
+          tasks: { $push: '$$ROOT' },
           totalTime: {
             $sum: {
-              $divide: [{ $subtract: ["$endTime", "$initialTime"] }, 1000],
+              $divide: [{ $subtract: ['$endTime', '$initialTime'] }, 1000],
             },
           },
         },
