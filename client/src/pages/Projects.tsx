@@ -1,9 +1,9 @@
-import { useState } from "react";
-import { Dialog, DialogOverlay, DialogContent } from "@reach/dialog";
-import { PlusCircle } from "../components/icons/PlusCircle";
-import ProjectsForm from "../components/ProjectsForm";
-import { useGetProjects } from "../hooks/useGetProjects";
-import { Dot } from "../components/icons/Dot";
+import { useState } from 'react';
+import { Dialog, DialogOverlay, DialogContent } from '@reach/dialog';
+import { PlusCircle } from '../components/icons/PlusCircle';
+import ProjectsForm from '../components/ProjectsForm';
+import { useGetProjects } from '../hooks/useGetProjects';
+import { Dot } from '../components/icons/Dot';
 
 const Projects = () => {
   const { data: projects, isLoading, isSuccess, isError } = useGetProjects();
@@ -22,10 +22,18 @@ const Projects = () => {
           </i>
           Add Project
         </button>
-        <Dialog style={{ color: "red" }} isOpen={showDialog} onDismiss={close}>
-          <p>My text is red because the style prop got applied to the div</p>
+
+        <Dialog
+          className='project-form-modal'
+          // style={{ color: 'red' }}
+          isOpen={showDialog}
+          onDismiss={close}
+        >
+          <h2>Create New Project</h2>
           <ProjectsForm />
-          <button onClick={close}>Okay</button>
+          <button className='close-btn' onClick={close}>
+            X
+          </button>
         </Dialog>
       </header>
       <div>
