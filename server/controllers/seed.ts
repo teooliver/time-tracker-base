@@ -1,26 +1,27 @@
-import mongoose from "mongoose";
-import { Client } from "../models/client";
-import { Project } from "../models/project";
-import { Request, Response } from "express";
-import faker from "faker";
-import { Task } from "../models/task";
+import mongoose from 'mongoose';
+import { Client } from '../models/client';
+import { Project } from '../models/project';
+import { Request, Response } from 'express';
+import faker from 'faker';
+import { Task } from '../models/task';
+import { IClient } from '../interfaces/client';
 
 export const PROJECT_COLORS = [
-  "#61e294ff",
-  "#7bcdbaff",
-  "#9799caff",
-  "#bd93d8ff",
-  "#b47aeaff",
-  "#d3d5d4ff",
-  "#a2c5acff",
-  "#9db5b2ff",
-  "#878e99ff",
-  "#7f6a93ff",
+  '#61e294ff',
+  '#7bcdbaff',
+  '#9799caff',
+  '#bd93d8ff',
+  '#b47aeaff',
+  '#d3d5d4ff',
+  '#a2c5acff',
+  '#9db5b2ff',
+  '#878e99ff',
+  '#7f6a93ff',
 ];
 
 export const seedClients = async (req: Request, res: Response) => {
   const createClient = () => {
-    let fakeClient = {
+    let fakeClient: IClient = {
       name: faker.company.companyName(),
     };
     return fakeClient;
@@ -41,6 +42,7 @@ export const seedClients = async (req: Request, res: Response) => {
     await Project.deleteMany();
     await Task.deleteMany();
 
+    // @ts-ignore Monggose not playing nice with Model.create and typescript
     const savedClients = await Client.create(clientsList);
 
     res.status(201).json(savedClients);
@@ -54,10 +56,10 @@ export const seedProjects = async (req: Request, res: Response) => {
     let fakeProject = {
       name: faker.lorem.words(2),
       client: clientsIds[Math.floor(Math.random() * clientsIds.length)],
-      estimate: "",
-      status: "",
+      estimate: '',
+      status: '',
       color: PROJECT_COLORS[Math.floor(Math.random() * PROJECT_COLORS.length)],
-      company: "Company Test",
+      company: 'Company Test',
     };
     return fakeProject;
   };
@@ -74,8 +76,9 @@ export const seedProjects = async (req: Request, res: Response) => {
     await Project.deleteMany();
     await Task.deleteMany();
 
-    const clientsIds = await Client.distinct("_id");
+    const clientsIds = await Client.distinct('_id');
     const projecstList = generateProjectData(5, clientsIds);
+    // @ts-ignore Monggose not playing nice with Model.create and typescript
     const savedProjects = await Project.create(projecstList);
 
     res.status(201).json(savedProjects);
@@ -126,8 +129,9 @@ export const seedTasks = async (req: Request, res: Response) => {
   try {
     await Task.deleteMany();
 
-    const projectsIds = await Project.distinct("_id");
+    const projectsIds = await Project.distinct('_id');
     const projecstList = generateTaskData(20, projectsIds);
+    // @ts-ignore Monggose not playing nice with Model.create and typescript
     const savedProjects = await Task.create(projecstList);
 
     res.status(201).json(savedProjects);
@@ -145,7 +149,7 @@ export const removeAllData = async (req: Request, res: Response) => {
     res
       .status(200)
       .json(
-        "Removed all documents from clients, projects and tasks collections"
+        'Removed all documents from clients, projects and tasks collections'
       );
   } catch (error) {
     res.status(404).json(error);

@@ -1,13 +1,13 @@
 import { Document } from 'mongoose';
-import { IClient } from './client';
-import { IProject } from './project';
-import { ITask } from './task';
+import { IClientDocument } from './client';
+import { IProjectDocument } from './project';
+import { ITaskDocument } from './task';
 
 export interface IWorkSpace extends Document {
   name: string;
-  clients: IClient[];
-  projects: IProject[];
-  tasks: ITask[];
+  clients: IClientDocument[];
+  projects: IProjectDocument[];
+  tasks: ITaskDocument[];
   createdAt: Date;
   updatedAt: Date;
 }
