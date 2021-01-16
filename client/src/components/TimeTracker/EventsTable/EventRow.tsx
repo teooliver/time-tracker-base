@@ -1,14 +1,14 @@
-import React, { FC } from "react";
-import { Dot } from "../../icons/Dot";
-import { Menu, MenuList, MenuButton, MenuItem } from "@reach/menu-button";
-import { IDbTask } from "../../../interfaces/task";
-import { calculateTimer } from "../../../utils/timer";
-import { ThreeDotsVertical } from "../../icons/ThreeDotsVertical";
-import DatePicker from "react-datepicker";
-import CustomDatePickerInput from "./CustomDatePickerInput";
-import { useDeleteTask } from "../../../hooks/useDeleteTask";
-import { useUpdateTask } from "../../../hooks/useUpdateTask";
-import "@reach/menu-button/styles.css";
+import React, { FC } from 'react';
+import { Dot } from '../../icons/Dot';
+import { Menu, MenuList, MenuButton, MenuItem } from '@reach/menu-button';
+import { IDbTask } from '../../../interfaces/task';
+import { calculateTimer } from '../../../utils/timer';
+import { ThreeDotsVertical } from '../../icons/ThreeDotsVertical';
+import DatePicker from 'react-datepicker';
+import CustomDatePickerInput from './CustomDatePickerInput';
+import { useDeleteTask } from '../../../hooks/useDeleteTask';
+import { useUpdateTask } from '../../../hooks/useUpdateTask';
+import '@reach/menu-button/styles.css';
 
 interface Props {
   task: IDbTask;
@@ -43,8 +43,17 @@ const EventRow: FC<Props> = ({ task }) => {
         <div className='task'>
           <span> {task.name}</span>
           <span className='project' style={{ color: task.projectColor }}>
-            <Dot />
-            {task.project} <Dot /> {task.client}
+            {task.project ? (
+              <>
+                <Dot />
+                {task.project} <Dot /> {task.client}
+              </>
+            ) : (
+              <>
+                <Dot />
+                No Project
+              </>
+            )}
           </span>
         </div>
         <div className='rigth-side'>

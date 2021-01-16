@@ -56,7 +56,7 @@ const Projects = () => {
             {isSuccess && projects
               ? projects.map((client) =>
                   client.projects.map((project) => (
-                    <tr>
+                    <tr key={project._id}>
                       <td
                         className='project-list-item'
                         style={{ color: project.color }}

@@ -8,7 +8,6 @@ export interface ProjectCreate {
   estimate?: string;
   status?: string;
   color?: string;
-  company: string;
 }
 
 const createProject = async (newProject: ProjectCreate) => {

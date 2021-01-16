@@ -76,3 +76,14 @@
     border: unset;
   }
 }
+
+.client-dropdown{
+  // background-color: red;
+  [data-reach-listbox-button]{
+    border-radius: .2rem;
+    width: 100%;
+    height: 1.4rem;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+}

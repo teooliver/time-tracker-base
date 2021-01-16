@@ -6,7 +6,6 @@ interface IProject {
   color: string;
   estimate: String;
   status: string;
-  company: string;
 }
 
 export interface IProjectDocument extends IProject, Document {

@@ -14,6 +14,7 @@ const ClientsDropdown: FC<Props> = ({ client, setClient }) => {
   return (
     <div>
       <Listbox
+        className='client-dropdown'
         aria-labelledby='client-dropdown'
         value={client}
         onChange={setClient}

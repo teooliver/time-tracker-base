@@ -1,7 +1,7 @@
-import { FC } from "react";
-import { useGetProjects } from "../../hooks/useGetProjects";
-import { Dot } from "../icons/Dot";
-import { ISelectedProject } from "../TimeTracker/Stopwatch";
+import { FC } from 'react';
+import { useGetProjects } from '../../hooks/useGetProjects';
+import { Dot } from '../icons/Dot';
+import { ISelectedProject } from '../TimeTracker/Stopwatch';
 
 interface Props {
   setSelectedProject: React.Dispatch<React.SetStateAction<ISelectedProject>>;
@@ -30,10 +30,10 @@ const ProjectsDropDown: FC<Props> = ({
         className='project-list-item'
         onClick={() =>
           handleSelection({
-            id: "",
-            name: "No Project",
-            client: "",
-            color: "white",
+            id: '',
+            name: 'No Project',
+            client: '',
+            color: 'white',
           })
         }
       >
@@ -47,6 +47,7 @@ const ProjectsDropDown: FC<Props> = ({
             <ul>
               {client.projects.map((project) => (
                 <li
+                  key={project._id}
                   className='project-list-item'
                   style={{ color: project.color }}
                   onClick={() =>

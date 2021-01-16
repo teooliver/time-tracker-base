@@ -2,8 +2,8 @@
 export interface IDbTask {
   _id: string;
   name: string;
-  project: string;
-  projectColor: string;
+  project?: string;
+  projectColor?: string;
   client: string;
   timeInSeconds: number;
   initialTime: Date | null;
