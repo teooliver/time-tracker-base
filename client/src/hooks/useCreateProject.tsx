@@ -4,7 +4,7 @@ import { API_URL } from '../utils/api-client';
 
 export interface ProjectCreate {
   name: string;
-  client: string;
+  client?: string;
   estimate?: string;
   status?: string;
   color?: string;

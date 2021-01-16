@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { useCreateProject } from '../../hooks/useCreateProject';
+import { ProjectCreate, useCreateProject } from '../../hooks/useCreateProject';
 import ClientsDropdown from './ClientsDropdown';
 
 const ProjectsForm = () => {
   const [name, setName] = useState('');
-  const [client, setClient] = useState('');
+  const [client, setClient] = useState('No Project');
+  const [projectColor, setProjectColor] = useState('white');
   const createProjectMutation = useCreateProject();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -12,11 +13,18 @@ const ProjectsForm = () => {
   };
 
   const handleCreateProject = () => {
-    createProjectMutation.mutate({
-      name,
-      client,
-      color: 'white',
-    });
+    const newProject: ProjectCreate = {
+      name: name,
+    };
+    if (client !== 'No Project' || client.length === 0) {
+      newProject.client = client;
+    }
+    if (projectColor) {
+      newProject.color = projectColor;
+    }
+
+    console.log(newProject);
+    createProjectMutation.mutate(newProject);
   };
 
   return (

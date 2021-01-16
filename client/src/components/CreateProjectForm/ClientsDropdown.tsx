@@ -9,7 +9,6 @@ interface Props {
 
 const ClientsDropdown: FC<Props> = ({ client, setClient }) => {
   const { data: clients, isLoading, isSuccess, isError } = useGetClients();
-  console.log(clients);
 
   return (
     <div>
