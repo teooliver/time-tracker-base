@@ -1,5 +1,5 @@
-import mongoose, { Schema } from "mongoose";
-import { ITask } from "../interfaces/task";
+import mongoose, { Schema } from 'mongoose';
+import { ITaskDocument } from '../interfaces/task';
 
 const TaskSchema: Schema = new Schema(
   {
@@ -9,7 +9,7 @@ const TaskSchema: Schema = new Schema(
     endTime: Date,
     project: {
       type: Schema.Types.ObjectId,
-      ref: "Project",
+      ref: 'Project',
     },
   },
   {
@@ -17,6 +17,6 @@ const TaskSchema: Schema = new Schema(
   }
 );
 
-const Task = mongoose.model<ITask>("Task", TaskSchema, "tasks");
+const Task = mongoose.model<ITaskDocument>('Task', TaskSchema, 'tasks');
 
 export { Task };

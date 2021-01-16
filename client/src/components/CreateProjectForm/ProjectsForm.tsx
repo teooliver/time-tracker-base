@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+import ClientsDropdown from './ClientsDropdown';
 
 const ProjectsForm = () => {
   const [name, setName] = useState('');
-  const [client, setClient] = useState('');
+  const [client, setClient] = useState('No Project');
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -21,20 +22,13 @@ const ProjectsForm = () => {
         />
         <span className='project-color'></span>
       </div>
-      <input
-        placeholder='Client'
-        name='client'
-        id='client'
-        type='text'
-        value={client}
-        onChange={(e) => setClient(e.target.value)}
-      />
+      <ClientsDropdown client={client} setClient={setClient} />
       <input
         placeholder='Workspace'
         name='client'
         id='client'
         type='text'
-        value={client}
+        // value='My Workspace'
         onChange={(e) => setClient(e.target.value)}
       />
       <button className='btn btn-primary'>Create Project</button>

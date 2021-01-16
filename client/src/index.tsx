@@ -1,13 +1,14 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import App from "./App";
-import reportWebVitals from "./reportWebVitals";
-import TaskProvider from "./context/TaskContext";
-import { QueryClient, QueryClientProvider } from "react-query";
-import { BrowserRouter } from "react-router-dom";
-import "react-datepicker/dist/react-datepicker.css";
-import "@reach/dialog/styles.css";
-import "./styles/styles.scss";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+import TaskProvider from './context/TaskContext';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import { BrowserRouter } from 'react-router-dom';
+import 'react-datepicker/dist/react-datepicker.css';
+import '@reach/listbox/styles.css';
+import '@reach/dialog/styles.css';
+import './styles/styles.scss';
 
 const queryClient = new QueryClient();
 
@@ -21,7 +22,7 @@ ReactDOM.render(
       </TaskProvider>
     </QueryClientProvider>
   </React.StrictMode>,
-  document.getElementById("root")
+  document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function

@@ -11,8 +11,6 @@ export interface TaskCreate {
 }
 
 const createTask = async (newTask: TaskCreate) => {
-  console.log(newTask);
-
   const res = await fetch(`${API_URL}/tasks`, {
     method: 'POST',
     headers: {

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Dialog, DialogOverlay, DialogContent } from '@reach/dialog';
 import { PlusCircle } from '../components/icons/PlusCircle';
-import ProjectsForm from '../components/ProjectsForm';
+import ProjectsForm from '../components/CreateProjectForm/ProjectsForm';
 import { useGetProjects } from '../hooks/useGetProjects';
 import { Dot } from '../components/icons/Dot';
 
