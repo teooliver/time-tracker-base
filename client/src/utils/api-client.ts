@@ -1,11 +1,11 @@
-import { IClientTask, IDbTask, GroupedTasks } from "../interfaces/task";
+// import { IClientTask, IDbTask, GroupedTasks } from '../interfaces/task';
 
-export const API_URL = "http://localhost:5000";
+export const API_URL = 'http://localhost:5000';
 
-export const fetchTasks = async () => {
-  const res = await fetch(`${API_URL}/tasks`).then((res) => res.json());
-  return res as IDbTask[];
-};
+// export const fetchTasks = async () => {
+//   const res = await fetch(`${API_URL}/tasks`).then((res) => res.json());
+//   return res as IDbTask[];
+// };
 
 // export const createTask = async (newTask: IClientTask) => {
 //   const res = await fetch(`${API_URL}/tasks`, {
@@ -50,7 +50,7 @@ export const fetchTasks = async () => {
 //   return res as GroupedTasks[];
 // };
 
-export const fetchProjects = async () => {
-  const res = await fetch(`${API_URL}/projects`).then((res) => res.json());
-  return res as IDbTask[];
-};
+// export const fetchProjects = async () => {
+//   const res = await fetch(`${API_URL}/projects`).then((res) => res.json());
+//   return res as IDbTask[];
+// };

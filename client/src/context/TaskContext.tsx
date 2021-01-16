@@ -1,13 +1,13 @@
-import React, { createContext, useState } from "react";
-import { IClientTask } from "../interfaces/task";
+import React, { createContext, useState } from 'react';
+import { TaskCreate } from '../hooks/useCreateTask';
 
 interface TaskContextDefaults {
-  task: IClientTask;
-  setTask: React.Dispatch<React.SetStateAction<IClientTask>>;
+  task: TaskCreate;
+  setTask: React.Dispatch<React.SetStateAction<TaskCreate>>;
 }
 
-const defaultTask: IClientTask = {
-  name: "",
+const defaultTask: TaskCreate = {
+  name: '',
   timeInSeconds: 0,
   endTime: new Date(),
   initialTime: new Date(),
@@ -19,7 +19,7 @@ export const TaskContext = createContext<TaskContextDefaults>({
 });
 
 const TaskProvider = (props: any) => {
-  const [task, setTask] = useState<IClientTask>(defaultTask);
+  const [task, setTask] = useState<TaskCreate>(defaultTask);
 
   return <TaskContext.Provider value={{ task, setTask }} {...props} />;
 };

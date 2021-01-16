@@ -1,15 +1,23 @@
-import { useMutation, useQueryClient } from "react-query";
-import { IClientTask, IDbTask } from "../interfaces/task";
-import { API_URL } from "../utils/api-client";
+import { useMutation, useQueryClient } from 'react-query';
+import { IDbTask } from '../interfaces/task';
+import { API_URL } from '../utils/api-client';
 
-const createTask = async (newTask: IClientTask) => {
+export interface TaskCreate {
+  name?: string;
+  project?: string;
+  timeInSeconds?: number;
+  initialTime?: Date | null;
+  endTime?: Date | null;
+}
+
+const createTask = async (newTask: TaskCreate) => {
   console.log(newTask);
 
   const res = await fetch(`${API_URL}/tasks`, {
-    method: "POST",
+    method: 'POST',
     headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
     },
     body: JSON.stringify(newTask),
   }).then((res) => res.json());
@@ -18,12 +26,11 @@ const createTask = async (newTask: IClientTask) => {
 };
 
 export const useCreateTask = () => {
-  console.log("flskdjlfk");
   const queryClient = useQueryClient();
 
   const createTaskMutation = useMutation(createTask, {
     onSuccess: () => {
-      queryClient.invalidateQueries("tasks");
+      queryClient.invalidateQueries('tasks');
     },
   });
 
