@@ -49,7 +49,7 @@
       white-space: nowrap;
       &.client-name{
         color: white;
-        min-width: fit-content;
+        text-overflow: ellipsis;
       }
       div {
         display: flex;
