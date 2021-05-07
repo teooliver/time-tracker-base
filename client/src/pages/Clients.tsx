@@ -1,4 +1,5 @@
 import { PlusCircle } from '../components/icons/PlusCircle';
+import { XCircle } from '../components/icons/XCircle';
 import { useGetClients } from '../hooks/useGetClients';
 
 const Clients = () => {
@@ -19,8 +20,17 @@ const Clients = () => {
           Add Client
         </button>
       </header>
-      <div>
-        {clients ? clients.map((client) => <p>{client.name}</p>) : null}
+      <div className='clients-list'>
+        {clients
+          ? clients.map((client) => (
+              <div className='client-pill'>
+                <span>{client.name}</span>
+                <span onClick={() => console.log('clicked on tag')}>
+                  <XCircle size='1rem' />
+                </span>
+              </div>
+            ))
+          : null}
       </div>
     </div>
   );
