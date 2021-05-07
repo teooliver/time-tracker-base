@@ -1,12 +1,12 @@
-import React from "react";
-import { useQueryClient } from "react-query";
-import { NavLink } from "react-router-dom";
-import { API_URL } from "../utils/api-client";
-import { ClockHistory } from "./icons/ClockHistory";
-import { FileText } from "./icons/FileText";
-import { Folder } from "./icons/Folder";
-import { PersonSquare } from "./icons/PersonSquare";
-import { Tags } from "./icons/Tags";
+import React from 'react';
+import { useQueryClient } from 'react-query';
+import { NavLink } from 'react-router-dom';
+import { API_URL } from '../utils/api-client';
+import { ClockHistory } from './icons/ClockHistory';
+import { FileText } from './icons/FileText';
+import { Folder } from './icons/Folder';
+import { PersonSquare } from './icons/PersonSquare';
+import { Tags } from './icons/Tags';
 
 const Navbar = () => {
   const queryClient = useQueryClient();
@@ -14,8 +14,8 @@ const Navbar = () => {
   const handleRemoveAllData = () => {
     try {
       fetch(`${API_URL}/seed/remove`)
-        .then((res) => queryClient.invalidateQueries("projects"))
-        .then((res) => queryClient.invalidateQueries("tasks"));
+        .then((res) => queryClient.invalidateQueries('projects'))
+        .then((res) => queryClient.invalidateQueries('tasks'));
     } catch (error) {
       console.log(error);
     }
@@ -24,9 +24,10 @@ const Navbar = () => {
     try {
       fetch(`${API_URL}/seed/clients`)
         .then((res) => fetch(`${API_URL}/seed/projects`))
-        .then((res) => queryClient.invalidateQueries("projects"))
+        .then((res) => queryClient.invalidateQueries('projects'))
         .then((res) => fetch(`${API_URL}/seed/tasks`))
-        .then((res) => queryClient.invalidateQueries("tasks"));
+        .then((res) => queryClient.invalidateQueries('tasks'))
+        .then((res) => queryClient.invalidateQueries('clients'));
     } catch (error) {
       console.log(error);
     }

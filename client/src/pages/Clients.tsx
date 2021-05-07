@@ -2,7 +2,12 @@ import { PlusCircle } from '../components/icons/PlusCircle';
 import { useGetClients } from '../hooks/useGetClients';
 
 const Clients = () => {
-  const { data: clients, isLoading, isSuccess, isError } = useGetClients();
+  const { data: clients, isLoading } = useGetClients();
+
+  if (isLoading) {
+    <div>Loading</div>;
+  }
+
   return (
     <div className='Clients'>
       <header>
@@ -15,7 +20,7 @@ const Clients = () => {
         </button>
       </header>
       <div>
-        {clients ? clients?.map((client) => <p>{client.name}</p>) : null}
+        {clients ? clients.map((client) => <p>{client.name}</p>) : null}
       </div>
     </div>
   );
