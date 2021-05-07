@@ -47,6 +47,10 @@
       padding: 10px;
       padding-left: 10px;
       white-space: nowrap;
+      &.client-name{
+        color: white;
+        min-width: fit-content;
+      }
       div {
         display: flex;
         flex-direction: row;

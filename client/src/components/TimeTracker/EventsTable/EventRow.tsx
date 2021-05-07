@@ -41,7 +41,7 @@ const EventRow: FC<Props> = ({ task }) => {
     <>
       <li className='list-item'>
         <div className='task'>
-          <span> {task.name}</span>
+          <span className='task-name'> {task.name}</span>
           <span className='project' style={{ color: task.projectColor }}>
             {task.project ? (
               <>
