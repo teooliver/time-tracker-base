@@ -89,7 +89,7 @@ const EventRow: FC<Props> = ({ task }) => {
         </span>
 
         <span className='menu'>
-          <Menu>
+          <MenuButton>
             <MenuButton>
               <ThreeDotsVertical />
             </MenuButton>
@@ -98,7 +98,7 @@ const EventRow: FC<Props> = ({ task }) => {
                 Delete
               </MenuItem>
             </MenuList>
-          </Menu>
+          </MenuButton>
         </span>
       </div>
     </li>
