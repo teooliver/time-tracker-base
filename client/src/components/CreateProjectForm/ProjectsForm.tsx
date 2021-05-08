@@ -4,7 +4,8 @@ import ClientsDropdown from './ClientsDropdown';
 
 const ProjectsForm = () => {
   const [name, setName] = useState('');
-  const [client, setClient] = useState('No Project');
+  const [client, setClient] = useState('No Client');
+  const [workspace, setWorkspace] = useState('');
   const [projectColor, setProjectColor] = useState('white');
   const createProjectMutation = useCreateProject();
 
@@ -16,14 +17,13 @@ const ProjectsForm = () => {
     const newProject: ProjectCreate = {
       name: name,
     };
-    if (client !== 'No Project' || client.length === 0) {
+    if (client !== 'No Client' || client.length === 0) {
       newProject.client = client;
     }
     if (projectColor) {
       newProject.color = projectColor;
     }
 
-    console.log(newProject);
     createProjectMutation.mutate(newProject);
   };
 
@@ -46,8 +46,8 @@ const ProjectsForm = () => {
         name='client'
         id='client'
         type='text'
-        // value='My Workspace'
-        onChange={(e) => setClient(e.target.value)}
+        value={workspace}
+        onChange={(e) => setWorkspace(e.target.value)}
       />
       <button className='btn btn-primary' onClick={handleCreateProject}>
         Create Project

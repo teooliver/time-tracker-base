@@ -11,19 +11,19 @@ const ClientsDropdown: FC<Props> = ({ client, setClient }) => {
   const { data: clients, isLoading, isSuccess, isError } = useGetClients();
 
   return (
-    <div>
+    <>
       <Listbox
         className='client-dropdown'
         aria-labelledby='client-dropdown'
         value={client}
         onChange={setClient}
       >
-        <ListboxOption value='No Project'>No Project</ListboxOption>
+        <ListboxOption value='No Client'>No Client</ListboxOption>
         {clients?.map((client) => (
           <ListboxOption value={client._id}>{client.name}</ListboxOption>
         ))}
       </Listbox>
-    </div>
+    </>
   );
 };
 
