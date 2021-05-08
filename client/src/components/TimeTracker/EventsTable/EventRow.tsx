@@ -27,78 +27,81 @@ const EventRow: FC<Props> = ({ task }) => {
   );
   const [hours, minutes, seconds] = calculateTimer(timeInSeconds);
 
-  const handleStartDateChange = (date: Date) => {
-    // TODO: DEBOUNCE MUTATE
-    updateTaskMutation.mutate({ ...task, initialTime: date });
+  // TODO: DEBOUNCE MUTATE
+  const handleStartDateChange = (date: Date | [Date, Date] | null) => {
+    if (!Array.isArray(date)) {
+      updateTaskMutation.mutate({ ...task, initialTime: date });
+    }
   };
 
-  const handleEndDateChange = (date: Date) => {
-    // TODO: DEBOUNCE MUTATE
-    updateTaskMutation.mutate({ ...task, endTime: date });
+  // TODO: DEBOUNCE MUTATE
+  const handleEndDateChange = (date: Date | [Date, Date] | null) => {
+    if (!Array.isArray(date)) {
+      updateTaskMutation.mutate({ ...task, endTime: date });
+    }
   };
 
   return (
-    <>
-      <li className='list-item'>
-        <div className='task'>
-          <span className='task-name'> {task.name}</span>
-          <span className='project' style={{ color: task.projectColor }}>
-            {task.project ? (
-              <>
-                <Dot />
-                {task.project} <Dot /> {task.client}
-              </>
-            ) : (
-              <>
-                <Dot />
-                No Project
-              </>
-            )}
-          </span>
-        </div>
-        <div className='rigth-side'>
-          <span className='date-picker'>
-            <DatePicker
-              selected={task.initialTime ? new Date(task.initialTime) : null}
-              // @ts-ignore
-              onChange={(date) => handleStartDateChange(date)}
-              timeInputLabel='Time:'
-              // dateFormat='MM/dd/yyyy h:mm aa'
-              dateFormat='h:mm aa'
-              showTimeInput
-              customInput={<CustomDatePickerInput />}
-            />
-          </span>
-          <span>-</span>
-          <span className='date-picker'>
-            <DatePicker
-              selected={task.endTime ? new Date(task.endTime) : null}
-              // @ts-ignore
-              onChange={(date) => handleEndDateChange(date)}
-              timeInputLabel='Time:'
-              dateFormat='h:mm aa'
-              showTimeInput
-              customInput={<CustomDatePickerInput />}
-            />
-          </span>
-          <span className='total'>
-            {hours}:{minutes}:{seconds}
-          </span>
-          <span className='menu'>
-            <Menu>
-              <MenuButton>
-                <ThreeDotsVertical />
-              </MenuButton>
-              <MenuList>
-                <MenuItem onSelect={() => deletePostMutation.mutate(task._id!)}>
-                  Delete
-                </MenuItem>
-              </MenuList>
-            </Menu>
-          </span>
-        </div>
-      </li>
-    </>
+    <li className='list-item'>
+      <div className='task'>
+        <span className='task-name'> {task.name}</span>
+        <span className='project' style={{ color: task.projectColor }}>
+          {task.project ? (
+            <>
+              <Dot />
+              {task.project} <Dot /> {task.client}
+            </>
+          ) : (
+            <>
+              <Dot />
+              No Project
+            </>
+          )}
+        </span>
+      </div>
+      <div className='rigth-side'>
+        <span className='date-picker'>
+          <DatePicker
+            selected={task.initialTime ? new Date(task.initialTime) : null}
+            onChange={(date) => handleStartDateChange(date)}
+            timeInputLabel='Time:'
+            dateFormat='h:mm aa'
+            showTimeInput
+            customInput={<CustomDatePickerInput />}
+          />
+        </span>
+
+        <span>-</span>
+
+        <span className='date-picker'>
+          <DatePicker
+            selected={task.endTime ? new Date(task.endTime) : null}
+            onChange={(date) => handleEndDateChange(date)}
+            timeInputLabel='Time:'
+            dateFormat='h:mm aa'
+            showTimeInput
+            customInput={<CustomDatePickerInput />}
+          />
+        </span>
+
+        <span className='total'>
+          {hours}:{minutes}:{seconds}
+        </span>
+
+        <span className='menu'>
+          <Menu>
+            <MenuButton>
+              <ThreeDotsVertical />
+            </MenuButton>
+            <MenuList>
+              <MenuItem onSelect={() => deletePostMutation.mutate(task._id!)}>
+                Delete
+              </MenuItem>
+            </MenuList>
+          </Menu>
+        </span>
+      </div>
+    </li>
   );
 };
 
