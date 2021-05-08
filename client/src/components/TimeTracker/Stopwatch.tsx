@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { calculateTimer } from "../../utils/timer";
-import Controls from "./Controls";
-import EditableInput from "./EditableInput";
-import { Folder } from "../icons/Folder";
-import { Dot } from "../icons/Dot";
-import ProjectsDropDown from "../ProjectsDropdown/ProjectsDropDown";
+import React, { useEffect, useState } from 'react';
+import { calculateTimer } from '../../utils/timer';
+import Controls from './Controls';
+import EditableInput from './EditableInput';
+import { Folder } from '../Icons/Folder';
+import { Dot } from '../Icons/Dot';
+import ProjectsDropDown from '../ProjectsDropdown/ProjectsDropDown';
 
 export interface ISelectedProject {
   id: string;
@@ -18,10 +18,10 @@ const Stopwatch = () => {
   const [timerArray, setTimerArray] = useState<Array<number | string>>([]);
   const [isProjectDropwdownOpen, setIsProjectDropwdownOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState<ISelectedProject>({
-    id: "",
-    name: "",
-    client: "",
-    color: "",
+    id: '',
+    name: '',
+    client: '',
+    color: '',
   });
 
   useEffect(() => {

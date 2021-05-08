@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { useGetProjects } from '../../hooks/useGetProjects';
-import { Dot } from '../icons/Dot';
+import { Dot } from '../Icons/Dot';
 import { ISelectedProject } from '../TimeTracker/Stopwatch';
 
 interface Props {

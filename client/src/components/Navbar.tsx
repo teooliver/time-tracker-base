@@ -2,11 +2,11 @@ import React from 'react';
 import { useQueryClient } from 'react-query';
 import { NavLink } from 'react-router-dom';
 import { API_URL } from '../utils/api-client';
-import { ClockHistory } from './icons/ClockHistory';
-import { FileText } from './icons/FileText';
-import { Folder } from './icons/Folder';
-import { PersonSquare } from './icons/PersonSquare';
-import { Tags } from './icons/Tags';
+import { ClockHistory } from './Icons/ClockHistory';
+import { FileText } from './Icons/FileText';
+import { Folder } from './Icons/Folder';
+import { PersonSquare } from './Icons/PersonSquare';
+import { Tags } from './Icons/Tags';
 
 const Navbar = () => {
   const queryClient = useQueryClient();

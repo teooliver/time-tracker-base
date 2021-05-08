@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { Dialog, DialogOverlay, DialogContent } from '@reach/dialog';
-import { PlusCircle } from '../components/icons/PlusCircle';
+import { PlusCircle } from '../components/Icons/PlusCircle';
 import ProjectsForm from '../components/CreateProjectForm/ProjectsForm';
 import { useGetProjects } from '../hooks/useGetProjects';
-import { Dot } from '../components/icons/Dot';
+import { Dot } from '../components/Icons/Dot';
 
 const Projects = () => {
   const { data: projects, isLoading, isSuccess, isError } = useGetProjects();

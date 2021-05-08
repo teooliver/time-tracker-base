@@ -1,10 +1,10 @@
-import React, { FC, useContext, useState } from "react";
-import { TaskContext } from "../../context/TaskContext";
-import { useCreateTask } from "../../hooks/useCreateTask";
-import { PlayCircle } from "../icons/PlayCircle";
-import { StopCircle } from "../icons/StopCircle";
-import { XCircle } from "../icons/XCircle";
-import { ISelectedProject } from "./Stopwatch";
+import React, { FC, useContext, useState } from 'react';
+import { TaskContext } from '../../context/TaskContext';
+import { useCreateTask } from '../../hooks/useCreateTask';
+import { PlayCircle } from '../Icons/PlayCircle';
+import { StopCircle } from '../Icons/StopCircle';
+import { XCircle } from '../Icons/XCircle';
+import { ISelectedProject } from './Stopwatch';
 
 interface ControlsProps {
   setTimeInSeconds: Function;
@@ -40,13 +40,13 @@ const Controls: FC<ControlsProps> = ({
       endTime: endTime,
       project: selectedProject.id,
     });
-    setTask({ name: "" });
+    setTask({ name: '' });
   };
   const handleResetButton = () => {
     clearInterval(intervalId);
     setTimeInSeconds(0);
     setIsPlaying(false);
-    setTask({ name: "" });
+    setTask({ name: '' });
   };
 
   return (

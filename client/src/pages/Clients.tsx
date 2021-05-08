@@ -1,5 +1,5 @@
-import { PlusCircle } from '../components/icons/PlusCircle';
-import { XCircle } from '../components/icons/XCircle';
+import { PlusCircle } from '../components/Icons/PlusCircle';
+import { XCircle } from '../components/Icons/XCircle';
 import { useGetClients } from '../hooks/useGetClients';
 
 const Clients = () => {
