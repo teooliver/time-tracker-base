@@ -1,6 +1,6 @@
-import mongoose from "mongoose";
-import { Client } from "../models/client";
-import { Request, Response } from "express";
+import mongoose from 'mongoose';
+import { Client } from '../models/client';
+import { Request, Response } from 'express';
 
 export const getClients = async (req: Request, res: Response) => {
   try {
@@ -24,4 +24,15 @@ export const createClient = async (req: Request, res: Response) => {
   } catch (error) {
     res.status(409).json(error);
   }
+};
+
+export const deleteClient = async (req: Request, res: Response) => {
+  const { id: _id } = req.params;
+
+  if (!mongoose.Types.ObjectId.isValid(_id.toString()))
+    return res.status(404).send('No post with that id');
+
+  const deletedClient = await Client.findByIdAndRemove(_id);
+
+  res.json({ message: 'Client deleted successfully' });
 };

@@ -1,7 +1,7 @@
-import mongoose from "mongoose";
-import faker from "faker";
+import mongoose from 'mongoose';
+import faker from 'faker';
 // import { IClient } from "../../interfaces/client";
-import { Client } from "../../models/client";
+import { Client } from '../../models/client';
 
 const createClient = () => {
   let fakeClient = {
@@ -10,7 +10,7 @@ const createClient = () => {
   return fakeClient;
 };
 
-const generateClientsDate = (amount: number) => {
+const generateClientsData = (amount: number) => {
   let clients = [];
   for (let i: number = 0; i < amount; i++) {
     clients.push(createClient());
@@ -18,21 +18,21 @@ const generateClientsDate = (amount: number) => {
   return clients;
 };
 
-const clientsList = generateClientsDate(5);
+const clientsList = generateClientsData(5);
 const jsonClientList = JSON.stringify(clientsList);
 console.log(jsonClientList);
 
-const saveFakeClientsDate = async () => {
+const saveFakeClientsData = async () => {
   try {
     // @ts-ignore
     await Client.create(jsonClientList);
-    console.log("success");
+    console.log('success');
   } catch (error) {
     console.log(error);
   }
 };
 
-saveFakeClientsDate();
+saveFakeClientsData();
 
 // const createProject = () => {
 //   const fakeProject = {
