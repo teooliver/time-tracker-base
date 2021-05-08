@@ -17,10 +17,13 @@ const ClientsDropdown: FC<Props> = ({ client, setClient }) => {
         aria-labelledby='client-dropdown'
         value={client}
         onChange={setClient}
+        data-testid='client-dropdown'
       >
         <ListboxOption value='No Client'>No Client</ListboxOption>
         {clients?.map((client) => (
-          <ListboxOption value={client._id}>{client.name}</ListboxOption>
+          <ListboxOption key={client._id} value={client._id}>
+            {client.name}
+          </ListboxOption>
         ))}
       </Listbox>
     </>
