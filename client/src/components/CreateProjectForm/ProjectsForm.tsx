@@ -6,7 +6,7 @@ const ProjectsForm = () => {
   const [name, setName] = useState('');
   const [client, setClient] = useState('No Client');
   const [workspace, setWorkspace] = useState('');
-  const [projectColor, _setProjectColor] = useState('white');
+  const [projectColor] = useState('white');
   const createProjectMutation = useCreateProject();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {

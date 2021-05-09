@@ -18,15 +18,13 @@ const queryClient = new QueryClient({
 describe('Test ProjectsDropDown Component', () => {
   test('Render ProjectsDropDown', async () => {
     const Wrapper = () => {
-      const [selectedProject, setSelectedProject] = useState<ISelectedProject>({
+      const [, setSelectedProject] = useState<ISelectedProject>({
         id: '',
         name: '',
         client: '',
         color: '',
       });
-      const [isProjectDropwdownOpen, setIsProjectDropwdownOpen] = useState(
-        true
-      );
+      const [, setIsProjectDropwdownOpen] = useState(true);
 
       return (
         <QueryClientProvider client={queryClient}>

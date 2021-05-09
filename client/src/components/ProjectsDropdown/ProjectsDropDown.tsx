@@ -12,7 +12,7 @@ const ProjectsDropDown: FC<Props> = ({
   setSelectedProject,
   setIsProjectDropwdownOpen,
 }) => {
-  const { data: projects, isLoading, isSuccess, isError } = useGetProjects();
+  const { data: projects, isSuccess } = useGetProjects();
 
   const handleSelection = (projectName: ISelectedProject) => {
     setSelectedProject(projectName);
