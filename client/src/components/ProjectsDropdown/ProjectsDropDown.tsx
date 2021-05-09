@@ -25,6 +25,7 @@ const ProjectsDropDown: FC<Props> = ({
         className='projects-dropdown-search'
         type='text'
         placeholder='Search Projects'
+        data-testid='projects-dropdown'
       />
       <div
         className='project-list-item'
@@ -42,7 +43,7 @@ const ProjectsDropDown: FC<Props> = ({
       </div>
       {isSuccess &&
         projects?.map((client) => (
-          <>
+          <div key={client._id}>
             <div className='client-name'>{client._id}</div>
             <ul>
               {client.projects.map((project) => (
@@ -64,7 +65,7 @@ const ProjectsDropDown: FC<Props> = ({
                 </li>
               ))}
             </ul>
-          </>
+          </div>
         ))}
     </div>
   );
