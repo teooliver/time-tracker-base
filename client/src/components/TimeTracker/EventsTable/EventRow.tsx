@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
-import { Dot } from '../../Icons/Dot';
+import { Dot } from '../../icons/Dot';
 import { Menu, MenuList, MenuButton, MenuItem } from '@reach/menu-button';
 import { IDbTask } from '../../../interfaces/task';
 import { calculateTimer } from '../../../utils/timer';
-import { ThreeDotsVertical } from '../../Icons/ThreeDotsVertical';
+import { ThreeDotsVertical } from '../../icons/ThreeDotsVertical';
 import DatePicker from 'react-datepicker';
 import CustomDatePickerInput from './CustomDatePickerInput';
 import { useDeleteTask } from '../../../hooks/useDeleteTask';
