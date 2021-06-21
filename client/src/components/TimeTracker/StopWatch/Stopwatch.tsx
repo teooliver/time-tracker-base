@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { calculateTimer } from '../../../utils/timer';
 import Controls from '../Controls';
 import EditableInput from '../EditableInput/EditableInput';
-import { Folder } from '../../Icons/Folder';
+import { Folder } from '../../icons/Folder';
 import ProjectsDropDown from '../../ProjectsDropdown/ProjectsDropDown';
+import { Dot } from '../../icons/Dot';
 
 export interface ISelectedProject {
   id: string;

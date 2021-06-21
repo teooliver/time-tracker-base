@@ -1,6 +1,5 @@
 import React, { ComponentProps } from 'react';
 import { Story } from '@storybook/react';
-
 import { Calendar3 } from './Calendar3';
 
 export default {

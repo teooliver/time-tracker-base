@@ -1,12 +1,7 @@
 import { FC } from 'react';
 import { useGetProjects } from '../../hooks/useGetProjects';
-<<<<<<< HEAD
-import { Dot } from '../Icons/Dot';
-import { ISelectedProject } from '../TimeTracker/StopWatch/Stopwatch';
-=======
 import { Dot } from '../icons/Dot';
-import { ISelectedProject } from '../TimeTracker/Stopwatch';
->>>>>>> c66a153ce8fe3c552fa500ff1bd8ed5f24a8c46a
+import { ISelectedProject } from '../TimeTracker/StopWatch/Stopwatch';
 
 interface Props {
   setSelectedProject: React.Dispatch<React.SetStateAction<ISelectedProject>>;

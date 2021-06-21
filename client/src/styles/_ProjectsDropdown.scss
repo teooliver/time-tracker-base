@@ -15,7 +15,7 @@
   -webkit-box-shadow: -2px 5px 21px 0px $table-shadow;
   -moz-box-shadow: -2px 5px 21px 0px $table-shadow;
   overflow: scroll;
-
+  scrollbar-color: gray $body-background;
   .project-list-item {
     display: flex;
     flex-direction: row;
