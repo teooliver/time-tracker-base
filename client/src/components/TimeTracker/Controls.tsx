@@ -4,7 +4,7 @@ import { useCreateTask } from '../../hooks/useCreateTask';
 import { PlayCircle } from '../Icons/PlayCircle';
 import { StopCircle } from '../Icons/StopCircle';
 import { XCircle } from '../Icons/XCircle';
-import { ISelectedProject } from './Stopwatch';
+import { ISelectedProject } from './StopWatch/Stopwatch';
 
 interface ControlsProps {
   setTimeInSeconds: Function;

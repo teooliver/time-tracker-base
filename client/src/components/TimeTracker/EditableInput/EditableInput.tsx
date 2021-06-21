@@ -1,5 +1,5 @@
-import React, { FC, useContext, useState } from "react";
-import { TaskContext } from "../../context/TaskContext";
+import React, { FC, useContext, useState } from 'react';
+import { TaskContext } from '../../../context/TaskContext';
 
 interface EditableInputProps {
   // eventName: string;
@@ -20,6 +20,7 @@ const EditableInput: FC<EditableInputProps> = () => {
     <div className='EditableInput'>
       {isEditing ? (
         <input
+          autoFocus
           className='event-name-input'
           type='text'
           value={task.name}
@@ -29,8 +30,9 @@ const EditableInput: FC<EditableInputProps> = () => {
           onKeyPress={onKeyUp}
         />
       ) : (
+        // Todo: hover::cursor: text;
         <p className='event-name-input' onClick={() => setIsEditing(true)}>
-          {task?.name ? task.name : "What are you working on?"}
+          {task?.name ? task.name : 'What are you working on?'}
         </p>
       )}
     </div>

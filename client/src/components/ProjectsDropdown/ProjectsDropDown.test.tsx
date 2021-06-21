@@ -3,7 +3,7 @@ import { cleanup, render, fireEvent, waitFor } from '@testing-library/react';
 
 import { QueryClient, QueryClientProvider } from 'react-query';
 import ProjectsDropDown from './ProjectsDropDown';
-import { ISelectedProject } from '../TimeTracker/Stopwatch';
+import { ISelectedProject } from '../TimeTracker/StopWatch/Stopwatch';
 
 afterAll(cleanup);
 

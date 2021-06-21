@@ -4,7 +4,7 @@ import { Story } from '@storybook/react';
 import { Calendar3 } from './Calendar3';
 
 export default {
-  title: 'TimeTracker/Calendar3',
+  title: 'TimeTracker/Icons/Calendar3',
   component: Calendar3,
 };
 
