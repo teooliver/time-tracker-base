@@ -1,10 +1,19 @@
 import React, { useEffect, useState } from 'react';
+<<<<<<< HEAD:client/src/components/TimeTracker/StopWatch/Stopwatch.tsx
 import { calculateTimer } from '../../../utils/timer';
 import Controls from '../Controls';
 import EditableInput from '../EditableInput/EditableInput';
 import { Folder } from '../../Icons/Folder';
 import { Dot } from '../../Icons/Dot';
 import ProjectsDropDown from '../../ProjectsDropdown/ProjectsDropDown';
+=======
+import { calculateTimer } from '../../utils/timer';
+import Controls from './Controls';
+import EditableInput from './EditableInput';
+import { Folder } from '../icons/Folder';
+import { Dot } from '../icons/Dot';
+import ProjectsDropDown from '../ProjectsDropdown/ProjectsDropDown';
+>>>>>>> c66a153ce8fe3c552fa500ff1bd8ed5f24a8c46a:client/src/components/TimeTracker/Stopwatch.tsx
 
 export interface ISelectedProject {
   id: string;
