@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { calculateTimer } from '../../../utils/timer';
-import Controls from '../Controls';
+import Controls from '../Controls/Controls';
 import EditableInput from '../EditableInput/EditableInput';
 import { Folder } from '../../icons/Folder';
 import ProjectsDropDown from '../../ProjectsDropdown/ProjectsDropDown';

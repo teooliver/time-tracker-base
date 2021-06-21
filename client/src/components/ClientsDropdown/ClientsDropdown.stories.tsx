@@ -1,4 +1,4 @@
-import React, { ComponentProps, useState } from 'react';
+import { ComponentProps, useState } from 'react';
 import { Story } from '@storybook/react';
 import ProvidersDecorator from '../../../.storybook/providers';
 

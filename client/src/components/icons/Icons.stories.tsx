@@ -1,4 +1,4 @@
-import React, { ComponentProps } from 'react';
+import { ComponentProps } from 'react';
 import { Story } from '@storybook/react';
 import { Calendar3 } from './Calendar3';
 
