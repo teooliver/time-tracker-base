@@ -1,4 +1,3 @@
-import React from 'react';
 import { useQueryClient } from 'react-query';
 import { NavLink } from 'react-router-dom';
 import Tags from '../pages/Tags';

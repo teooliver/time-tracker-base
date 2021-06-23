@@ -2,9 +2,6 @@ import { useEffect, useState } from 'react';
 import { calculateTimer } from '../../../utils/timer';
 import Controls from '../Controls/Controls';
 import EditableInput from '../EditableInput/EditableInput';
-import { Folder } from '../../icons/Folder';
-import ProjectsDropDown from '../../ProjectsDropdown/ProjectsDropDown';
-import { Dot } from '../../icons/Dot';
 import { ProjectSelect } from '../ProjectSelect/ProjectSelect';
 import Clock from '../Clock/Clock';
 
@@ -18,7 +15,6 @@ export interface ISelectedProject {
 const Stopwatch = () => {
   const [timeInSeconds, setTimeInSeconds] = useState<number>(0);
   const [timerArray, setTimerArray] = useState<Array<number | string>>([]);
-  // const [isProjectDropwdownOpen, setIsProjectDropwdownOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState<ISelectedProject>({
     id: '',
     name: '',
