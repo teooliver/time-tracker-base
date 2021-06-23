@@ -5,6 +5,8 @@ import EditableInput from '../EditableInput/EditableInput';
 import { Folder } from '../../icons/Folder';
 import ProjectsDropDown from '../../ProjectsDropdown/ProjectsDropDown';
 import { Dot } from '../../icons/Dot';
+import { ProjectSelect } from '../ProjectSelect/ProjectSelect';
+import Clock from '../Clock/Clock';
 
 export interface ISelectedProject {
   id: string;
@@ -16,7 +18,7 @@ export interface ISelectedProject {
 const Stopwatch = () => {
   const [timeInSeconds, setTimeInSeconds] = useState<number>(0);
   const [timerArray, setTimerArray] = useState<Array<number | string>>([]);
-  const [isProjectDropwdownOpen, setIsProjectDropwdownOpen] = useState(false);
+  // const [isProjectDropwdownOpen, setIsProjectDropwdownOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState<ISelectedProject>({
     id: '',
     name: '',
@@ -33,48 +35,14 @@ const Stopwatch = () => {
     <header className='header'>
       <div className='Stopwatch'>
         <EditableInput />
-        <div className='project-select'>
-          {selectedProject.name ? (
-            <span
-              className='selected-project'
-              onClick={() => setIsProjectDropwdownOpen(!isProjectDropwdownOpen)}
-            >
-              <i>
-                <Dot size='24' />
-              </i>
-              <span className='selected-project-name'>
-                {selectedProject.name}
-              </span>
-              <span
-                className='selected-project-client'
-                style={{ color: selectedProject.color }}
-              >
-                {selectedProject.client ? `- ${selectedProject.client}` : null}
-              </span>
-            </span>
-          ) : (
-            <i
-              onClick={() => setIsProjectDropwdownOpen(!isProjectDropwdownOpen)}
-            >
-              <Folder size='24' color='white' />
-            </i>
-          )}
-          {isProjectDropwdownOpen && (
-            <ProjectsDropDown
-              setSelectedProject={setSelectedProject}
-              setIsProjectDropwdownOpen={setIsProjectDropwdownOpen}
-            />
-          )}
-        </div>
+        <ProjectSelect
+          selectedProject={selectedProject}
+          setSelectedProject={setSelectedProject}
+        />
         <div className='clock-controls'>
-          <section className='clock'>
-            <p className='time-text'>{timerArray[0]}</p>
-            <span>:</span>
-            <p className='time-text'>{timerArray[1]}</p>
-            <span>:</span>
-            <p className='time-text'>{timerArray[2]}</p>
-          </section>
+          <Clock timerArray={timerArray} />
 
+          {/* Change name to ClockControls */}
           <Controls
             setTimeInSeconds={setTimeInSeconds}
             timeInSeconds={timeInSeconds}
