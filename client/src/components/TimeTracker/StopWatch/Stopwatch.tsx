@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { calculateTimer } from '../../../utils/timer';
-import Controls from '../Controls/Controls';
 import EditableInput from '../EditableInput/EditableInput';
 import { ProjectSelect } from '../ProjectSelect/ProjectSelect';
 import Clock from '../Clock/Clock';
+import { ClockControls } from '../ClockControls/ClockControls';
 
 export interface ISelectedProject {
   id: string;
@@ -37,9 +37,7 @@ const Stopwatch = () => {
         />
         <div className='clock-controls'>
           <Clock timerArray={timerArray} />
-
-          {/* Change name to ClockControls */}
-          <Controls
+          <ClockControls
             setTimeInSeconds={setTimeInSeconds}
             timeInSeconds={timeInSeconds}
             selectedProject={selectedProject}

@@ -12,7 +12,7 @@ interface ControlsProps {
   selectedProject: ISelectedProject;
 }
 
-const Controls: FC<ControlsProps> = ({
+export const ClockControls: FC<ControlsProps> = ({
   setTimeInSeconds,
   timeInSeconds,
   selectedProject,
@@ -66,5 +66,3 @@ const Controls: FC<ControlsProps> = ({
     </div>
   );
 };
-
-export default Controls;

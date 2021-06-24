@@ -1,8 +1,7 @@
-import React from "react";
-import format from "date-fns/format";
-import { calculateTimer } from "../../../utils/timer";
-import EventRow from "./EventRow";
-import { useGetGroupedTasks } from "../../../hooks/useGetGroupedTasks";
+import format from 'date-fns/format';
+import { calculateTimer } from '../../../utils/timer';
+import EventRow from './EventRow';
+import { useGetGroupedTasks } from '../../../hooks/useGetGroupedTasks';
 
 const EventsTable = () => {
   const {
@@ -22,9 +21,9 @@ const EventsTable = () => {
             Math.round(group.totalTime)
           );
           return (
-            <ul className='EventsTable'>
+            <ul className='EventsTable' key={group._id}>
               <li className='date-header'>
-                <span>{format(new Date(group._id), "EEE, dd LLL")}</span>
+                <span>{format(new Date(group._id), 'EEE, dd LLL')}</span>
                 <span className='day-total'>
                   {hours}:{minutes}:{seconds}
                 </span>

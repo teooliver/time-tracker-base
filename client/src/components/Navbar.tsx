@@ -2,6 +2,7 @@ import { useQueryClient } from 'react-query';
 import { NavLink } from 'react-router-dom';
 import Tags from '../pages/Tags';
 import { API_URL } from '../utils/api-client';
+// import { removeAllData, seedData } from '../utils/handleData';
 import { ClockHistory } from './icons/ClockHistory';
 import { FileText } from './icons/FileText';
 import { Folder } from './icons/Folder';
@@ -11,6 +12,7 @@ const Navbar = () => {
   const queryClient = useQueryClient();
 
   const handleRemoveAllData = () => {
+    // removeAllData(queryClient);
     try {
       fetch(`${API_URL}/seed/remove`)
         .then((res) => queryClient.invalidateQueries('projects'))
@@ -19,7 +21,9 @@ const Navbar = () => {
       console.log(error);
     }
   };
+
   const handleSeedData = async () => {
+    // seedData(queryClient);
     try {
       fetch(`${API_URL}/seed/clients`)
         .then((res) => fetch(`${API_URL}/seed/projects`))
