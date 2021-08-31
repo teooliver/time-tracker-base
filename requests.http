@@ -1,0 +1,13 @@
+GET http://localhost:5000/tasks
+
+GET http://localhost:5000/tasks/group
+
+POST https://localhost:5000/tasks
+content-type: application/json
+
+{
+    "name": "dishes7",
+    "timeInSeconds": 1234687,
+    "initialTime": "Thu Dec 30 2020 14:37:17 GMT+0000 (Greenwich Mean Time)",
+    "endTime": "Thu Dec 31 2020 14:37:17 GMT+0000 (Greenwich Mean Time)"
+}

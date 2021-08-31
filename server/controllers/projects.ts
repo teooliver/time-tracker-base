@@ -1,18 +1,18 @@
-import mongoose from "mongoose";
-import { Project } from "../models/project";
-import { Request, Response } from "express";
-import { Client } from "../models/client";
-import { IProjectsGroupByClient } from "../interfaces/project";
+import mongoose from 'mongoose';
+import { Project } from '../models/project';
+import { Request, Response } from 'express';
+import { Client } from '../models/client';
+import { IProjectsGroupByClient } from '../interfaces/project';
 
 export const getProjects = async (req: Request, res: Response) => {
   try {
     const projects: IProjectsGroupByClient[] = await Project.aggregate([
       {
         $lookup: {
-          from: "clients",
-          localField: "client",
-          foreignField: "_id",
-          as: "clientName",
+          from: 'clients',
+          localField: 'client',
+          foreignField: '_id',
+          as: 'clientName',
         },
       },
       {
@@ -22,19 +22,19 @@ export const getProjects = async (req: Request, res: Response) => {
       },
       {
         $project: {
-          _id: "$_id",
-          name: "$name",
-          color: "$color",
-          clientName: { $arrayElemAt: ["$clientName.name", 0] },
-          estimate: "$estimate",
-          status: "$status",
-          subprojects: "$subprojects",
+          _id: '$_id',
+          name: '$name',
+          color: '$color',
+          clientName: { $arrayElemAt: ['$clientName.name', 0] },
+          estimate: '$estimate',
+          status: '$status',
+          subprojects: '$subprojects',
         },
       },
       {
         $group: {
-          _id: "$clientName",
-          projects: { $push: "$$ROOT" },
+          _id: '$clientName',
+          projects: { $push: '$$ROOT' },
         },
       },
     ]);
@@ -52,7 +52,7 @@ export const createProject = async (req: Request, res: Response) => {
 
   try {
     const savedProject = await newProject.save();
-
+    //also send the 'address' to get the new Project. Ex: /projects/2987492387
     res.status(201).json(savedProject);
   } catch (error) {
     res.status(409).json(error);

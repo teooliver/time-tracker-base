@@ -3,7 +3,7 @@ version: '3.7'
 services:
   mongodb:
     # choose the proper mongodb version for the aplication instead of latest
-    image: mongo:latest
+    image: mongo:4.4
     # environment:
     #   MONGO_INIDB_ROOT_USERNAME: mongoadmin
     #   MONGO_INIDB_ROOT_PASWWORD: secret
