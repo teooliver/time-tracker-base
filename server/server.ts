@@ -10,9 +10,8 @@ import config from './config/config';
 
 const app = express();
 
-// //  extended: "true"
-// app.use(bodyParser.json({ limit: '30mb' }));
-// app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }));
+app.use(bodyParser.json({ limit: '30mb' }));
+
 app.use(
   cors({
     origin: '*',
