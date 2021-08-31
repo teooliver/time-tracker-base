@@ -25,5 +25,21 @@ services:
     depends_on:
       - mongodb
 
+  react-app:
+    # stdin_open: true
+    # tty: true
+    build:
+      dockerfile: ./Dockerfile.dev
+      context: ./client
+    ports:
+      - 3000:3000
+    volumes:
+      - ./client:/app/
+    environment:
+      - REACT_APP_NAME=teo
+      - SKIP_PREFLIGHT_CHECK=true
+    depends_on:
+      - node_server
+
 volumes:
   mongodb:
