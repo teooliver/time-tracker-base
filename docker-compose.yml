@@ -35,7 +35,6 @@ services:
     volumes:
       - ./client:/app/
     environment:
-      - REACT_APP_NAME=teo
       - SKIP_PREFLIGHT_CHECK=true
     depends_on:
       - node_server
