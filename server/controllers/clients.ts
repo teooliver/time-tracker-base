@@ -30,9 +30,10 @@ export const deleteClient = async (req: Request, res: Response) => {
   const { id: _id } = req.params;
 
   if (!mongoose.Types.ObjectId.isValid(_id.toString()))
-    return res.status(404).send('No post with that id');
+    return res.status(404).send('Not a valid id');
 
+  // TODO: Check if the object exits before deliting. (This is not working)
   const deletedClient = await Client.findByIdAndRemove(_id);
 
-  res.json({ message: 'Client deleted successfully' });
+  res.status(200).json({ message: 'Client deleted successfully' });
 };

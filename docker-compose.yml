@@ -2,7 +2,6 @@ version: '3.7'
 
 services:
   mongodb:
-    # choose the proper mongodb version for the aplication instead of latest
     image: mongo:4.4
     # environment:
     #   MONGO_INIDB_ROOT_USERNAME: mongoadmin
@@ -13,13 +12,13 @@ services:
       - 27017:27017
 
   node_server:
-    restart: unless-stopped
+    # restart: unless-stopped
     build:
       dockerfile: ./Dockerfile.dev
       context: ./server
     volumes:
-      - /app/node_modules
-      - ./server:/app
+      # - /app/node_modules
+      - ./server:/server/
     ports:
       - 5000:5000
     depends_on:

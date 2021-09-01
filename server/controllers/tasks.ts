@@ -53,7 +53,9 @@ export const deleteTask = async (req: Request, res: Response) => {
 
   const deletedTask = await Task.findByIdAndRemove(_id);
 
-  res.json({ message: 'Post deleted successfully' });
+  console.log(deletedTask);
+
+  res.status(200).json({ message: 'Post deleted successfully' });
 };
 
 // TODO: Sort tasks by InitialTime
