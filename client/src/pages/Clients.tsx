@@ -4,9 +4,11 @@ import { useGetClients } from '../hooks/useGetClients';
 import { useState } from 'react';
 import Dialog from '@reach/dialog';
 import CreateClientForm from '../components/CreateClientForm/CreateClientForm';
+import { useDeleteClient } from '../hooks/useDeleteClient';
 
 const Clients = () => {
   const { data: clients, isLoading } = useGetClients();
+  const deleteClientMutation = useDeleteClient();
 
   const [showDialog, setShowDialog] = useState(false);
   const open = () => setShowDialog(true);
@@ -44,7 +46,7 @@ const Clients = () => {
           ? clients.map((client) => (
               <div className='client-pill'>
                 <span>{client.name}</span>
-                <span onClick={() => console.log('clicked on tag')}>
+                <span onClick={() => deleteClientMutation.mutate(client._id)}>
                   <XCircle size='1rem' />
                 </span>
               </div>

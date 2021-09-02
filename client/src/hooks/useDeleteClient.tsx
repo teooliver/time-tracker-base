@@ -2,27 +2,26 @@ import { useMutation, useQuery, useQueryClient } from 'react-query';
 import { IClient } from '../interfaces/clients';
 import { API_URL } from '../utils/api-client';
 
-const deleteClient = async (newClient: string) => {
-  const res = await fetch(`${API_URL}/clients`, {
+const deleteClient = async (id: string) => {
+  const res = await fetch(`${API_URL}/clients/${id}`, {
     method: 'DELETE',
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ name: newClient }),
   }).then((res) => res.json());
 
-  return res as IClient;
+  return res as string;
 };
 
 export const useDeleteClient = () => {
   const queryClient = useQueryClient();
 
-  const createClienttMutation = useMutation(deleteClient, {
+  const deleteClientMutation = useMutation(deleteClient, {
     onSuccess: () => {
       queryClient.invalidateQueries('clients');
     },
   });
 
-  return createClienttMutation;
+  return deleteClientMutation;
 };
