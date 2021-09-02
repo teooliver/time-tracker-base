@@ -1,9 +1,16 @@
 import { PlusCircle } from '../components/icons/PlusCircle';
 import { XCircle } from '../components/icons/XCircle';
 import { useGetClients } from '../hooks/useGetClients';
+import { useState } from 'react';
+import Dialog from '@reach/dialog';
+import CreateClientForm from '../components/CreateClientForm/CreateClientForm';
 
 const Clients = () => {
   const { data: clients, isLoading } = useGetClients();
+
+  const [showDialog, setShowDialog] = useState(false);
+  const open = () => setShowDialog(true);
+  const close = () => setShowDialog(false);
 
   if (isLoading) {
     <div>Loading</div>;
@@ -13,12 +20,24 @@ const Clients = () => {
     <div className='Clients'>
       <header>
         <h2>Clients</h2>
-        <button className='btn btn-primary'>
+        <button className='btn btn-primary' onClick={open}>
           <i>
             <PlusCircle size='1rem' />
           </i>
           Add Client
         </button>
+        <Dialog
+          className='project-form-modal'
+          // style={{ color: 'red' }}
+          isOpen={showDialog}
+          onDismiss={close}
+        >
+          <h2>Create New Client</h2>
+          <CreateClientForm />
+          <button className='close-btn' onClick={close}>
+            X
+          </button>
+        </Dialog>
       </header>
       <div className='clients-list'>
         {clients
