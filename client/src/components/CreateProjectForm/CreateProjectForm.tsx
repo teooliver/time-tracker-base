@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { ProjectCreate, useCreateProject } from '../../hooks/useCreateProject';
 import ClientsDropdown from '../ClientsDropdown/ClientsDropdown';
 
-const ProjectsForm = () => {
+const CreateProjectForm = () => {
   const [name, setName] = useState('');
   const [client, setClient] = useState('No Client');
   const [workspace, setWorkspace] = useState('');
@@ -56,4 +56,4 @@ const ProjectsForm = () => {
   );
 };
 
-export default ProjectsForm;
+export default CreateProjectForm;

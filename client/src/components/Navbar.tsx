@@ -1,8 +1,7 @@
 import { useQueryClient } from 'react-query';
 import { NavLink } from 'react-router-dom';
-import Tags from '../pages/Tags';
+import { Tags } from '../components/icons/Tags';
 import { API_URL } from '../utils/api-client';
-// import { removeAllData, seedData } from '../utils/handleData';
 import { ClockHistory } from './icons/ClockHistory';
 import { FileText } from './icons/FileText';
 import { Folder } from './icons/Folder';

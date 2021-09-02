@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Dialog, DialogOverlay, DialogContent } from '@reach/dialog';
 import { PlusCircle } from '../components/icons/PlusCircle';
-import ProjectsForm from '../components/CreateProjectForm/ProjectsForm';
+import CreateProjectForm from '../components/CreateProjectForm/CreateProjectForm';
 import { useGetProjects } from '../hooks/useGetProjects';
 import { Dot } from '../components/icons/Dot';
 
@@ -30,7 +30,7 @@ const Projects = () => {
           onDismiss={close}
         >
           <h2>Create New Project</h2>
-          <ProjectsForm />
+          <CreateProjectForm />
           <button className='close-btn' onClick={close}>
             X
           </button>
