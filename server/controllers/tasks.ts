@@ -36,7 +36,7 @@ export const updateTask = async (req: Request, res: Response) => {
   const post = req.body;
 
   if (!mongoose.Types.ObjectId.isValid(_id.toString()))
-    return res.status(404).send('No post with that id');
+    return res.status(404).send('No task with that id');
 
   const updatedTask = await Task.findByIdAndUpdate(_id, post, {
     new: true,
@@ -49,13 +49,13 @@ export const deleteTask = async (req: Request, res: Response) => {
   const { id: _id } = req.params;
 
   if (!mongoose.Types.ObjectId.isValid(_id.toString()))
-    return res.status(404).send('No post with that id');
+    return res.status(404).send('No task with that id');
 
   const deletedTask = await Task.findByIdAndRemove(_id);
 
   console.log(deletedTask);
 
-  res.status(200).json({ message: 'Post deleted successfully' });
+  res.status(200).json({ message: 'Task deleted successfully' });
 };
 
 // TODO: Sort tasks by InitialTime
