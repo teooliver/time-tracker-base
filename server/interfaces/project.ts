@@ -13,7 +13,7 @@ export interface IProjectDocument extends IProject, Document {
   updatedAt: Date;
 }
 
-export interface IProjectsGroupByClient {
+export interface IProjectsGroupedByClient {
   _id: string;
   projects: IProjectDocument[];
 }

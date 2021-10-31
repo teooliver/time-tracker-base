@@ -1,12 +1,10 @@
-import mongoose from 'mongoose';
 import { Project } from '../models/project';
 import { Request, Response } from 'express';
-import { Client } from '../models/client';
-import { IProjectsGroupByClient } from '../interfaces/project';
+import { IProjectsGroupedByClient } from '../interfaces/project';
 
 export const getProjects = async (req: Request, res: Response) => {
   try {
-    const projects: IProjectsGroupByClient[] = await Project.aggregate([
+    const projects: IProjectsGroupedByClient[] = await Project.aggregate([
       {
         $lookup: {
           from: 'clients',
