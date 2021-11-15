@@ -5,9 +5,9 @@ export interface IDbTask {
   project?: string;
   projectColor?: string;
   client: string;
-  timeInSeconds: number;
-  initialTime: Date | null;
-  endTime: Date | null;
+  time_in_seconds: number;
+  initial_time: Date | null;
+  end_time: Date | null;
 }
 
 export interface GroupedTasks {

@@ -82,9 +82,9 @@ export const getTasksGroupedByDate = async (req: Request, res: Response) => {
         $project: {
           _id: '$_id',
           name: '$name',
-          timeInSeconds: '$timeInSeconds',
-          initialTime: '$initialTime',
-          endTime: '$endTime',
+          time_in_seconds: '$time_in_seconds',
+          initial_time: '$initial_time',
+          end_time: '$end_time',
           project: { $arrayElemAt: ['$project.name', 0] },
           projectColor: { $arrayElemAt: ['$project.color', 0] },
           client: { $arrayElemAt: ['$client.name', 0] },
@@ -92,11 +92,11 @@ export const getTasksGroupedByDate = async (req: Request, res: Response) => {
       },
       {
         $group: {
-          _id: { $dateToString: { format: '%Y-%m-%d', date: '$initialTime' } },
+          _id: { $dateToString: { format: '%Y-%m-%d', date: '$initial_time' } },
           tasks: { $push: '$$ROOT' },
           totalTime: {
             $sum: {
-              $divide: [{ $subtract: ['$endTime', '$initialTime'] }, 1000],
+              $divide: [{ $subtract: ['$end_time', '$initial_time'] }, 1000],
             },
           },
         },

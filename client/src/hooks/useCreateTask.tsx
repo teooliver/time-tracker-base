@@ -5,9 +5,9 @@ import { API_URL } from '../utils/api-client';
 export interface TaskCreate {
   name?: string;
   project?: string;
-  timeInSeconds?: number;
-  initialTime?: Date | null;
-  endTime?: Date | null;
+  time_in_seconds?: number;
+  initial_time?: Date | null;
+  end_time?: Date | null;
 }
 
 const createTask = async (newTask: TaskCreate) => {

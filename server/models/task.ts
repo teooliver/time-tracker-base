@@ -4,9 +4,9 @@ import { ITaskDocument } from '../interfaces/task';
 const TaskSchema: Schema = new Schema(
   {
     name: String,
-    timeInSeconds: Number,
-    initialTime: Date,
-    endTime: Date,
+    time_in_seconds: Number,
+    initial_time: Date,
+    end_time: Date,
     project: {
       type: Schema.Types.ObjectId,
       ref: 'Project',

@@ -2,9 +2,9 @@ import { Document } from 'mongoose';
 
 export interface ITask {
   name: string;
-  timeInSeconds: number;
-  initialTime: Date;
-  endTime: Date;
+  time_in_seconds: number;
+  initial_time: Date;
+  end_time: Date;
   project?: string;
 }
 

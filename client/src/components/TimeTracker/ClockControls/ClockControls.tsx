@@ -28,7 +28,7 @@ export const ClockControls: FC<ControlsProps> = ({
     }, 1000);
     setIntervalId(interval);
     setIsPlaying(true);
-    setTask({ ...task, initialTime: new Date() });
+    setTask({ ...task, initial_time: new Date() });
   };
   const handleStopButton = () => {
     clearInterval(intervalId);
@@ -37,7 +37,7 @@ export const ClockControls: FC<ControlsProps> = ({
 
     createTaskMutation.mutate({
       ...task,
-      endTime: endTime,
+      end_time: endTime,
       project: selectedProject.id,
     });
     setTask({ name: '' });

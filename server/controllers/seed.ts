@@ -109,9 +109,9 @@ export const seedTasks = async (req: Request, res: Response) => {
 
     let fakeTask = {
       name: faker.lorem.words(3),
-      timeInSeconds: randomTimeInSeconds,
-      initialTime: fakeInitialDate,
-      endTime: fakeEndDate,
+      time_in_seconds: randomTimeInSeconds,
+      initial_time: fakeInitialDate,
+      end_time: fakeEndDate,
       project: projectsIds[Math.floor(Math.random() * projectsIds.length)],
     };
 

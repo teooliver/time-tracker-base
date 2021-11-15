@@ -19,8 +19,8 @@ const EventRow: FC<Props> = ({ task }) => {
 
   const updateTaskMutation = useUpdateTask();
 
-  const endTime = new Date(task.endTime!).getTime();
-  const initialTime = new Date(task.initialTime!).getTime();
+  const endTime = new Date(task.end_time!).getTime();
+  const initialTime = new Date(task.initial_time!).getTime();
 
   const timeInSeconds: number | null = Math.round(
     (endTime - initialTime) / 1000
@@ -29,12 +29,12 @@ const EventRow: FC<Props> = ({ task }) => {
 
   const handleStartDateChange = (date: Date) => {
     // TODO: DEBOUNCE MUTATE
-    updateTaskMutation.mutate({ ...task, initialTime: date });
+    updateTaskMutation.mutate({ ...task, initial_time: date });
   };
 
   const handleEndDateChange = (date: Date) => {
     // TODO: DEBOUNCE MUTATE
-    updateTaskMutation.mutate({ ...task, endTime: date });
+    updateTaskMutation.mutate({ ...task, end_time: date });
   };
 
   return (
@@ -59,7 +59,7 @@ const EventRow: FC<Props> = ({ task }) => {
         <div className='rigth-side'>
           <span className='date-picker'>
             <DatePicker
-              selected={task.initialTime ? new Date(task.initialTime) : null}
+              selected={task.initial_time ? new Date(task.initial_time) : null}
               // @ts-ignore
               onChange={(date) => handleStartDateChange(date)}
               timeInputLabel='Time:'
@@ -71,7 +71,7 @@ const EventRow: FC<Props> = ({ task }) => {
           <span>-</span>
           <span className='date-picker'>
             <DatePicker
-              selected={task.endTime ? new Date(task.endTime) : null}
+              selected={task.end_time ? new Date(task.end_time) : null}
               // @ts-ignore
               onChange={(date) => handleEndDateChange(date)}
               timeInputLabel='Time:'

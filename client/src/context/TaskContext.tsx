@@ -8,9 +8,9 @@ interface TaskContextDefaults {
 
 const defaultTask: TaskCreate = {
   name: '',
-  timeInSeconds: 0,
-  endTime: new Date(),
-  initialTime: new Date(),
+  time_in_seconds: 0,
+  end_time: new Date(),
+  initial_time: new Date(),
 };
 
 export const TaskContext = createContext<TaskContextDefaults>({
