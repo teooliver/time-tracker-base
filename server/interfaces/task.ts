@@ -9,8 +9,8 @@ export interface ITask {
 }
 
 export interface ITaskDocument extends ITask, Document {
-  createdAt: Date;
-  updatedAt: Date;
+  created_at: Date;
+  updated_at: Date;
 }
 
 export interface IGroupedTasks {

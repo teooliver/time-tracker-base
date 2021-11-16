@@ -5,6 +5,6 @@ export interface IClient {
 }
 
 export interface IClientDocument extends IClient, Document {
-  createdAt: Date;
-  updatedAt: Date;
+  created_at: Date;
+  updated_at: Date;
 }

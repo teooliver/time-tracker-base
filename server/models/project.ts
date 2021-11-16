@@ -17,7 +17,10 @@ const ProjectSchema: Schema = new Schema(
     status: String,
   },
   {
-    timestamps: true,
+    timestamps: {
+      createdAt: 'created_at',
+      updatedAt: 'updated_at',
+    },
   }
 );
 

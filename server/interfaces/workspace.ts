@@ -8,6 +8,6 @@ export interface IWorkSpace extends Document {
   clients: IClientDocument[];
   projects: IProjectDocument[];
   tasks: ITaskDocument[];
-  createdAt: Date;
-  updatedAt: Date;
+  created_at: Date;
+  updated_at: Date;
 }
