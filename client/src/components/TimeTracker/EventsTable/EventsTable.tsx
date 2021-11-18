@@ -18,7 +18,7 @@ const EventsTable = () => {
       {isSuccess &&
         groupedTasks?.map((group) => {
           const [hours, minutes, seconds] = calculateTimer(
-            Math.round(group.totalTime)
+            Math.round(group.total_time)
           );
           return (
             <ul className='EventsTable' key={group._id}>

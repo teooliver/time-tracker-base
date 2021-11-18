@@ -16,5 +16,5 @@ export interface ITaskDocument extends ITask, Document {
 export interface IGroupedTasks {
   _id: string;
   tasks: ITaskDocument[];
-  totalTime: number;
+  total_time: number;
 }

@@ -11,7 +11,6 @@ const CreateClientForm = () => {
   };
 
   const handleCreateClient = () => {
-    console.log('CLICKEDDD');
     createClientMutation.mutate(clientName);
   };
 

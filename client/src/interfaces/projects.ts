@@ -7,7 +7,7 @@ export interface ProjectAfterAgregation {
   _id: string;
   name: string;
   color: string;
-  clientName: string;
+  client_name: string;
   estimate: string;
   status: string;
 }

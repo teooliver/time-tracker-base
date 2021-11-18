@@ -55,7 +55,7 @@ const ProjectsDropDown: FC<Props> = ({
                     handleSelection({
                       id: project._id,
                       name: project.name,
-                      client: project.clientName,
+                      client: project.client_name,
                       color: project.color,
                     })
                   }

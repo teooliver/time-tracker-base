@@ -3,7 +3,7 @@ export interface IDbTask {
   _id: string;
   name: string;
   project?: string;
-  projectColor?: string;
+  project_color?: string;
   client: string;
   time_in_seconds: number;
   initial_time: Date | null;
@@ -13,5 +13,5 @@ export interface IDbTask {
 export interface GroupedTasks {
   _id: string;
   tasks: IDbTask[];
-  totalTime: number;
+  total_time: number;
 }

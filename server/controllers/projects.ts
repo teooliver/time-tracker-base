@@ -10,7 +10,7 @@ export const getProjects = async (req: Request, res: Response) => {
           from: 'clients',
           localField: 'client',
           foreignField: '_id',
-          as: 'clientName',
+          as: 'client_name',
         },
       },
       {
@@ -23,7 +23,7 @@ export const getProjects = async (req: Request, res: Response) => {
           _id: '$_id',
           name: '$name',
           color: '$color',
-          clientName: { $arrayElemAt: ['$clientName.name', 0] },
+          client_name: { $arrayElemAt: ['$client_name.name', 0] },
           estimate: '$estimate',
           status: '$status',
           subprojects: '$subprojects',
@@ -31,7 +31,7 @@ export const getProjects = async (req: Request, res: Response) => {
       },
       {
         $group: {
-          _id: '$clientName',
+          _id: '$client_name',
           projects: { $push: '$$ROOT' },
         },
       },
