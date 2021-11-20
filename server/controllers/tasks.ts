@@ -17,7 +17,7 @@ export const createTask = async (req: Request, res: Response) => {
   let task: ITask = req.body;
 
   if (!task.project || task.project === 'No Project') {
-    task.project = null;
+    delete task.project;
   }
 
   const newTask = new Task(task);
@@ -82,7 +82,6 @@ export const getTasksGroupedByDate = async (req: Request, res: Response) => {
         $project: {
           _id: '$_id',
           name: '$name',
-          time_in_seconds: '$time_in_seconds',
           initial_time: '$initial_time',
           end_time: '$end_time',
           project: { $arrayElemAt: ['$project.name', 0] },

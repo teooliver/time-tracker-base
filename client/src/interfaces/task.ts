@@ -5,7 +5,6 @@ export interface IDbTask {
   project?: string;
   project_color?: string;
   client: string;
-  time_in_seconds: number;
   initial_time: Date | null;
   end_time: Date | null;
 }

@@ -5,12 +5,15 @@ import { API_URL } from '../utils/api-client';
 export interface TaskCreate {
   name?: string;
   project?: string;
-  time_in_seconds?: number;
   initial_time?: Date | null;
   end_time?: Date | null;
 }
 
 const createTask = async (newTask: TaskCreate) => {
+  if (newTask.project === '' || newTask.project === 'No Project') {
+    delete newTask.project;
+  }
+
   const res = await fetch(`${API_URL}/tasks`, {
     method: 'POST',
     headers: {
@@ -18,9 +21,9 @@ const createTask = async (newTask: TaskCreate) => {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(newTask),
-  }).then((res) => res.json());
+  });
 
-  return res as IDbTask;
+  return res;
 };
 
 export const useCreateTask = () => {

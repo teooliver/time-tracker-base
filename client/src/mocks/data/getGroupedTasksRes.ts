@@ -5,7 +5,6 @@ export const getGroupedTasksRes = [
       {
         _id: '6097c0940fc35b00219a2e80',
         name: 'velit expedita dolores',
-        time_in_seconds: 5400,
         initial_time: '2021-05-09T10:58:31.667Z',
         end_time: '2021-05-09T12:28:31.667Z',
         project: 'magnam dicta',
@@ -15,7 +14,6 @@ export const getGroupedTasksRes = [
       {
         _id: '6097c0940fc35b00219a2e87',
         name: 'ut quisquam et',
-        time_in_seconds: 5400,
         initial_time: '2021-05-09T03:34:56.403Z',
         end_time: '2021-05-09T05:04:56.403Z',
         project: 'est iusto',
@@ -31,7 +29,6 @@ export const getGroupedTasksRes = [
       {
         _id: '6097c0940fc35b00219a2e7f',
         name: 'placeat veritatis deleniti',
-        time_in_seconds: 7200,
         initial_time: '2021-05-08T18:13:04.481Z',
         end_time: '2021-05-08T20:13:04.481Z',
         project: 'amet voluptatum',
@@ -41,7 +38,6 @@ export const getGroupedTasksRes = [
       {
         _id: '6097c0940fc35b00219a2e84',
         name: 'nemo est laboriosam',
-        time_in_seconds: 5400,
         initial_time: '2021-05-08T17:36:14.253Z',
         end_time: '2021-05-08T19:06:14.253Z',
         project: 'est iusto',
@@ -51,7 +47,6 @@ export const getGroupedTasksRes = [
       {
         _id: '6097c0940fc35b00219a2e89',
         name: 'impedit ipsum dolore',
-        time_in_seconds: 3450,
         initial_time: '2021-05-08T10:24:00.750Z',
         end_time: '2021-05-08T11:21:30.750Z',
         project: 'dolores voluptatibus',
@@ -61,7 +56,6 @@ export const getGroupedTasksRes = [
       {
         _id: '6097c0940fc35b00219a2e8c',
         name: 'neque et odio',
-        time_in_seconds: 5400,
         initial_time: '2021-05-08T18:04:05.736Z',
         end_time: '2021-05-08T19:34:05.736Z',
         project: 'explicabo impedit',
@@ -71,7 +65,6 @@ export const getGroupedTasksRes = [
       {
         _id: '6097c0940fc35b00219a2e8b',
         name: 'officia corrupti fugit',
-        time_in_seconds: 5400,
         initial_time: '2021-05-08T11:10:19.343Z',
         end_time: '2021-05-08T12:40:19.343Z',
         project: 'amet voluptatum',
@@ -87,7 +80,6 @@ export const getGroupedTasksRes = [
       {
         _id: '6097c0940fc35b00219a2e7e',
         name: 'quia quo sint',
-        time_in_seconds: 1954,
         initial_time: '2021-05-07T11:25:02.982Z',
         end_time: '2021-05-07T11:57:36.982Z',
         project: 'est iusto',
@@ -97,7 +89,6 @@ export const getGroupedTasksRes = [
       {
         _id: '6097c0940fc35b00219a2e81',
         name: 'enim provident et',
-        time_in_seconds: 1800,
         initial_time: '2021-05-07T14:47:11.376Z',
         end_time: '2021-05-07T15:17:11.376Z',
         project: 'est iusto',
@@ -107,7 +98,6 @@ export const getGroupedTasksRes = [
       {
         _id: '6097c0940fc35b00219a2e85',
         name: 'corrupti amet minus',
-        time_in_seconds: 1800,
         initial_time: '2021-05-07T16:19:25.618Z',
         end_time: '2021-05-07T16:49:25.618Z',
         project: 'magnam dicta',
@@ -117,7 +107,6 @@ export const getGroupedTasksRes = [
       {
         _id: '6097c0940fc35b00219a2e8a',
         name: 'sapiente est alias',
-        time_in_seconds: 7200,
         initial_time: '2021-05-07T04:10:40.270Z',
         end_time: '2021-05-07T06:10:40.270Z',
         project: 'dolores voluptatibus',
@@ -127,7 +116,6 @@ export const getGroupedTasksRes = [
       {
         _id: '6097c0940fc35b00219a2e8e',
         name: 'iste cupiditate quisquam',
-        time_in_seconds: 1800,
         initial_time: '2021-05-07T03:53:09.011Z',
         end_time: '2021-05-07T04:23:09.011Z',
         project: 'explicabo impedit',
@@ -143,7 +131,6 @@ export const getGroupedTasksRes = [
       {
         _id: '6097c0940fc35b00219a2e7c',
         name: 'sint nesciunt accusantium',
-        time_in_seconds: 3450,
         initial_time: '2021-05-06T17:41:09.754Z',
         end_time: '2021-05-06T18:38:39.754Z',
         project: 'magnam dicta',
@@ -153,7 +140,6 @@ export const getGroupedTasksRes = [
       {
         _id: '6097c0940fc35b00219a2e82',
         name: 'modi quia dolores',
-        time_in_seconds: 7200,
         initial_time: '2021-05-06T02:59:33.140Z',
         end_time: '2021-05-06T04:59:33.140Z',
         project: 'dolores voluptatibus',
@@ -163,7 +149,6 @@ export const getGroupedTasksRes = [
       {
         _id: '6097c0940fc35b00219a2e86',
         name: 'maxime laudantium alias',
-        time_in_seconds: 3600,
         initial_time: '2021-05-06T22:51:37.677Z',
         end_time: '2021-05-06T23:51:37.677Z',
         project: 'explicabo impedit',
@@ -173,7 +158,6 @@ export const getGroupedTasksRes = [
       {
         _id: '6097c0940fc35b00219a2e8f',
         name: 'voluptas nisi velit',
-        time_in_seconds: 1954,
         initial_time: '2021-05-06T12:19:45.874Z',
         end_time: '2021-05-06T12:52:19.874Z',
         project: 'magnam dicta',
@@ -189,7 +173,6 @@ export const getGroupedTasksRes = [
       {
         _id: '6097c0940fc35b00219a2e83',
         name: 'nisi odit doloribus',
-        time_in_seconds: 1800,
         initial_time: '2021-05-05T12:47:30.507Z',
         end_time: '2021-05-05T13:17:30.507Z',
         project: 'magnam dicta',
@@ -199,7 +182,6 @@ export const getGroupedTasksRes = [
       {
         _id: '6097c0940fc35b00219a2e88',
         name: 'debitis recusandae non',
-        time_in_seconds: 3600,
         initial_time: '2021-05-05T05:31:17.273Z',
         end_time: '2021-05-05T06:31:17.273Z',
         project: 'amet voluptatum',
@@ -209,7 +191,6 @@ export const getGroupedTasksRes = [
       {
         _id: '6097c0940fc35b00219a2e8d',
         name: 'quisquam quidem ad',
-        time_in_seconds: 1954,
         initial_time: '2021-05-05T05:03:43.806Z',
         end_time: '2021-05-05T05:36:17.806Z',
         project: 'amet voluptatum',
@@ -225,7 +206,6 @@ export const getGroupedTasksRes = [
       {
         _id: '6097c0940fc35b00219a2e7d',
         name: 'incidunt blanditiis animi',
-        time_in_seconds: 3450,
         initial_time: '2021-05-04T15:35:20.741Z',
         end_time: '2021-05-04T16:32:50.741Z',
         project: 'explicabo impedit',
