@@ -1,10 +1,10 @@
 import { FC } from 'react';
 
-interface Props {
+export interface ClockProps {
   timerArray: (string | number)[];
 }
 
-const Clock: FC<Props> = ({ timerArray }) => {
+export const Clock: FC<ClockProps> = ({ timerArray }) => {
   return (
     <section className='clock'>
       <p className='time-text'>{timerArray[0]}</p>
@@ -15,5 +15,3 @@ const Clock: FC<Props> = ({ timerArray }) => {
     </section>
   );
 };
-
-export default Clock;

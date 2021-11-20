@@ -7,6 +7,8 @@ function calculateTimer(timeInSeconds: number): Array<number | string> {
   let minutesFormat = minutes < 10 ? `0${minutes}` : minutes;
   let secondsFormat = seconds < 10 ? `0${seconds}` : seconds;
 
+
+  
   return [hoursFormat, minutesFormat, secondsFormat];
 }
 

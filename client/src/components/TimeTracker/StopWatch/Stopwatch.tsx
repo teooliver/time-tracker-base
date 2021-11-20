@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { calculateTimer } from '../../../utils/timer';
 import EditableInput from '../EditableInput/EditableInput';
 import { ProjectSelect } from '../ProjectSelect/ProjectSelect';
-import Clock from '../Clock/Clock';
+import { Clock } from '../Clock/Clock';
 import { ClockControls } from '../ClockControls/ClockControls';
 
 export interface ISelectedProject {
