@@ -20,7 +20,7 @@ const createProject = async (newProject: ProjectCreate) => {
     body: JSON.stringify(newProject),
   }).then((res) => res.json());
 
-  return res as IDbProject[];
+  return res as IDbProject;
 };
 
 export const useCreateProject = () => {

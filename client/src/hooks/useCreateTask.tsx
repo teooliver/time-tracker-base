@@ -20,7 +20,7 @@ const createTask = async (newTask: TaskCreate) => {
     body: JSON.stringify(newTask),
   }).then((res) => res.json());
 
-  return res as IDbTask[];
+  return res as IDbTask;
 };
 
 export const useCreateTask = () => {

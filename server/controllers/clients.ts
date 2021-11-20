@@ -15,8 +15,6 @@ export const getClients = async (req: Request, res: Response) => {
 export const createClient = async (req: Request, res: Response) => {
   const client = req.body;
 
-  console.log('++++>', client);
-
   const newClient = new Client(client);
 
   try {

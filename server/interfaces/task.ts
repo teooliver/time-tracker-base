@@ -5,7 +5,7 @@ export interface ITask {
   time_in_seconds: number;
   initial_time: Date;
   end_time: Date;
-  project?: string;
+  project?: string | null;
 }
 
 export interface ITaskDocument extends ITask, Document {

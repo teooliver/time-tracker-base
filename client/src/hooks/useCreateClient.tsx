@@ -1,4 +1,4 @@
-import { useMutation, useQuery, useQueryClient } from 'react-query';
+import { useMutation, useQueryClient } from 'react-query';
 import { IClient } from '../interfaces/clients';
 import { API_URL } from '../utils/api-client';
 

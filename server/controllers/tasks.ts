@@ -17,7 +17,7 @@ export const createTask = async (req: Request, res: Response) => {
   let task: ITask = req.body;
 
   if (!task.project || task.project === 'No Project') {
-    delete task.project;
+    task.project = null;
   }
 
   const newTask = new Task(task);
