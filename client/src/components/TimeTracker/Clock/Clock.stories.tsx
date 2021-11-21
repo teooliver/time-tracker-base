@@ -2,7 +2,7 @@ import { Story, Meta } from '@storybook/react';
 import { Clock, ClockProps } from './Clock';
 
 export default {
-  title: 'Clock',
+  title: 'TimeTracker/Clock',
   component: Clock,
   argTypes: {
     backgroundColor: { control: 'color' },
