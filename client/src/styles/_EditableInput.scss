@@ -1,11 +1,7 @@
 .EditableInput {
-  margin-right: auto;
-  flex: 1 1 auto;
-  width: 100%;
-  align-items: center;
-  max-width: 60%;
-  min-width: 60%;
+  
   .event-name-input {
+    box-sizing: border-box;
     background-color: transparent;
     border: none;
     border-radius: 0.2rem;
@@ -13,9 +9,14 @@
     margin: 0;
     padding: 0.2rem;
     margin-right: auto;
+    margin-bottom: 0.2rem;
     width: 100%;
     font-size: 1.8rem;
     color: white;
+    &:hover {
+
+      outline: 1px solid white;
+    }
   }
   p.event-name-input {
     white-space: pre;
@@ -23,6 +24,7 @@
     text-overflow: ellipsis;
     &:hover {
       cursor: pointer;
+      border: 1px solid white;
     }
   }
 }

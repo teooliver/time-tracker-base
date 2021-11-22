@@ -1,19 +1,27 @@
-.header {
-  display: flex;
-  flex-direction: column;
-}
-
 .Stopwatch {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
   border-bottom: 1px solid $sidebar-border;
   margin-bottom: 1rem;
   padding: 1rem;
 
+  .task-project-input{
+    
+    display: flex;
+    flex-direction: row;
+    .EditableInput{
+        flex-grow: 1;
+      }
+    .project-select{
+      flex-grow: 1;
+    }
+
+    border-bottom: 1px solid grey;
+    padding-bottom: .2rem;
+    margin-bottom: .5rem;
+  }
+ 
   .project-select {
     position: relative;
-    margin-right: 0.4rem;
+    margin-left: 1rem;
     min-height: fit-content;
   }
 
@@ -51,7 +59,8 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-left: 2rem;
+    margin-left: auto;
+    justify-content: flex-end;
   }
 
   .clock {
