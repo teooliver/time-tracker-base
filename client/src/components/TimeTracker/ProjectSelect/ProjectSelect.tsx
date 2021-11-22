@@ -14,12 +14,7 @@ export const ProjectSelect: FC<Props> = ({
   setSelectedProject,
 }) => {
   const [isProjectDropwdownOpen, setIsProjectDropwdownOpen] = useState(false);
-  // const [selectedProject, setSelectedProject] = useState<ISelectedProject>({
-  //   id: '',
-  //   name: '',
-  //   client: '',
-  //   color: '',
-  // });
+
   return (
     <div className='project-select'>
       {selectedProject.name ? (
@@ -39,9 +34,13 @@ export const ProjectSelect: FC<Props> = ({
           </span>
         </span>
       ) : (
-        <i onClick={() => setIsProjectDropwdownOpen(!isProjectDropwdownOpen)}>
+        <span
+          className='select-project-icon'
+          onClick={() => setIsProjectDropwdownOpen(!isProjectDropwdownOpen)}
+        >
           <Folder size='24' color='white' />
-        </i>
+          <span>Project</span>
+        </span>
       )}
       {isProjectDropwdownOpen && (
         <ProjectsDropDown
