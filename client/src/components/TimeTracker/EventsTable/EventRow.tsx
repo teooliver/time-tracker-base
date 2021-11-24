@@ -46,7 +46,7 @@ const EventRow: FC<Props> = ({ task }) => {
             {task.project ? (
               <>
                 <Dot />
-                {task.project} <Dot /> {task.client}
+                {task.project}
               </>
             ) : (
               <>

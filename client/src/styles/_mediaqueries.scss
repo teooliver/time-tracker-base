@@ -26,3 +26,10 @@ $wide-with: 1440px;
     @content;
   }
 }
+
+
+@mixin up-to-tablet {
+  @media (max-width: #{$desktop-width}) {
+    @content;
+  }
+}

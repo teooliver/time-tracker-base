@@ -4,6 +4,6 @@
 }
 
 .AppRoutes {
-  margin-left: 11rem;
-  min-width: 700px;
+  margin-left: $side-nav-bar-width;
+  min-width: $min-app-width;
 }
