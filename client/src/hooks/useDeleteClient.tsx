@@ -11,7 +11,7 @@ const deleteClient = async (id: string) => {
     },
   }).then((res) => res.json());
 
-  return res as string;
+  return res as string; // id hex
 };
 
 export const useDeleteClient = () => {

@@ -21,9 +21,9 @@ const createTask = async (newTask: TaskCreate) => {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(newTask),
-  });
+  }).then((res) => res.json());
 
-  return res;
+  return res as IDbTask;
 };
 
 export const useCreateTask = () => {
