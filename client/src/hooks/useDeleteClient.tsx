@@ -1,4 +1,4 @@
-import { useMutation, useQuery, useQueryClient } from 'react-query';
+import { useMutation, useQueryClient } from 'react-query';
 import { IClient } from '../interfaces/clients';
 import { API_URL } from '../utils/api-client';
 
@@ -11,7 +11,7 @@ const deleteClient = async (id: string) => {
     },
   }).then((res) => res.json());
 
-  return res as string; // id hex
+  return res as IClient;
 };
 
 export const useDeleteClient = () => {
